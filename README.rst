@@ -1,5 +1,5 @@
 ================
-Package Helper 2
+Package Helper 3
 ================
 
 .. image:: https://github.com/francois-durand/package_helper_2/workflows/docs/badge.svg?branch=master
