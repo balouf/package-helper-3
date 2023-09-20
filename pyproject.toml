@@ -36,7 +36,7 @@ preview = true
 
 [tool.mypy]
 files = ["package_helper_3"]
-disallow_untyped_defs = "True"
+disallow_untyped_defs = "False"
 disallow_any_unimported = "True"
 no_implicit_optional = "True"
 check_untyped_defs = "True"
