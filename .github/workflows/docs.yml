@@ -22,11 +22,13 @@ jobs:
         uses: snok/install-poetry@v1
 
       - name: Upgrade dependencies
-        run: poetry update
+        run: |
+          poetry install
+          poetry update
 
       - name: Build Sphinx documentation
         run: |
-          python3 -m sphinx.cmd.build -a -E -b html docs build
+          sphinx-build -a -E -b html docs build
 
       - name: Deploy Sphinx documentation on Github Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
