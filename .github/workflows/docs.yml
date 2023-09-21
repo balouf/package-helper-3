@@ -21,6 +21,9 @@ jobs:
       - name: Install Poetry
         uses: snok/install-poetry@v1
 
+      - name: Upgrade dependencies
+        run: poetry update
+
       - name: Build Sphinx documentation
         run: |
           python3 -m sphinx.cmd.build -a -E -b html docs build
