@@ -1,0 +1,34 @@
+# This workflow will generate the docs on each push, and publish them on GitHub Pages if the branch is "master".
+
+name: docs
+
+on: [push]
+
+jobs:
+  tox:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Set up python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+
+      - name: Build Sphinx documentation
+        run: |
+          sphinx-build -a -E -b html docs build
+
+      - name: Deploy Sphinx documentation on Github Pages
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        if: github.ref == 'refs/heads/master'
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build/
