@@ -23,12 +23,13 @@ jobs:
 
       - name: Upgrade dependencies
         run: |
+          sudo apt install pandoc
+          python -m pip install --upgrade pip
           poetry install
           poetry update
 
       - name: Build Sphinx documentation
         run: |
-          poetry shell
           sphinx-build -a -E -b html docs build
 
       - name: Deploy Sphinx documentation on Github Pages
