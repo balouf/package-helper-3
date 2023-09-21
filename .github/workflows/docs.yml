@@ -25,10 +25,10 @@ jobs:
         run: |
           poetry install
           poetry update
-          poetry shell
 
       - name: Build Sphinx documentation
         run: |
+          poetry shell
           sphinx-build -a -E -b html docs build
 
       - name: Deploy Sphinx documentation on Github Pages
