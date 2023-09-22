@@ -94,18 +94,19 @@ skip_empty = true
 branch = true
 source = ["package_helper_3"]
 
+[tool.coverage.html]
+directory = "cov"
 
 [tool.ruff.per-file-ignores]
 "tests/*" = ["S101"]
 
 [tool.pytest.ini_options]
-addopts = "--doctest-modules"
+addopts = "--doctest-modules --cov --cov-config=pyproject.toml"
 
 [tool.tox]
 legacy_tox_ini = """
 [tox]
 skipsdist = true
-envlist = local, py{39,310,311}
 
 [gh-actions]
 python =
@@ -116,16 +117,8 @@ python =
 [testenv]
 passenv = PYTHON_VERSION
 allowlist_externals = poetry
-
-[testenv:py{39,310,311}]
 commands =
     poetry install -v
-    pytest --cov --cov-config=pyproject.toml --cov-report=xml
-    mypy
-
-[testenv:local]
-commands =
-    poetry install -v
-    pytest --showlocals --capture=no --exitfirst --failed-first --cov-report html:cov --cov=package_helper_3
+    pytest --showlocals --capture=no --exitfirst --failed-first --cov-report xml --cov-report html
     mypy
 """
