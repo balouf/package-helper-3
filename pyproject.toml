@@ -101,7 +101,7 @@ directory = "cov"
 "tests/*" = ["S101"]
 
 [tool.pytest.ini_options]
-addopts = "--doctest-modules --cov --cov-config=pyproject.toml"
+addopts = "--doctest-modules --cov --cov-config=pyproject.toml --cov-report xml --cov-report html --showlocals --capture=no --exitfirst --failed-first"
 
 [tool.tox]
 legacy_tox_ini = """
@@ -119,6 +119,6 @@ passenv = PYTHON_VERSION
 allowlist_externals = poetry
 commands =
     poetry install -v
-    pytest --showlocals --capture=no --exitfirst --failed-first --cov-report xml --cov-report html
+    pytest
     mypy
 """
