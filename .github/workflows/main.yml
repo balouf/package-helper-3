@@ -33,8 +33,9 @@ jobs:
 
       - name: Test with tox
         run: |
-          source .venv/bin/activate
+          poetry install
           poetry update
+          source .venv/bin/activate
           tox
 
       - name: Upload coverage reports to Codecov with GitHub Action on Python 3.11
