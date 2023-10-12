@@ -3,7 +3,7 @@
   "email": "john.doe@mymail.com",
   "github_username": "john-doe",
   "project_name": "Python Boilerplate",
-  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-')",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
   "package_name": "{{ cookiecutter.project_slug.replace('-', '_') }}",
   "project_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
   "version": "0.1.0",
