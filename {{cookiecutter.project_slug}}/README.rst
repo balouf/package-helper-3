@@ -17,11 +17,9 @@
         :alt: Documentation Status
 {%- endif %}
 
-{% if cookiecutter.use_codecov == 'y' %}
 .. image:: https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/branch/{{ cookiecutter.main_git_branch_name }}/graphs/badge.svg
         :target: https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/tree/{{ cookiecutter.main_git_branch_name }}
         :alt: Code Coverage
-{% endif %}
 
 
 {{ cookiecutter.project_short_description }}
