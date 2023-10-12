@@ -38,7 +38,7 @@ target-version = ['py37']
 preview = true
 
 [tool.mypy]
-files = ["package_helper_3"]
+files = ["{{ cookiecutter.package_name }}"]
 disallow_untyped_defs = "False"
 disallow_any_unimported = "True"
 no_implicit_optional = "True"
