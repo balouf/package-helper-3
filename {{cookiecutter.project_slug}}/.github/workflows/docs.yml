@@ -1,0 +1,43 @@
+# This workflow will generate the docs on each push, and publish them on GitHub Pages if the branch is the main one.
+name: docs
+
+on: [push]
+
+permissions:
+  contents: write
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      - name: Set up python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+
+      - name: Install dependencies
+        run: |
+          poetry install
+
+      - name: Build Sphinx documentation
+        run: |
+          source .venv/bin/activate
+          sphinx-build -a -E -b html docs build
+
+      - name: Deploy Sphinx documentation on Github Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        if: github.ref == 'refs/heads/{{ cookiecutter.main_git_branch_name }}'
+        with:
+          BRANCH: gh-pages
+          FOLDER: build/
