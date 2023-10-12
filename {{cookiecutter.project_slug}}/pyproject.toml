@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "{{ cookiecutter.project_name }}"
-version = "0.0.1"
+version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.project_description }}"
 authors = ["Fabien Mathieu <fabien.mathieu@normalesup.org>"]
 repository = "https://github.com/{{ cookiecutter.package_name }}/{{ cookiecutter.project_slug }}"
