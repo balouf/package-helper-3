@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "{{ cookiecutter.project_name }}"
+name = "{{ cookiecutter.project_slug }}"
 version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.project_description }}"
 authors = ["Fabien Mathieu <fabien.mathieu@normalesup.org>"]
@@ -24,6 +24,9 @@ tox = "^4.11.1"
 [tool.poetry.group.docs.dependencies]
 sphinx = "^7.2.6"
 sphinx-rtd-theme = "^1.3.0"
+ipython = "^8.16.1"
+nbsphinx = "^0.9.3"
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -122,3 +125,5 @@ commands =
     pytest
     mypy
 """
+
+[tool.poetry_bumpversion.file."{{ cookiecutter.package_name }}/__init__.py"]

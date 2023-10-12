@@ -122,3 +122,5 @@ commands =
     pytest
     mypy
 """
+
+[tool.poetry_bumpversion.file."package_helper_3/__init__.py"]
