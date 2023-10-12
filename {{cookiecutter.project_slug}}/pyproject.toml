@@ -5,7 +5,7 @@ description = "{{ cookiecutter.project_description }}"
 authors = ["Fabien Mathieu <fabien.mathieu@normalesup.org>"]
 repository = "https://github.com/{{ cookiecutter.package_name }}/{{ cookiecutter.project_slug }}"
 documentation = "https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.project_slug }}"
-readme = "README.md"
+readme = "README.rst"
 packages = [
   {include = "{{ cookiecutter.package_name }}"}
 ]
