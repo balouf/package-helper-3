@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# {{ cookiecutter.project_slug }} documentation build configuration file, created by
+# PH3 documentation build configuration file, created by
 # sphinx-quickstart on Fri Jun  9 13:47:02 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -47,7 +47,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'package-helper-3'
-copyright = "{% now 'local', '%Y' %}, Fabien Mathieu"
+copyright = "2023, Fabien Mathieu"
 author = "Fabien Mathieu"
 
 # The version info for the project you're documenting, acts as replacement

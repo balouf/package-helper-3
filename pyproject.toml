@@ -101,7 +101,7 @@ directory = "cov"
 "tests/*" = ["S101"]
 
 [tool.pytest.ini_options]
-addopts = "--doctest-modules --cov --cov-config=pyproject.toml --cov-report xml --cov-report html --showlocals --capture=no --exitfirst --failed-first"
+addopts = "--doctest-modules --ignore={{cookiecutter.project_slug}} --cov --cov-config=pyproject.toml --cov-report xml --cov-report html --showlocals --capture=no --exitfirst --failed-first"
 
 [tool.tox]
 legacy_tox_ini = """
