@@ -36,7 +36,7 @@ and "help wanted" is open to whoever wants to implement it.
 Write Documentation
 ~~~~~~~~~~~~~~~~~~~
 
-Cookiecutter PyPackage could always use more documentation, whether as part of
+Package Helper 3 could always use more documentation, whether as part of
 the official docs, in docstrings, or even on the web in blog posts, articles,
 and such.
 
@@ -76,26 +76,14 @@ development. Please note this documentation assumes you already have
 
        cd package-helper-3
 
-   If you are using ``pyenv``, select a version to use locally. (See installed versions with ``pyenv versions``)
-
-   .. code-block:: bash
-
-       pyenv local <x.y.z>
-
-   Then, install and activate the environment with:
+   Install and activate the environment with:
 
    .. code-block:: bash
 
         poetry install
         poetry shell
 
-| 4. Install pre-commit to run linters/formatters at commit time:
-
-   .. code-block:: bash
-
-        poetry run pre-commit install
-
-| 5. Create a branch for local development:
+| 4. Create a branch for local development:
 
    .. code-block:: bash
 
@@ -104,21 +92,16 @@ development. Please note this documentation assumes you already have
    Now you can make your changes locally.
 
 
-| 6. Don't forget to add test cases for your added functionality to the ``tests`` directory.
+| 5. Don't forget to add test cases for your added functionality as doctests or in the ``tests`` directory.
 
-| 7. When you're done making changes, check that your changes pass the formatting tests.
-
-   .. code-block:: bash
-
-        make check
-
-| 8. Now, validate that all unit tests are passing:
+| 7. When you're done making changes, check that your changes pass the tests:
 
    .. code-block:: bash
 
-        make test
+        pytest
+        tox
 
-| 9. Before raising a pull request you should also run tox. This will run the
+| 8. Before raising a pull request you should also run tox. This will run the
    tests across different versions of Python:
 
    .. code-block:: bash
@@ -129,7 +112,7 @@ development. Please note this documentation assumes you already have
    This step is also triggered in the CI/CD pipeline, so you could also choose to skip this
    step locally.
 
-| 10. Commit your changes and push your branch to GitHub:
+| 9. Commit your changes and push your branch to GitHub:
 
    .. code-block:: bash
 
@@ -137,7 +120,7 @@ development. Please note this documentation assumes you already have
         git commit -m "Your detailed description of your changes."
         git push origin name-of-your-bugfix-or-feature
 
-| 11. Submit a pull request through the GitHub website.
+| 10. Submit a pull request through the GitHub website.
 
 Pull Request Guidelines
 ---------------------------
@@ -149,3 +132,5 @@ Before you submit a pull request, check that it meets these guidelines:
 2. If the pull request adds functionality, the docs should be updated. Put your
    new functionality into a function with a docstring, and add the feature to
    the list in README.rst.
+
+3. The pull request should work for the last three stable Python release, e.g. 3.9, 3.10, and 3.11 if Python 3.11 is the latest stable version.

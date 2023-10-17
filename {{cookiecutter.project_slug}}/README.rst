@@ -15,12 +15,15 @@
 .. image:: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions/workflows/docs.yml/badge.svg?branch={{ cookiecutter.main_git_branch_name }}
         :target: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3Adocs
         :alt: Documentation Status
+
+.. image:: https://img.shields.io/github/license/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
+        :target: image:: https://img.shields.io/github/license/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}
+        :alt: License
 {%- endif %}
 
 .. image:: https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/branch/{{ cookiecutter.main_git_branch_name }}/graphs/badge.svg
         :target: https://codecov.io/gh/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/tree/{{ cookiecutter.main_git_branch_name }}
         :alt: Code Coverage
-
 
 {{ cookiecutter.project_description }}
 
@@ -39,7 +42,7 @@ Features
 Credits
 -------
 
-This package was created with Cookiecutter_ and the `francois-durand/package_helper_2`_ project template.
+This package was created with Cookiecutter_ and the `package-helper-3`_ project template.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`francois-durand/package_helper_2`: https://github.com/francois-durand/package_helper_2
+.. _`package-helper-3`: https://balouf.github.io/package-helper-3/

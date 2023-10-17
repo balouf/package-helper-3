@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "package_helper_3"
-version = "0.0.1"
+version = "0.1.0"
 description = "Package Helper 3 explains how to create, develop, and maintain a Python package with Poetry."
 authors = ["Fabien Mathieu <fabien.mathieu@normalesup.org>"]
 repository = "https://github.com/balouf/package-helper-3"
 documentation = "https://balouf.github.io/package-helper-3/"
-readme = "README.md"
+readme = "README.rst"
 packages = [
   {include = "package_helper_3"}
 ]

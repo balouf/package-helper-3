@@ -2,15 +2,17 @@
 Credits
 =======
 
-This package is a fork of https://github.com/audreyr/cookiecutter-pypackage/ by Audrey Roy Greenfeld.
+This package mixes two forks of https://github.com/audreyr/cookiecutter-pypackage/ by Audrey Roy Greenfeld:
+
+* https://package-helper-2.readthedocs.io
+* https://github.com/fpgmaas/cookiecutter-poetry
 
 Development Lead
 ----------------
 
-* François Durand <fradurand@gmail.com>
+* Fabien Mathieu <loufab@gmail.com>
 
 Contributors
 ------------
 
-* Fabien Mathieu (local coverage page).
-* Maxime Mouchet (run configurations for PyCharm).
+None yet. Why not be the first?
