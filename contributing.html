@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contributing &mdash; package-helper-3 0.0.1 documentation</title>
+  <title>Contributing &mdash; package-helper-3 0.1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,14 +13,14 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/documentation_options.js?v=01f34227"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Credits" href="authors.html" />
-    <link rel="prev" title="MyClass3" href="reference/my_class_3.html" /> 
+    <link rel="prev" title="Usage" href="tutorial.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -35,7 +35,7 @@
             package-helper-3
           </a>
               <div class="version">
-                0.0.1
+                0.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -49,8 +49,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="readme.html">Package Helper 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Usage</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#types-of-contributions">Types of Contributions</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#report-bugs">Report Bugs</a></li>
@@ -121,7 +120,7 @@ and “help wanted” is open to whoever wants to implement it.</p>
 </section>
 <section id="write-documentation">
 <h3>Write Documentation<a class="headerlink" href="#write-documentation" title="Link to this heading"></a></h3>
-<p>Cookiecutter PyPackage could always use more documentation, whether as part of
+<p>Package Helper 3 could always use more documentation, whether as part of
 the official docs, in docstrings, or even on the web in blog posts, articles,
 and such.</p>
 </section>
@@ -162,26 +161,14 @@ git<span class="w"> </span>clone<span class="w"> </span>git@github.com:YOUR_NAME
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>package-helper-3
 </pre></div>
 </div>
-<p>If you are using <code class="docutils literal notranslate"><span class="pre">pyenv</span></code>, select a version to use locally. (See installed versions with <code class="docutils literal notranslate"><span class="pre">pyenv</span> <span class="pre">versions</span></code>)</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyenv<span class="w"> </span><span class="nb">local</span><span class="w"> </span>&lt;x.y.z&gt;
-</pre></div>
-</div>
-<p>Then, install and activate the environment with:</p>
+<p>Install and activate the environment with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>install
 poetry<span class="w"> </span>shell
 </pre></div>
 </div>
 </div></blockquote>
 <div class="line-block">
-<div class="line">4. Install pre-commit to run linters/formatters at commit time:</div>
-</div>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="w"> </span>install
-</pre></div>
-</div>
-</div></blockquote>
-<div class="line-block">
-<div class="line">5. Create a branch for local development:</div>
+<div class="line">4. Create a branch for local development:</div>
 </div>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>name-of-your-bugfix-or-feature
@@ -190,26 +177,19 @@ poetry<span class="w"> </span>shell
 <p>Now you can make your changes locally.</p>
 </div></blockquote>
 <div class="line-block">
-<div class="line">6. Don’t forget to add test cases for your added functionality to the <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory.</div>
+<div class="line">5. Don’t forget to add test cases for your added functionality as doctests or in the <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory.</div>
 </div>
 <div class="line-block">
-<div class="line">7. When you’re done making changes, check that your changes pass the formatting tests.</div>
+<div class="line">7. When you’re done making changes, check that your changes pass the tests:</div>
 </div>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>check
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest
+tox
 </pre></div>
 </div>
 </div></blockquote>
 <div class="line-block">
-<div class="line">8. Now, validate that all unit tests are passing:</div>
-</div>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span><span class="nb">test</span>
-</pre></div>
-</div>
-</div></blockquote>
-<div class="line-block">
-<div class="line">9. Before raising a pull request you should also run tox. This will run the
+<div class="line">8. Before raising a pull request you should also run tox. This will run the
 tests across different versions of Python:</div>
 </div>
 <blockquote>
@@ -221,7 +201,7 @@ This step is also triggered in the CI/CD pipeline, so you could also choose to s
 step locally.</p>
 </div></blockquote>
 <div class="line-block">
-<div class="line">10. Commit your changes and push your branch to GitHub:</div>
+<div class="line">9. Commit your changes and push your branch to GitHub:</div>
 </div>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>.
@@ -231,7 +211,7 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 </div>
 </div></blockquote>
 <div class="line-block">
-<div class="line">11. Submit a pull request through the GitHub website.</div>
+<div class="line">10. Submit a pull request through the GitHub website.</div>
 </div>
 </section>
 <section id="pull-request-guidelines">
@@ -242,6 +222,7 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 <li><p>If the pull request adds functionality, the docs should be updated. Put your
 new functionality into a function with a docstring, and add the feature to
 the list in README.rst.</p></li>
+<li><p>The pull request should work for the last three stable Python release, e.g. 3.9, 3.10, and 3.11 if Python 3.11 is the latest stable version.</p></li>
 </ol>
 </section>
 </section>
@@ -250,7 +231,7 @@ the list in README.rst.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="reference/my_class_3.html" class="btn btn-neutral float-left" title="MyClass3" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tutorial.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="authors.html" class="btn btn-neutral float-right" title="Credits" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
