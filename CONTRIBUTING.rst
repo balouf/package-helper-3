@@ -99,7 +99,6 @@ development. Please note this documentation assumes you already have
    .. code-block:: bash
 
         pytest
-        tox
 
 | 8. Before raising a pull request you should also run tox. This will run the
    tests across different versions of Python:
