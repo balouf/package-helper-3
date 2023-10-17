@@ -9,6 +9,11 @@ readme = "README.rst"
 packages = [
   {include = "package_helper_3"}
 ]
+include = [
+  '{{cookiecutter.project_slug}}/**/*',
+  'cookiecutter.json',
+  'hooks/*'
+]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
