@@ -8,6 +8,7 @@ Welcome to {{ cookiecutter.project_name }}'s documentation!
    readme
    installation
    usage
+   tutorials/index
    reference/index
    contributing
    authors

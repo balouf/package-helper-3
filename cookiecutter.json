@@ -8,8 +8,7 @@
   "project_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
   "version": "0.1.0",
   "main_git_branch_name": ["main", "master"],
-  "include_gh_actions": true,
   "command_line_interface": ["No command-line interface", "Click", "Argparse"],
-  "dockerfile": true,
+  "dockerfile": false,
   "open_source_license": ["MIT license", "GNU General Public License v3", "BSD license", "ISC license", "Apache Software License 2.0", "Not open source"]
 }
