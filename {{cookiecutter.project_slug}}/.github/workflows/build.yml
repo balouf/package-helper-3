@@ -5,7 +5,7 @@ name: build
 on:
   push:
     branches:
-      - main
+      - {{ cookiecutter.main_git_branch_name }}
   pull_request:
     types: [opened, synchronize, reopened]
   schedule:
