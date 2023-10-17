@@ -26,4 +26,4 @@ jobs:
           poetry version ${{ steps.vars.outputs.tag }}
           poetry build
           poetry config pypi-token.pypi ${{ secrets.PYPI_TOKEN }}
-          poetry publish --dry-run
+          poetry publish
