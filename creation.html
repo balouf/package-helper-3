@@ -4,9 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Create Your package &mdash; package-helper-3 0.1.1 documentation</title>
+  <title>Create Your package &mdash; Package Helper 3 0.1.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -35,7 +36,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            package-helper-3
+            Package Helper 3
           </a>
               <div class="version">
                 0.1.1
@@ -54,7 +55,10 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="tutorial.html">Tutorial</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="preparation.html">Preliminaries: Once and for All</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Create Your package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Create Your package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#[Advanced]-Make-your-logo!">[Advanced] Make your logo!</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="maintain.html">Develop and Maintain Your Package</a></li>
 </ul>
 </li>
@@ -69,7 +73,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">package-helper-3</a>
+          <a href="index.html">Package Helper 3</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -90,6 +94,26 @@
              
   <section id="Create-Your-package">
 <h1>Create Your package<a class="headerlink" href="#Create-Your-package" title="Link to this heading"></a></h1>
+<section id="[Advanced]-Make-your-logo!">
+<h2>[Advanced] Make your logo!<a class="headerlink" href="#[Advanced]-Make-your-logo!" title="Link to this heading"></a></h2>
+<p>It’s always nice to brand your package with a logo and/or a favicon.</p>
+<ul class="simple">
+<li><p>Create your pictures. If you have no inspiration, you can use <a class="reference external" href="https://favicon.io/favicon-generator/">https://favicon.io/favicon-generator/</a> to make one in a few seconds from a text (e.g. the acronym of your package).</p></li>
+<li><p>Edit your documentation files to include them.</p></li>
+</ul>
+<p>favicon is just a regular <code class="docutils literal notranslate"><span class="pre">png</span></code> file with small dimensions (16X16 or 32X32) and extension <code class="docutils literal notranslate"><span class="pre">.ico</span></code>. To include it, edit your <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code> file to include:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_favicon</span> <span class="o">=</span> <span class="s1">&#39;filename_of_the_fav.ico&#39;</span>
+</pre></div>
+</div>
+<p>Same thing for the logo, which will be displayed in the upper left corner of your documentation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_logo</span> <span class="o">=</span> <span class="s1">&#39;filename_of_the_logo.png&#39;</span>
+</pre></div>
+</div>
+<p>By default, Sphinx will look for the files in the directory where <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> lies (usually <code class="docutils literal notranslate"><span class="pre">docs</span></code>). If you like to clean up, you can create a dedicated subdir for static files, like <code class="docutils literal notranslate"><span class="pre">_static</span></code>, and tell <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> about it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_static_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_static&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 

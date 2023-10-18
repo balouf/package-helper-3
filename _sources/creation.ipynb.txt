@@ -2,10 +2,52 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "ca75eb48",
+   "id": "aca31df8",
    "metadata": {},
    "source": [
     "# Create Your package"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "22b5ae0f",
+   "metadata": {},
+   "source": [
+    "## [Advanced] Make your logo!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "0f34be46",
+   "metadata": {},
+   "source": [
+    "It's always nice to brand your package with a logo and/or a favicon."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "15358248",
+   "metadata": {},
+   "source": [
+    "- Create your pictures. If you have no inspiration, you can use https://favicon.io/favicon-generator/ to make one in a few seconds from a text (e.g. the acronym of your package). \n",
+    "- Edit your documentation files to include them.\n",
+    "\n",
+    "favicon is just a regular `png` file with small dimensions (16X16 or 32X32) and extension `.ico`. To include it, edit your `docs/conf.py` file to include:\n",
+    "\n",
+    "```python\n",
+    "html_favicon = 'filename_of_the_fav.ico'\n",
+    "```\n",
+    "\n",
+    "Same thing for the logo, which will be displayed in the upper left corner of your documentation:\n",
+    "\n",
+    "```python\n",
+    "html_logo = 'filename_of_the_logo.png'\n",
+    "```\n",
+    "\n",
+    "By default, Sphinx will look for the files in the directory where `conf.py` lies (usually `docs`). If you like to clean up, you can create a dedicated subdir for static files, like `_static`, and tell `conf.py` about it:\n",
+    "```python\n",
+    "html_static_path = ['_static']\n",
+    "```\n"
    ]
   }
  ],

@@ -4,9 +4,10 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Preliminaries: Once and for All &mdash; package-helper-3 0.1.1 documentation</title>
+  <title>Preliminaries: Once and for All &mdash; Package Helper 3 0.1.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -35,7 +36,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            package-helper-3
+            Package Helper 3
           </a>
               <div class="version">
                 0.1.1
@@ -54,7 +55,10 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="tutorial.html">Tutorial</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Preliminaries: Once and for All</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Install-a-Python-distribution">Install a Python distribution</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Install-a-Python-distribution-(if-you-don't-have-one-already)">Install a Python distribution (if you don’t have one already)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Create-Accounts-on-the-Websites">Create Accounts on the Websites</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Install-Git">Install Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Install-Package-Helper-3">Install Package Helper 3</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="creation.html">Create Your package</a></li>
@@ -72,7 +76,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">package-helper-3</a>
+          <a href="index.html">Package Helper 3</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -93,8 +97,8 @@
              
   <section id="Preliminaries:-Once-and-for-All">
 <h1>Preliminaries: Once and for All<a class="headerlink" href="#Preliminaries:-Once-and-for-All" title="Link to this heading"></a></h1>
-<section id="Install-a-Python-distribution">
-<h2>Install a Python distribution<a class="headerlink" href="#Install-a-Python-distribution" title="Link to this heading"></a></h2>
+<section id="Install-a-Python-distribution-(if-you-don't-have-one-already)">
+<h2>Install a Python distribution (if you don’t have one already)<a class="headerlink" href="#Install-a-Python-distribution-(if-you-don't-have-one-already)" title="Link to this heading"></a></h2>
 <p>Ensure that the following requirements are made:</p>
 <ul class="simple">
 <li><p>The Python distribution is recent enough. As a rule of thumb, you should aim to keep one of the last three stable distributions at all times, e.g. 3.10, 3.11, 3.12 if 3.12 is the last stable (non-beta) release.</p></li>
@@ -110,18 +114,52 @@
 </li>
 <li><p><a class="reference external" href="https://www.python.org/downloads/">Vanilla Python</a></p>
 <ul>
-<li><p>Pro: Small and clean.</p></li>
-<li><p>Cons: you’ll have to install your favorite packages on your own.</p></li>
+<li><p>Pro: Minimalist: as clean as possible.</p></li>
+<li><p>Cons: Minimalist: you’ll have to install your favorite packages on your own.</p></li>
 </ul>
 </li>
 </ul>
-<p>Create Accounts on the Websites Ensure that you have accounts (preferably with the same login) on:</p>
-<p>GitHub,</p>
-<p>Codecov,</p>
-<p>PyPI.</p>
-<p>Install Cookiecutter In a terminal (e.g. Anaconda Prompt):</p>
-<p>pip install cookiecutter Install Git Git will be used to download the package template that will be used by Cookiecutter.</p>
+<p>Anaconda is recommended for beginners who do not want to get too dirty in package management and are not afraid of re-installing the distribution once a year because of clash in package management.</p>
+<p>Vanilla Python is recommended for more experienced users who wants a full control of their environment(s) and are not afraid of re-installing the distribution once a year to stay sharp and up-to-date.</p>
+</section>
+<section id="Create-Accounts-on-the-Websites">
+<h2>Create Accounts on the Websites<a class="headerlink" href="#Create-Accounts-on-the-Websites" title="Link to this heading"></a></h2>
+<p>Ensure that you have accounts (preferably with the same login) on:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/">GitHub</a>,</p></li>
+<li><p><a class="reference external" href="https://app.codecov.io/gh/">Codecov</a>,</p></li>
+<li><p><a class="reference external" href="https://pypi.org/">PyPI</a>.</p></li>
+</ul>
+</section>
+<section id="Install-Git">
+<h2>Install Git<a class="headerlink" href="#Install-Git" title="Link to this heading"></a></h2>
+<p><em>Git will be used to maintain your projects branches locally and remotely.</em></p>
 <p>Install git: <a class="reference external" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>. You may need to restart your computer.</p>
+<p>Test it:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>Ensure your version is recent enough (&gt;=2.40).</p>
+<p><strong>Important: main branch name</strong> It is the name of your default branch in your git projects. It used to be “master” but the current standard is to call it “main”. On a fresh install, you should setup to “main” during installation. The important thing is that the the settings of your git application should be consistent with the setting of your <strong>new</strong> projects (there is no issue to manage an existing “master”-based project with a “main”-based git). To ensure consistency afterwards you can try:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>init.defaultBranch<span class="w"> </span>main
+</pre></div>
+</div>
+</section>
+<section id="Install-Package-Helper-3">
+<h2>Install Package Helper 3<a class="headerlink" href="#Install-Package-Helper-3" title="Link to this heading"></a></h2>
+<p>In a terminal (e.g. Anaconda Prompt, Windows Powershell, …):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>package-helper-3
+</pre></div>
+</div>
+<p><strong>[Optional] Make a config file</strong></p>
+<p>From <a class="reference external" href="https://cookiecutter.readthedocs.io/en/stable/advanced/user_config.html">https://cookiecutter.readthedocs.io/en/stable/advanced/user_config.html</a></p>
+<p>If you use Package Helper 3 / Cookiecutter a lot, you’ll find it useful to have a user config file. By default Cookiecutter tries to retrieve settings from a .cookiecutterrc file in your home directory. Recommended template for PH3:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">default_context</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">full_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Your</span><span class="nv"> </span><span class="s">Name</span><span class="nv"> </span><span class="s">Here&quot;</span>
+<span class="w">    </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my.name@example.com&quot;</span>
+<span class="w">    </span><span class="nt">github_username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my-gh-username&quot;</span>
+</pre></div>
+</div>
 <p>Change the Documentation Style in PyCharm Perform this step only if you want to use the Numpy documentation style (which we recommend).</p>
 <p>In the “Welcome to PyCharm” window (before you open a project): Customize → All settings → Tools → Python Integrated Tools → Docstrings → Docstring format → NumPy.</p>
 <p>Register Your GitHub Account in PyCharm In the “Welcome to PyCharm” window (before you open a project): Customize → All settings → Version Control → GitHub → Add account → Log In via GitHub → log in and accept to grant access.</p>
