@@ -58,7 +58,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#Install-a-Python-distribution-(if-you-don't-have-one-already)">Install a Python distribution (if you don’t have one already)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Create-Accounts-on-the-Websites">Create Accounts on the Websites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Install-Git">Install Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Install-Poetry">Install Poetry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Install-Package-Helper-3">Install Package Helper 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Install-Pycharm">Install Pycharm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Link-Pycharm-to-your-GitHub-account">Link Pycharm to your GitHub account</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#[recommended]-Change-the-documentation-style">[recommended] Change the documentation style</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="creation.html">Create Your package</a></li>
@@ -145,10 +151,53 @@
 </pre></div>
 </div>
 </section>
+<section id="Install-Poetry">
+<h2>Install Poetry<a class="headerlink" href="#Install-Poetry" title="Link to this heading"></a></h2>
+<p><a class="reference external" href="https://python-poetry.org/">Poetry</a> will handle all the issues related to package management (dependencies, versioning, deployment) for you.</p>
+<p>To install it, please follow the instructions from <a class="reference external" href="https://python-poetry.org/docs/#installation">https://python-poetry.org/docs/#installation</a></p>
+<p>Check that it works:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>--version
+</pre></div>
+</div>
+<p>Additionally the following commands are recommended:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>config<span class="w"> </span>virtualenvs.in-project<span class="w"> </span><span class="nb">true</span>
+<span class="gp">$ </span>poetry<span class="w"> </span>self<span class="w"> </span>add<span class="w"> </span>poetry-bumpversion
+</pre></div>
+</div>
+<p>As one can guess, the first command tells that the virtual environment (venv) of a project should be created inside the project instead of within a centralized directory. It facilitates keeping track of the matchings between projects and venvs.</p>
+<p>The second command installs a poetry plugin that facilitates the management of the version number of your package.</p>
+<p><strong>[Optional reading] Interest of Poetry</strong></p>
+<p>Before poetry, deploying packages required multiple files, e.g.:</p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file with some informations about the package and its dependencies;</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file to facilitate the installation of dependencies with <code class="docutils literal notranslate"><span class="pre">pip</span></code>;</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">requirements_dev.txt</span></code> file to describe the additional packages required to develop the package;</p></li>
+<li><p>Some dedicated config files like <code class="docutils literal notranslate"><span class="pre">tox.ini</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest.ini</span></code>, …</p></li>
+</ul>
+<p>All these files were to be update manually in most cases, leading to mismatch/conflicts between dependencies. And the environments were to be handled separately.</p>
+<p>Poetry uses two files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> tells everything you need to know about your package, nicely split into sections.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code> gives an exhaustive set of exact versions (including where to find them) that works.</p></li>
+</ul>
+<p>The benefits are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> can be automatically maintained by poetry commands to add/remove dependencies, update versions, …</p></li>
+<li><p>If required, it is easy to perform manual editions.</p></li>
+<li><p>You never need to edit <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code>, it is automatically managed.</p></li>
+<li><p>Dependencies can be split into groups, e.g. doc dependencies, dev dependencies, graphic dependencies… and you can customize the groups you want to install.</p></li>
+<li><p>Dependencies not available on <code class="docutils literal notranslate"><span class="pre">pip</span></code> can be integrated (e.g. private repositories).</p></li>
+<li><p>Installing your development environment is simple as <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">poetry</span> <span class="pre">install</span></code>. Installing the package in the main environment or pushing to pypi are also straightforward.</p></li>
+</ul>
+</section>
 <section id="Install-Package-Helper-3">
 <h2>Install Package Helper 3<a class="headerlink" href="#Install-Package-Helper-3" title="Link to this heading"></a></h2>
 <p>In a terminal (e.g. Anaconda Prompt, Windows Powershell, …):</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>package-helper-3
+</pre></div>
+</div>
+<p>Check that the installation is correct:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ph3<span class="w"> </span>--version
 </pre></div>
 </div>
 <p><strong>[Optional] Make a config file</strong></p>
@@ -160,9 +209,24 @@
 <span class="w">    </span><span class="nt">github_username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my-gh-username&quot;</span>
 </pre></div>
 </div>
-<p>Change the Documentation Style in PyCharm Perform this step only if you want to use the Numpy documentation style (which we recommend).</p>
-<p>In the “Welcome to PyCharm” window (before you open a project): Customize → All settings → Tools → Python Integrated Tools → Docstrings → Docstring format → NumPy.</p>
-<p>Register Your GitHub Account in PyCharm In the “Welcome to PyCharm” window (before you open a project): Customize → All settings → Version Control → GitHub → Add account → Log In via GitHub → log in and accept to grant access.</p>
+</section>
+<section id="Install-Pycharm">
+<h2>Install Pycharm<a class="headerlink" href="#Install-Pycharm" title="Link to this heading"></a></h2>
+<p>Install using the binaries available here: <a class="reference external" href="https://www.jetbrains.com/pycharm/download/">https://www.jetbrains.com/pycharm/download/</a></p>
+<section id="Link-Pycharm-to-your-GitHub-account">
+<h3>Link Pycharm to your GitHub account<a class="headerlink" href="#Link-Pycharm-to-your-GitHub-account" title="Link to this heading"></a></h3>
+<p>In Pycharm settings: Version Control → GitHub → Add account</p>
+<p>Two options are available:</p>
+<ul class="simple">
+<li><p>Log In with Token seems to be the recommended way. The first time, click on the generate button to open a GitHub page that will create an access token. Copy the token and paste it in Pycharm. Pycharm should remind it but to avoid generating a new token every other week you should keep a copy somewhere else as well (in a very safe place!).</p></li>
+<li><p>(deprecated) Log In via GitHub will open a GitHub page to grant you access.</p></li>
+</ul>
+</section>
+<section id="[recommended]-Change-the-documentation-style">
+<h3>[recommended] Change the documentation style<a class="headerlink" href="#[recommended]-Change-the-documentation-style" title="Link to this heading"></a></h3>
+<p>We recommend the <a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html">Numpy documentation style</a>.</p>
+<p>In Pycharm settings: Tools → Python Integrated Tools → Docstrings → Docstring format → NumPy.</p>
+</section>
 </section>
 </section>
 

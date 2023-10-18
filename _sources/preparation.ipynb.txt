@@ -122,6 +122,72 @@
   },
   {
    "cell_type": "markdown",
+   "id": "53bacfaf",
+   "metadata": {},
+   "source": [
+    "## Install Poetry"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5dc2b222",
+   "metadata": {},
+   "source": [
+    "[Poetry](https://python-poetry.org/) will handle all the issues related to package management (dependencies, versioning, deployment) for you.\n",
+    "\n",
+    "To install it, please follow the instructions from https://python-poetry.org/docs/#installation\n",
+    "\n",
+    "Check that it works:\n",
+    "\n",
+    "```console\n",
+    "$ poetry --version\n",
+    "```\n",
+    "\n",
+    "Additionally the following commands are recommended:\n",
+    "\n",
+    "```console\n",
+    "$ poetry config virtualenvs.in-project true\n",
+    "$ poetry self add poetry-bumpversion\n",
+    "```\n",
+    "\n",
+    "As one can guess, the first command tells that the virtual environment (venv) of a project should be created inside the project instead of within a centralized directory. It facilitates keeping track of the matchings between projects and venvs.\n",
+    "\n",
+    "The second command installs a poetry plugin that facilitates the management of the version number of your package."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5c4be5f3",
+   "metadata": {},
+   "source": [
+    "**[Optional reading] Interest of Poetry**\n",
+    "\n",
+    "Before poetry, deploying packages required multiple files, e.g.:\n",
+    "\n",
+    "- A `setup.py` file with some informations about the package and its dependencies;\n",
+    "- A `requirements.txt` file to facilitate the installation of dependencies with `pip`;\n",
+    "- A `requirements_dev.txt` file to describe the additional packages required to develop the package;\n",
+    "- Some dedicated config files like `tox.ini`, `pytest.ini`, ...\n",
+    "\n",
+    "All these files were to be update manually in most cases, leading to mismatch/conflicts between dependencies. And the environments were to be handled separately.\n",
+    "\n",
+    "Poetry uses two files:\n",
+    "\n",
+    "- `pyproject.toml` tells everything you need to know about your package, nicely split into sections.\n",
+    "- `poetry.lock` gives an exhaustive set of exact versions (including where to find them) that works.\n",
+    "\n",
+    "The benefits are:\n",
+    "\n",
+    "- `pyproject.toml` can be automatically maintained by poetry commands to add/remove dependencies, update versions, ...\n",
+    "- If required, it is easy to perform manual editions.\n",
+    "- You never need to edit `poetry.lock`, it is automatically managed.\n",
+    "- Dependencies can be split into groups, e.g. doc dependencies, dev dependencies, graphic dependencies... and you can customize the groups you want to install.\n",
+    "- Dependencies not available on `pip` can be integrated (e.g. private repositories).\n",
+    "- Installing your development environment is simple as `$ poetry install`. Installing the package in the main environment or pushing to pypi are also straightforward."
+   ]
+  },
+  {
+   "cell_type": "markdown",
    "id": "6aaa2187",
    "metadata": {
     "ExecuteTime": {
@@ -158,6 +224,18 @@
   },
   {
    "cell_type": "markdown",
+   "id": "3f377da8",
+   "metadata": {},
+   "source": [
+    "Check that the installation is correct:\n",
+    "\n",
+    "```console\n",
+    "$ ph3 --version\n",
+    "```"
+   ]
+  },
+  {
+   "cell_type": "markdown",
    "id": "0f81875e",
    "metadata": {},
    "source": [
@@ -177,6 +255,51 @@
   },
   {
    "cell_type": "markdown",
+   "id": "c05671c8",
+   "metadata": {},
+   "source": [
+    "## Install Pycharm"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "00deb0b4",
+   "metadata": {},
+   "source": [
+    "Install using the binaries available here: https://www.jetbrains.com/pycharm/download/"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "545ba4d1",
+   "metadata": {},
+   "source": [
+    "### Link Pycharm to your GitHub account"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5d3767be",
+   "metadata": {},
+   "source": [
+    "In Pycharm settings: Version Control → GitHub → Add account\n",
+    "\n",
+    "Two options are available:\n",
+    "\n",
+    "- Log In with Token seems to be the recommended way. The first time, click on the generate button to open a GitHub page that will create an access token. Copy the token and paste it in Pycharm. Pycharm should remind it but to avoid generating a new token every other week you should keep a copy somewhere else as well (in a very safe place!).  \n",
+    "- (deprecated) Log In via GitHub will open a GitHub page to grant you access."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "94ea7e1b",
+   "metadata": {},
+   "source": [
+    "### [recommended] Change the documentation style"
+   ]
+  },
+  {
+   "cell_type": "markdown",
    "id": "ca27be84",
    "metadata": {
     "ExecuteTime": {
@@ -185,24 +308,9 @@
     }
    },
    "source": [
-    "Change the Documentation Style in PyCharm\n",
-    "Perform this step only if you want to use the Numpy documentation style (which we recommend).\n",
+    "We recommend the [Numpy documentation style](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html).\n",
     "\n",
-    "In the “Welcome to PyCharm” window (before you open a project): Customize → All settings → Tools → Python Integrated Tools → Docstrings → Docstring format → NumPy."
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "d572a41a",
-   "metadata": {
-    "ExecuteTime": {
-     "end_time": "2023-10-18T08:20:26.157990Z",
-     "start_time": "2023-10-18T08:20:26.135641Z"
-    }
-   },
-   "source": [
-    "Register Your GitHub Account in PyCharm\n",
-    "In the “Welcome to PyCharm” window (before you open a project): Customize → All settings → Version Control → GitHub → Add account → Log In via GitHub → log in and accept to grant access."
+    "In Pycharm settings: Tools → Python Integrated Tools → Docstrings → Docstring format → NumPy."
    ]
   }
  ],
@@ -235,7 +343,7 @@
    "toc_cell": false,
    "toc_position": {},
    "toc_section_display": true,
-   "toc_window_display": false
+   "toc_window_display": true
   }
  },
  "nbformat": 4,

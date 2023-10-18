@@ -56,6 +56,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="tutorial.html">Tutorial</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="preparation.html">Preliminaries: Once and for All</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Create Your package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Decide-what-you-want">Decide what you want</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#[Advanced]-Make-your-logo!">[Advanced] Make your logo!</a></li>
 </ul>
 </li>
@@ -94,6 +95,86 @@
              
   <section id="Create-Your-package">
 <h1>Create Your package<a class="headerlink" href="#Create-Your-package" title="Link to this heading"></a></h1>
+<p>Creating your package locally should take less than 5 minutes. Full deployment on the different websites (GitHub, Codecov, Pypi) will take a bit more time, but likely less than 30 minutes (expect maybe the first time you use PH3).</p>
+<section id="Decide-what-you-want">
+<h2>Decide what you want<a class="headerlink" href="#Decide-what-you-want" title="Link to this heading"></a></h2>
+<p>PH3 will ask you some information. It is best to think ahead of the answers:</p>
+<ul class="simple">
+<li><p>Name / email / github username. You should know the answer of these questions. If you do not want to re-renter them everytime you make a new project you can write a user config file.</p></li>
+</ul>
+<p>with the minimal options (cookiecutter + PyCharm), and less than 30 minutes if you use all the goodies (Virtual environment, GitHub, etc).</p>
+<p>Generate Your Package with Cookiecutter</p>
+<p>Your project will need a project name (e.g. My Toy Package) and a project slug (typically my_toy_package). Before starting, check that your project slug is not used in PyPI, even if you do not plan to use PyPI for the moment.</p>
+<p>In a terminal (e.g. Anaconda Prompt):</p>
+<p>Go to the parent directory of where you want to put the directory of your package, e.g. D:<span class="math">\GitHub</span>.</p>
+<p>cookiecutter <a class="reference external" href="https://github.com/francois-durand/package_helper_2.git">https://github.com/francois-durand/package_helper_2.git</a></p>
+<p>Answer the questions. Here is an example (some explanations follow):</p>
+<p>full_name [François Durand]: François Durand email [<a class="reference external" href="mailto:fradurand&#37;&#52;&#48;gmail&#46;com">fradurand<span>&#64;</span>gmail<span>&#46;</span>com</a>]: <a class="reference external" href="mailto:fradurand&#37;&#52;&#48;gmail&#46;com">fradurand<span>&#64;</span>gmail<span>&#46;</span>com</a> github_username [francois-durand]: francois-durand project_name [Python Boilerplate]: My Toy Package project_slug [my_toy_package]: project_short_description [Python Boilerplate contains all the boilerplate you need to create a Python package.]: My Toy Package is a beautiful package. version [0.1.0]: Select main_git_branch_name: 1 - main 2 - master Choose from 1, 2 (1, 2) [1]: use_pytest [y]:
+use_codecov [y]: Select command_line_interface: 1 - No command-line interface 2 - Click 3 - Argparse Choose from 1, 2, 3 (1, 2, 3) [1]: create_author_file [y]: Select open_source_license: 1 - GNU General Public License v3 2 - MIT license 3 - BSD license 4 - ISC license 5 - Apache Software License 2.0 6 - Not open source Choose from 1, 2, 3, 4, 5, 6 (1, 2, 3, 4, 5, 6) [1]: Optionally, in your file manager, open the directory of your package: the whole file structure is now in there! Some
+explanations now:</p>
+<p>main_git_branch_name: your choice must be consistent with the settings of your git application. It is the name of your default branch in your git projects. If you do not know, it is probably “master”, but there is a current tendency to call it “main” instead and this will probably become standard in a near future.</p>
+<p>use_pytest: there are essentially three ways to do unit tests in Python: unittest (the standard solution), pytest (the recommended test package) and doctest (where tests are integrated in the docstrings). If you are new to testing, I suggest using doctest. But even so, pytest is useful to configure your tests (as we will do a bit later). For this reason, in all cases, I suggest to answer yes.</p>
+<p>use_codecov: you use Codecov to assess the coverage of your code by your tests. I suggest answering yes anyway, even if you do not plan to use Codecov for the moment.</p>
+<p>Click and Argparse allow you to easily call your program with unix-style command, e.g. python my_program.py –help. You can choose either of them without harm, even if you do not use it for the moment. But personally, I answer no.</p>
+<p>create_author_file: I suggest to answer yes.</p>
+<p>Open Your Project and Create a Virtual Environment (or not) A virtual environment is essentially a Python installation dedicated to your project, with its own versions of the third-party packages. It ensures that if you reuse this project several months later, it will still work… However, it can be difficult to use in conjunction with Jupyter Notebook. If using Jupyter is important, I suggest that you do not use virtual environments.</p>
+<p>In PyCharm:</p>
+<p>Choose “Open” and select the directory of your package.</p>
+<p>A prompt window named “Creating Virtual Environment” opens. If you want to create a virtual environment, validate with the default options. Otherwise, cancel.</p>
+<p>In the bottom right part of the window, you will probably see some background tasks running. Wait until they are finished.</p>
+<p>In the bottom right part of the window, the interpreter should be indicated: something like “Python X.X (your_package)”. If “No Interpreter” appears instead, click on it and select the desired interpreter (virtual environment or not).</p>
+<p>Install Dev Requirements The file requirements_dev.txt contains the list of the third-party packages that you need for development, such as sphinx or pytest, but that the end-user does not need when using your package.</p>
+<p>In PyCharm’s terminal:</p>
+<p>Ensure you are in the directory of your package (e.g. D:<span class="math">\GitHub</span><span class="math">\my</span>_toy_package).</p>
+<p>Ensure that your virtual environment is activated: there should be (venv) at the beginning of the line. If not:</p>
+<p>Windows: venv:nbsphinx-math:<cite>Scripts</cite><span class="math">\activate</span> Linux: source venv/bin/activate pip install -r requirements_dev.txt</p>
+<p>Install Your Package in “Development Mode” This way, your package behaves as if it were installed, but any change you make will have effect immediately.</p>
+<p>In PyCharm’s terminal, you should still be in the directory of your package. Do:</p>
+<p>python setup.py develop Check That Everything Is Working Locally In PyCharm: menu Run → Run → All Tests. It runs all the tests of the project. If you are new to testing, you can take example from the classes provided by the template, such as my_class_1.py.</p>
+<p>Open the file cov/index.html (in your web browser). It displays what parts of your code are covered by the tests.</p>
+<p>In PyCharm: menu Run → Run → Generate docs. It generates the html documentation of your project. The template provides examples of classes, such as the file my_class_1.py. You can use them as models if you are new to Sphinx documentation.</p>
+<p>Open the file build/index.html (in your web browser). It displays the html documentation of your project.</p>
+<p>Create the GitHub Repo In PyCharm:</p>
+<p>From the file README.rst of your package, copy the short description sentence, e.g.: “My Toy Package is a beautiful package.” (you will paste it in the form below).</p>
+<p>Menu VCS → Share project on GitHub.</p>
+<p>Fill in the form and validate, e.g.:</p>
+<p>New repository name: my_toy_package Remote name: origin Description: My Toy Package is a beautiful package. Accept to add all the files as proposed by PyCharm.</p>
+<p>In a browser, you can go to your GitHub account to check that everything is there.</p>
+<p>Check your GitHub Actions In GitHub:</p>
+<p>GitHub page of your package → Actions.</p>
+<p>Check that the actions are successes (it may take several minutes). The “build” action runs the tests of the package. The “docs” actions builds the documentation, and publishes it online if the branch is your default git branch (“main” or “master”).</p>
+<p>GitHub Settings On the GitHub page of your package:</p>
+<p>Tell GitHub Pages that the documentation files are in the “gh-pages” branch of your project:</p>
+<p>Settings → Pages → Source.</p>
+<p>Select “gh-pages”.</p>
+<p>Select “/ (root)”.</p>
+<p>Save.</p>
+<p>Configure Codecov:</p>
+<p>On Codecov’s website, log in with your GitHub account. On your main page: Not yet setup → select your project (you may have to wait for syncing before it appears). Then copy the Codecov token.</p>
+<p>Back to GitHub: Settings → Secrets → New repository secret. Name: CODECOV_TOKEN. Value: paste the codecov token.</p>
+<p>Register your PyPI credentials as “secrets”, so that GitHub can automatically publish your package on PyPI for you:</p>
+<p>Settings → Secrets.</p>
+<p>Select “New repository secret”. Name: PYPI_USERNAME. Value: your PyPI username.</p>
+<p>Select “New repository secret”. Name: PYPI_PASSWORD. Value: your PyPI password.</p>
+<p>Your First Commit In PyCharm, make a slight modification, e.g. in the file README.rst. Then commit/push:</p>
+<p>Menu Git → Commit.</p>
+<p>Enter a commit message.</p>
+<p>Commit and push.</p>
+<p>Push.</p>
+<p>Check That Everything Is Working Online GitHub page of your package → Actions. Wait until your actions are finished.</p>
+<p>Check the documentation:</p>
+<p>GitHub page of your package (main page) → near the bottom of the page, follow the link to your documentation. Check that the documentation is there.</p>
+<p>In the table of contents, click on the first page (e.g. My Toy Package). Depending on your initial choice of options, you should have up to four badges:</p>
+<p>PyPI: package or version not found (there will be the version number after your first release).</p>
+<p>Build: passing.</p>
+<p>Docs: passing.</p>
+<p>Codecov: with a percentage.</p>
+<p>In the table of contents: Reference → MyClass1. You should see the documentation of the first example of class provided by the template.</p>
+<p>On Check your test coverage:</p>
+<p>GitHub page of your package (main page) → near the bottom of the page, click on the Codecov badge.</p>
+<p>You can navigate in your project to see what parts of the code are covered by the tests.</p>
+<p>If you wish, you are now ready to release your first version (cf. below).</p>
+</section>
 <section id="[Advanced]-Make-your-logo!">
 <h2>[Advanced] Make your logo!<a class="headerlink" href="#[Advanced]-Make-your-logo!" title="Link to this heading"></a></h2>
 <p>It’s always nice to brand your package with a logo and/or a favicon.</p>
