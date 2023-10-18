@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "aca31df8",
+   "id": "0bb4cea5",
    "metadata": {},
    "source": [
     "# Create Your package"
@@ -10,7 +10,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "22b5ae0f",
+   "id": "5b5c4801",
    "metadata": {},
    "source": [
     "## [Advanced] Make your logo!"
@@ -18,7 +18,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "0f34be46",
+   "id": "e0a425e4",
    "metadata": {},
    "source": [
     "It's always nice to brand your package with a logo and/or a favicon."
@@ -26,7 +26,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "15358248",
+   "id": "be32d9f5",
    "metadata": {},
    "source": [
     "- Create your pictures. If you have no inspiration, you can use https://favicon.io/favicon-generator/ to make one in a few seconds from a text (e.g. the acronym of your package). \n",
