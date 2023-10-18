@@ -4,9 +4,9 @@ import click
 
 @click.command()
 @click.version_option(message="Package Helper 3, version %(version)s")
-def main() -> None: # pragma: no cover
+def main() -> None:  # pragma: no cover
     """
-    Console script for Package Helper 3.
+    Package Helper 3 command that creates a Python poetry project.
 
     Cf https://balouf.github.io/package-helper-3/
     """

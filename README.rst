@@ -26,6 +26,8 @@ Package Helper 3
 
 Package Helper 3 helps to create, develop and maintain a Python package.
 
+It is a fork/mix of https://github.com/audreyr/cookiecutter-pypackage/, https://github.com/francois-durand/package_helper_2/, and https://github.com/fpgmaas/cookiecutter-poetry.
+
 The most prominent feature of Package Helper 3 is a **tutorial** that gives a checklist of how to:
 
 * Create your package in a few minutes with Cookiecutter_ and Poetry_,
@@ -34,10 +36,8 @@ The most prominent feature of Package Helper 3 is a **tutorial** that gives a ch
 * Publish your package on PyPi_,
 * Publicly share your coverage on Codecov_.
 
-For more readability, the tools that you do not use can be hidden in the tutorial.
-
-A simple **Command-Line Interface** initiates the creation of the package using a **template** of Python package. It is a fork/mix of
-https://github.com/audreyr/cookiecutter-pypackage/, https://github.com/francois-durand/package_helper_2/, and https://github.com/fpgmaas/cookiecutter-poetry. Here are the main features of the template:
+A simple **Command-Line Interface** initiates the creation of the package using a **template** of Python package.
+Here are the main features of the template:
 
 * Personalize default options.
 * Include example files for classes, with examples of documentation and testing.
