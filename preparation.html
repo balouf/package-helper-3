@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tutorial &mdash; package-helper-3 0.1.1 documentation</title>
+  <title>Preliminaries: Once and for All &mdash; package-helper-3 0.1.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -17,11 +17,13 @@
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Preliminaries: Once and for All" href="preparation.html" />
-    <link rel="prev" title="Installation" href="installation.html" /> 
+    <link rel="next" title="Create Your package" href="creation.html" />
+    <link rel="prev" title="Tutorial" href="tutorial.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,8 +52,11 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="readme.html">Package Helper 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="preparation.html">Preliminaries: Once and for All</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tutorial.html">Tutorial</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Preliminaries: Once and for All</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Install-a-Python-distribution">Install a Python distribution</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="creation.html">Create Your package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="maintain.html">Develop and Maintain Your Package</a></li>
 </ul>
@@ -75,9 +80,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Tutorial</li>
+          <li class="breadcrumb-item"><a href="tutorial.html">Tutorial</a></li>
+      <li class="breadcrumb-item active">Preliminaries: Once and for All</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/preparation.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -85,52 +91,49 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="tutorial">
-<h1>Tutorial<a class="headerlink" href="#tutorial" title="Link to this heading"></a></h1>
-<p>Package Helper 3 helps you create, develop and maintain a package managed by poetry.
-If you use all the tools presented in this tutorial, things will work this way:</p>
+  <section id="Preliminaries:-Once-and-for-All">
+<h1>Preliminaries: Once and for All<a class="headerlink" href="#Preliminaries:-Once-and-for-All" title="Link to this heading"></a></h1>
+<section id="Install-a-Python-distribution">
+<h2>Install a Python distribution<a class="headerlink" href="#Install-a-Python-distribution" title="Link to this heading"></a></h2>
+<p>Ensure that the following requirements are made:</p>
+<ul class="simple">
+<li><p>The Python distribution is recent enough. As a rule of thumb, you should aim to keep one of the last three stable distributions at all times, e.g. 3.10, 3.11, 3.12 if 3.12 is the last stable (non-beta) release.</p></li>
+<li><p>The package manager <a class="reference external" href="https://pip.pypa.io/en/stable/">PIP</a> is included.</p></li>
+</ul>
+<p>Examples of distributions available:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.anaconda.com/download">Anaconda</a></p>
 <ul>
-<li><p>You create the file structure of your package in less than a minute with the <cite>ph3</cite> command.</p></li>
-<li><p>You use the IDE <a class="reference external" href="https://www.jetbrains.com/pycharm">PyCharm</a>. It is configured to:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>Generate the documentation of your package locally, possibly including Notebooks.</p></li>
-<li><p>Run the unit tests, including the ones from your docstrings (doctests).</p></li>
-<li><p>Generate a local html page displaying what parts of the package are covered by the unit tests.</p></li>
+<li><p>Pros: Anaconda installs by default a lot of common packages so you will not have to install them yourself (e.g. Numpy, Matplotlib, Jupyter, Pandas…).</p></li>
+<li><p>Cons: the distribution is very large to install and the including package manager (conda) can clash with PIP.</p></li>
 </ul>
-</div></blockquote>
 </li>
-<li><p>Your project is on <a class="reference external" href="https://github.com">GitHub</a>. When you push modifications:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>GitHub automatically generates the documentation in order to check if it works correctly,</p></li>
-<li><p>If the branch is your default branch (“main” or “master”), Github automatically publishes the documentation online,</p></li>
-<li><p>GitHub automatically runs the unit tests on several versions of Python.</p></li>
-<li><p><a class="reference external" href="https://app.codecov.io/gh/">Codecov</a> displays what parts of the package are covered by the unit tests.</p></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p>When you make a <em>release</em> on GitHub, GitHub automatically publishes your package on <a class="reference external" href="https://pypi.python.org/pypi">PyPI</a>. This way, any Python
-user can install it with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>.</p></li>
-</ul>
-<div class="toctree-wrapper compound">
+<li><p><a class="reference external" href="https://www.python.org/downloads/">Vanilla Python</a></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="preparation.html">Preliminaries: Once and for All</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="preparation.html#Install-a-Python-distribution">Install a Python distribution</a></li>
+<li><p>Pro: Small and clean.</p></li>
+<li><p>Cons: you’ll have to install your favorite packages on your own.</p></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="creation.html">Create Your package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="maintain.html">Develop and Maintain Your Package</a></li>
 </ul>
-</div>
+<p>Create Accounts on the Websites Ensure that you have accounts (preferably with the same login) on:</p>
+<p>GitHub,</p>
+<p>Codecov,</p>
+<p>PyPI.</p>
+<p>Install Cookiecutter In a terminal (e.g. Anaconda Prompt):</p>
+<p>pip install cookiecutter Install Git Git will be used to download the package template that will be used by Cookiecutter.</p>
+<p>Install git: <a class="reference external" href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>. You may need to restart your computer.</p>
+<p>Change the Documentation Style in PyCharm Perform this step only if you want to use the Numpy documentation style (which we recommend).</p>
+<p>In the “Welcome to PyCharm” window (before you open a project): Customize → All settings → Tools → Python Integrated Tools → Docstrings → Docstring format → NumPy.</p>
+<p>Register Your GitHub Account in PyCharm In the “Welcome to PyCharm” window (before you open a project): Customize → All settings → Version Control → GitHub → Add account → Log In via GitHub → log in and accept to grant access.</p>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="preparation.html" class="btn btn-neutral float-right" title="Preliminaries: Once and for All" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="tutorial.html" class="btn btn-neutral float-left" title="Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="creation.html" class="btn btn-neutral float-right" title="Create Your package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
