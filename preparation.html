@@ -57,9 +57,18 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Preliminaries: Once and for All</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Install-a-Python-distribution-(if-you-don't-have-one-already)">Install a Python distribution (if you don’t have one already)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Create-Accounts-on-the-Websites">Create Accounts on the Websites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Install-Git">Install Git</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Install-Poetry">Install Poetry</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Install-Package-Helper-3">Install Package Helper 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Install-Git">Install Git</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#[Beware]-Default-branch-name">[Beware] Default branch name</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Install-Poetry">Install Poetry</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#[Optional-reading]-Interest-of-Poetry">[Optional reading] Interest of Poetry</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Install-Package-Helper-3">Install Package Helper 3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#[Optional]-Make-a-config-file">[Optional] Make a config file</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#Install-Pycharm">Install Pycharm</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#Link-Pycharm-to-your-GitHub-account">Link Pycharm to your GitHub account</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#[recommended]-Change-the-documentation-style">[recommended] Change the documentation style</a></li>
@@ -146,10 +155,14 @@
 </pre></div>
 </div>
 <p>Ensure your version is recent enough (&gt;=2.40).</p>
-<p><strong>Important: main branch name</strong> It is the name of your default branch in your git projects. It used to be “master” but the current standard is to call it “main”. On a fresh install, you should setup to “main” during installation. The important thing is that the the settings of your git application should be consistent with the setting of your <strong>new</strong> projects (there is no issue to manage an existing “master”-based project with a “main”-based git). To ensure consistency afterwards you can try:</p>
+<section id="[Beware]-Default-branch-name">
+<h3>[Beware] Default branch name<a class="headerlink" href="#[Beware]-Default-branch-name" title="Link to this heading"></a></h3>
+<p>The git default branch name is used to name the principal branch in your git projects. It used to be “master” but the current standard is to call it “main”. When installing <code class="docutils literal notranslate"><span class="pre">git</span></code> you should setup “main” as default during the setup. The important thing is that the settings of your git application should be consistent with the setting of your <strong>new</strong> projects (there is no issue to manage an existing “master”-based project with a “main”-based git).</p>
+<p>To change the default branch name afterwards you can try:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>init.defaultBranch<span class="w"> </span>main
 </pre></div>
 </div>
+</section>
 </section>
 <section id="Install-Poetry">
 <h2>Install Poetry<a class="headerlink" href="#Install-Poetry" title="Link to this heading"></a></h2>
@@ -166,7 +179,8 @@
 </div>
 <p>As one can guess, the first command tells that the virtual environment (venv) of a project should be created inside the project instead of within a centralized directory. It facilitates keeping track of the matchings between projects and venvs.</p>
 <p>The second command installs a poetry plugin that facilitates the management of the version number of your package.</p>
-<p><strong>[Optional reading] Interest of Poetry</strong></p>
+<section id="[Optional-reading]-Interest-of-Poetry">
+<h3>[Optional reading] Interest of Poetry<a class="headerlink" href="#[Optional-reading]-Interest-of-Poetry" title="Link to this heading"></a></h3>
 <p>Before poetry, deploying packages required multiple files, e.g.:</p>
 <ul class="simple">
 <li><p>A <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file with some informations about the package and its dependencies;</p></li>
@@ -190,6 +204,7 @@
 <li><p>Installing your development environment is simple as <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">poetry</span> <span class="pre">install</span></code>. Installing the package in the main environment or pushing to pypi are also straightforward.</p></li>
 </ul>
 </section>
+</section>
 <section id="Install-Package-Helper-3">
 <h2>Install Package Helper 3<a class="headerlink" href="#Install-Package-Helper-3" title="Link to this heading"></a></h2>
 <p>In a terminal (e.g. Anaconda Prompt, Windows Powershell, …):</p>
@@ -200,7 +215,8 @@
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ph3<span class="w"> </span>--version
 </pre></div>
 </div>
-<p><strong>[Optional] Make a config file</strong></p>
+<section id="[Optional]-Make-a-config-file">
+<h3>[Optional] Make a config file<a class="headerlink" href="#[Optional]-Make-a-config-file" title="Link to this heading"></a></h3>
 <p>From <a class="reference external" href="https://cookiecutter.readthedocs.io/en/stable/advanced/user_config.html">https://cookiecutter.readthedocs.io/en/stable/advanced/user_config.html</a></p>
 <p>If you use Package Helper 3 / Cookiecutter a lot, you’ll find it useful to have a user config file. By default Cookiecutter tries to retrieve settings from a .cookiecutterrc file in your home directory. Recommended template for PH3:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">default_context</span><span class="p">:</span>
@@ -209,6 +225,7 @@
 <span class="w">    </span><span class="nt">github_username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my-gh-username&quot;</span>
 </pre></div>
 </div>
+</section>
 </section>
 <section id="Install-Pycharm">
 <h2>Install Pycharm<a class="headerlink" href="#Install-Pycharm" title="Link to this heading"></a></h2>
