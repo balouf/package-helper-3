@@ -33,6 +33,7 @@ jobs:
       - name: Install dependencies
         run: |
           poetry install
+          sudo apt install pandoc
 
       - name: Build Sphinx documentation
         run: |
