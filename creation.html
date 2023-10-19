@@ -114,19 +114,19 @@
              
   <section id="Create-Your-package">
 <h1>Create Your package<a class="headerlink" href="#Create-Your-package" title="Link to this heading"></a></h1>
-<p>Creating your package locally should take less than 5 minutes. Full deployment on the different websites (GitHub, Codecov, Pypi) will take a bit more time, but likely less than 30 minutes (expect maybe the first time you use PH3).</p>
+<p>Creating your package locally should take less than 5 minutes. Full deployment on the different websites (GitHub, Codecov, Pypi) will take a bit more time, but likely less than 20 minutes (maybe more the first time).</p>
 <section id="Before-starting:-decide-what-you-want">
 <h2>Before starting: decide what you want<a class="headerlink" href="#Before-starting:-decide-what-you-want" title="Link to this heading"></a></h2>
 <p>PH3 will ask you some information. It is best to think ahead of the answers:</p>
 <ul class="simple">
-<li><p><strong>Name</strong> / <strong>email</strong> / <strong>github username</strong>. You should know the answer of these questions. If you do not want to re-renter them everytime you make a new project you can write a <a class="reference external" href="https://balouf.github.io/package-helper-3/preparation.html#%5BOptional%5D-Make-a-config-file">user config file</a>.</p></li>
+<li><p><strong>Name</strong> / <strong>email</strong> / <strong>github username</strong>. You should know the answer of these questions. If you do not want to re-renter them everytime you make a new project you can write a <a class="reference external" href="https://balouf.github.io/package-helper-3/faq.html#Do-I-need-to-enter-my-name/email/github_login-everytime-I-make-a-package?">user config file</a>.</p></li>
 <li><p><strong>Project Name</strong>: This is the name of your project in <em>human language</em>. It will be displayed in the documentation. You can (should?) use <strong>title case and spaces</strong> if you have multiple words. For example, <em>Package Helper 3</em>.</p></li>
 <li><p><strong>project-slug</strong>: This is where you <em>store</em> your package. It will typically be the name of the directory where you develop the package, the name of your github repository. The convention is to use <strong>lower case and dashes</strong>. Unless you have specific reasons, you should adopt a project slug consistent with your project name. For example, <code class="docutils literal notranslate"><span class="pre">package-helper-3</span></code>.</p></li>
 <li><p><strong>package_name</strong>: This is the <code class="docutils literal notranslate"><span class="pre">python</span></code> name of your package. It will typically be the name of the subdirectory of your project that contains the actual code, and the name for installing from <code class="docutils literal notranslate"><span class="pre">PyPi</span></code>. The convention is to use <strong>lower case and underscores</strong>. Unless you have specific reasons, you should adopt a package name consistent with your project name/slug. For example, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">package_helper_3</span> <span class="pre">as</span> <span class="pre">ph</span></code>. Also, you should <strong>check that your project slug is not used
 in</strong><a class="reference external" href="https://pypi.org/">PyPI</a>, even if you do not plan to use PyPI for the moment (e.g. to avoid any possible package collision).</p></li>
 <li><p><strong>Project description</strong>: one or two sentences that describes the purpose of your project. For example, “<em>Package Helper 3 explains how to create, develop, and maintain a Python package with Poetry.</em>”</p></li>
 <li><p><strong>version</strong>: PH3 adopts the <a class="reference external" href="https://semver.org/">semantic versioning</a> convention. As they suggest, we recommend to start your initial development release at 0.1.0.</p></li>
-<li><p><strong>default branch</strong>: Please use <code class="docutils literal notranslate"><span class="pre">main</span></code> (Cf <a class="reference external" href="https://balouf.github.io/package-helper-3/preparation.html#%5BBeware%5D-Default-branch-name">Default branch name</a>).</p></li>
+<li><p><strong>default branch</strong>: Please use <code class="docutils literal notranslate"><span class="pre">main</span></code> (Cf <a class="reference external" href="https://balouf.github.io/package-helper-3/faq.html#What's-the-git-default-branch-name?">Default branch name</a>).</p></li>
 <li><p><strong>Command line interface (CLI)</strong>: if your package is intended to be always executed from Python, you do not need to care about the CLI. If you intend to execute commands directly from a terminal (Bash/Shell/Powershell…), some Python packages are here to help you. Two of the most popular ones are <code class="docutils literal notranslate"><span class="pre">click</span></code> (recommended) or <code class="docutils literal notranslate"><span class="pre">argparse</span></code>.</p></li>
 <li><p><strong>Dockerfile</strong>: do you plan to deploy your package on docker?</p></li>
 <li><p><strong>License</strong>: which open source license (if any) do you want for your package? Check <a class="reference external" href="https://choosealicense.com/">https://choosealicense.com/</a> if you need advice.</p></li>
@@ -365,9 +365,23 @@ in</strong><a class="reference external" href="https://pypi.org/">PyPI</a>, even
 <h2>Time to code!<a class="headerlink" href="#Time-to-code!" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Replace the toy code provided by PH3 with your actual code.</p></li>
-<li><p>Adjust everything accordingly:</p>
+<li><p><a class="reference external" href="https://balouf.github.io/package-helper-3/faq.html#How-to-manage-dependencies-(third-party-packages)?">Add/remove dependencies</a> according to your needs.</p></li>
+<li><p>Keep in mind that your project is not just your source code</p>
 <ul>
-<li><p>Add/remove dependencies according to your needs</p></li>
+<li><p>Update your documentation</p>
+<ul>
+<li><p>Check that your <code class="docutils literal notranslate"><span class="pre">reference</span></code> section is consistent with your actual package</p></li>
+<li><p>Check the sphinx warnings when you build the documentation</p></li>
+<li><p>Update your documentation notebooks if you have some</p></li>
+</ul>
+</li>
+<li><p>Update your tests</p>
+<ul>
+<li><p>Check your coverage</p></li>
+<li><p>Update your <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory</p></li>
+<li><p>Update your docstrings</p></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

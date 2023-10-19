@@ -80,7 +80,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "5a8ab2ca",
+   "id": "3d391963",
    "metadata": {
     "ExecuteTime": {
      "end_time": "2023-10-18T08:20:26.157990Z",
@@ -103,7 +103,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "74a95780",
+   "id": "34a57973",
    "metadata": {},
    "source": [
     "## Install Poetry"
@@ -111,7 +111,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "bc41dffa",
+   "id": "fd2ffb62",
    "metadata": {},
    "source": [
     "[Poetry](https://python-poetry.org/) will handle all the issues related to package management (dependencies, versioning, deployment) for you.\n",
@@ -177,7 +177,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "b1317562",
+   "id": "090e6599",
    "metadata": {},
    "source": [
     "Check that the installation is correct:\n",
@@ -189,21 +189,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "24d04e93",
-   "metadata": {},
-   "source": [
-    "### [Optional] Make a config file"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "0f81875e",
-   "metadata": {},
-   "source": []
-  },
-  {
-   "cell_type": "markdown",
-   "id": "7d8c6c74",
+   "id": "2313458f",
    "metadata": {},
    "source": [
     "## Install Pycharm"
@@ -211,7 +197,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "3e8adf39",
+   "id": "cefaee0f",
    "metadata": {},
    "source": [
     "Install using the binaries available here: https://www.jetbrains.com/pycharm/download/"
@@ -219,7 +205,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "d0724097",
+   "id": "8d59bb8f",
    "metadata": {},
    "source": [
     "### Link Pycharm to your GitHub account"
@@ -227,7 +213,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "26a83c8f",
+   "id": "35d7cf04",
    "metadata": {},
    "source": [
     "In Pycharm settings: Version Control → GitHub → Add account\n",
@@ -240,7 +226,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "07a05646",
+   "id": "88435801",
    "metadata": {},
    "source": [
     "### [recommended] Change the documentation style"
