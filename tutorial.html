@@ -54,9 +54,11 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="preparation.html">Preliminaries: Once and for All</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creation.html">Create Your package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="maintain.html">Develop and Maintain Your Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintain.html">Make a Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recap.html">Quick recap</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">F.A.Q.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
@@ -115,19 +117,14 @@ If you use all the tools presented in this tutorial, things will work this way:<
 user can install it with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>.</p></li>
 </ul>
 <p>When a section of the tutorial can be skipped, it is clearly indicated with some tags like <cite>[optional]</cite> or <cite>[advanced]</cite>.</p>
+<p>For people who used PH3 before, quick recaps are proposed at the beginning of each ot he main sections.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="preparation.html">Preliminaries: Once and for All</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="preparation.html#Install-a-Python-distribution-(if-you-don't-have-one-already)">Install a Python distribution (if you don’t have one already)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="preparation.html#Create-Accounts-on-the-Websites">Create Accounts on the Websites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="preparation.html#Install-Git">Install Git</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="preparation.html#[Beware]-Default-branch-name">[Beware] Default branch name</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="preparation.html#Install-Poetry">Install Poetry</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="preparation.html#[Optional-reading]-Interest-of-Poetry">[Optional reading] Interest of Poetry</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="preparation.html#Install-Git">Install Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="preparation.html#Install-Poetry">Install Poetry</a></li>
 <li class="toctree-l2"><a class="reference internal" href="preparation.html#Install-Package-Helper-3">Install Package Helper 3</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="preparation.html#[Optional]-Make-a-config-file">[Optional] Make a config file</a></li>
 </ul>
@@ -140,11 +137,36 @@ user can install it with <code class="docutils literal notranslate"><span class=
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="creation.html">Create Your package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="creation.html#Decide-what-you-want">Decide what you want</a></li>
-<li class="toctree-l2"><a class="reference internal" href="creation.html#[Advanced]-Make-your-logo!">[Advanced] Make your logo!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creation.html#Before-starting:-decide-what-you-want">Before starting: decide what you want</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creation.html#Generate-your-package-with-Package-Helper-3">Generate your package with Package Helper 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creation.html#Install-your-project">Install your project</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="creation.html#Install-a-dedicated-environment.">Install a dedicated environment.</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="creation.html#[Windows-users]:-unable-to-load-error">[Windows users]: <code class="docutils literal notranslate"><span class="pre">unable</span> <span class="pre">to</span> <span class="pre">load</span></code> error</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="maintain.html">Develop and Maintain Your Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creation.html#Install-on-your-default-Python-distribution">Install on your default Python distribution</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="creation.html#Try-your-project-with-PyCharm">Try your project with PyCharm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="creation.html#Run-tests-and-documentation-locally">Run tests and documentation locally</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="creation.html#Go-GitHub">Go GitHub</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="creation.html#Check-GitHub-actions">Check GitHub actions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creation.html#Declare-your-documentation">Declare your documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creation.html#Share-a-few-secrets">Share a few secrets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creation.html#Test-on-a-first-commit">Test on a first commit</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="creation.html#Time-to-code!">Time to code!</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="maintain.html">Make a Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recap.html">Quick recap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recap.html#Preparation">Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recap.html#Creating-a-new-package">Creating a new package</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </section>

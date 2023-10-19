@@ -25,6 +25,8 @@ If you use all the tools presented in this tutorial, things will work this way:
 
 When a section of the tutorial can be skipped, it is clearly indicated with some tags like `[optional]` or `[advanced]`.
 
+For people who used PH3 before, quick recaps are proposed at the beginning of each ot he main sections.
+
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _PyCharm: https://www.jetbrains.com/pycharm
 .. _GitHub: https://github.com
@@ -37,3 +39,4 @@ When a section of the tutorial can be skipped, it is clearly indicated with some
    preparation
    creation
    maintain
+   recap

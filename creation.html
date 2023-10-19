@@ -23,7 +23,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Develop and Maintain Your Package" href="maintain.html" />
+    <link rel="next" title="Make a Release" href="maintain.html" />
     <link rel="prev" title="Preliminaries: Once and for All" href="preparation.html" /> 
 </head>
 
@@ -56,13 +56,32 @@
 <li class="toctree-l1 current"><a class="reference internal" href="tutorial.html">Tutorial</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="preparation.html">Preliminaries: Once and for All</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Create Your package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Decide-what-you-want">Decide what you want</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#[Advanced]-Make-your-logo!">[Advanced] Make your logo!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Before-starting:-decide-what-you-want">Before starting: decide what you want</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Generate-your-package-with-Package-Helper-3">Generate your package with Package Helper 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Install-your-project">Install your project</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Install-a-dedicated-environment.">Install a dedicated environment.</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Install-on-your-default-Python-distribution">Install on your default Python distribution</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="maintain.html">Develop and Maintain Your Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Try-your-project-with-PyCharm">Try your project with PyCharm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Run-tests-and-documentation-locally">Run tests and documentation locally</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#Go-GitHub">Go GitHub</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Check-GitHub-actions">Check GitHub actions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Declare-your-documentation">Declare your documentation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Share-a-few-secrets">Share a few secrets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Test-on-a-first-commit">Test on a first commit</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Time-to-code!">Time to code!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="maintain.html">Make a Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recap.html">Quick recap</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">F.A.Q.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
@@ -96,14 +115,15 @@
   <section id="Create-Your-package">
 <h1>Create Your package<a class="headerlink" href="#Create-Your-package" title="Link to this heading"></a></h1>
 <p>Creating your package locally should take less than 5 minutes. Full deployment on the different websites (GitHub, Codecov, Pypi) will take a bit more time, but likely less than 30 minutes (expect maybe the first time you use PH3).</p>
-<section id="Decide-what-you-want">
-<h2>Decide what you want<a class="headerlink" href="#Decide-what-you-want" title="Link to this heading"></a></h2>
+<section id="Before-starting:-decide-what-you-want">
+<h2>Before starting: decide what you want<a class="headerlink" href="#Before-starting:-decide-what-you-want" title="Link to this heading"></a></h2>
 <p>PH3 will ask you some information. It is best to think ahead of the answers:</p>
 <ul class="simple">
 <li><p><strong>Name</strong> / <strong>email</strong> / <strong>github username</strong>. You should know the answer of these questions. If you do not want to re-renter them everytime you make a new project you can write a <a class="reference external" href="https://balouf.github.io/package-helper-3/preparation.html#%5BOptional%5D-Make-a-config-file">user config file</a>.</p></li>
-<li><p><strong>Project Name</strong>: This is the name of your project in <em>human language</em>. It will be displayed in the documentation. You can (should?) use title case and spaces if you have multiple words. For example, <em>Package Helper 3</em>.</p></li>
-<li><p><strong>project-slug</strong>: This is where you <em>store</em> your package. It will typically be the name of the directory where you develop the package, the name of your github repository, and the name for installing from <code class="docutils literal notranslate"><span class="pre">PyPi</span></code>. The convention is to use lower case and dashes. Unless you have specific reasons, you should adopt a project slug consistent with your project name. For example, <code class="docutils literal notranslate"><span class="pre">package-helper-3</span></code>.</p></li>
-<li><p><strong>package_name</strong>: This is the <code class="docutils literal notranslate"><span class="pre">python</span></code> name of your package. It will typically be the name of the subdirectory of your project that contains the actual code. The convention is to use lower case and underscores. Unless you have specific reasons, you should adopt a package name consistent with your project name/slug. For example, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">package_helper_3</span> <span class="pre">as</span> <span class="pre">ph</span></code>.</p></li>
+<li><p><strong>Project Name</strong>: This is the name of your project in <em>human language</em>. It will be displayed in the documentation. You can (should?) use <strong>title case and spaces</strong> if you have multiple words. For example, <em>Package Helper 3</em>.</p></li>
+<li><p><strong>project-slug</strong>: This is where you <em>store</em> your package. It will typically be the name of the directory where you develop the package, the name of your github repository. The convention is to use <strong>lower case and dashes</strong>. Unless you have specific reasons, you should adopt a project slug consistent with your project name. For example, <code class="docutils literal notranslate"><span class="pre">package-helper-3</span></code>.</p></li>
+<li><p><strong>package_name</strong>: This is the <code class="docutils literal notranslate"><span class="pre">python</span></code> name of your package. It will typically be the name of the subdirectory of your project that contains the actual code, and the name for installing from <code class="docutils literal notranslate"><span class="pre">PyPi</span></code>. The convention is to use <strong>lower case and underscores</strong>. Unless you have specific reasons, you should adopt a package name consistent with your project name/slug. For example, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">package_helper_3</span> <span class="pre">as</span> <span class="pre">ph</span></code>. Also, you should <strong>check that your project slug is not used
+in</strong><a class="reference external" href="https://pypi.org/">PyPI</a>, even if you do not plan to use PyPI for the moment (e.g. to avoid any possible package collision).</p></li>
 <li><p><strong>Project description</strong>: one or two sentences that describes the purpose of your project. For example, “<em>Package Helper 3 explains how to create, develop, and maintain a Python package with Poetry.</em>”</p></li>
 <li><p><strong>version</strong>: PH3 adopts the <a class="reference external" href="https://semver.org/">semantic versioning</a> convention. As they suggest, we recommend to start your initial development release at 0.1.0.</p></li>
 <li><p><strong>default branch</strong>: Please use <code class="docutils literal notranslate"><span class="pre">main</span></code> (Cf <a class="reference external" href="https://balouf.github.io/package-helper-3/preparation.html#%5BBeware%5D-Default-branch-name">Default branch name</a>).</p></li>
@@ -111,98 +131,246 @@
 <li><p><strong>Dockerfile</strong>: do you plan to deploy your package on docker?</p></li>
 <li><p><strong>License</strong>: which open source license (if any) do you want for your package? Check <a class="reference external" href="https://choosealicense.com/">https://choosealicense.com/</a> if you need advice.</p></li>
 </ul>
-<p>with the minimal options (cookiecutter + PyCharm), and less than 30 minutes if you use all the goodies (Virtual environment, GitHub, etc).</p>
-<p>Generate Your Package with Cookiecutter</p>
-<p>Your project will need a project name (e.g. My Toy Package) and a project slug (typically my_toy_package). Before starting, check that your project slug is not used in PyPI, even if you do not plan to use PyPI for the moment.</p>
-<p>In a terminal (e.g. Anaconda Prompt):</p>
-<p>Go to the parent directory of where you want to put the directory of your package, e.g. D:<span class="math">\GitHub</span>.</p>
-<p>cookiecutter <a class="reference external" href="https://github.com/francois-durand/package_helper_2.git">https://github.com/francois-durand/package_helper_2.git</a></p>
-<p>Answer the questions. Here is an example (some explanations follow):</p>
-<p>full_name [François Durand]: François Durand email [<a class="reference external" href="mailto:fradurand&#37;&#52;&#48;gmail&#46;com">fradurand<span>&#64;</span>gmail<span>&#46;</span>com</a>]: <a class="reference external" href="mailto:fradurand&#37;&#52;&#48;gmail&#46;com">fradurand<span>&#64;</span>gmail<span>&#46;</span>com</a> github_username [francois-durand]: francois-durand project_name [Python Boilerplate]: My Toy Package project_slug [my_toy_package]: project_short_description [Python Boilerplate contains all the boilerplate you need to create a Python package.]: My Toy Package is a beautiful package. version [0.1.0]: Select main_git_branch_name: 1 - main 2 - master Choose from 1, 2 (1, 2) [1]: use_pytest [y]:
-use_codecov [y]: Select command_line_interface: 1 - No command-line interface 2 - Click 3 - Argparse Choose from 1, 2, 3 (1, 2, 3) [1]: create_author_file [y]: Select open_source_license: 1 - GNU General Public License v3 2 - MIT license 3 - BSD license 4 - ISC license 5 - Apache Software License 2.0 6 - Not open source Choose from 1, 2, 3, 4, 5, 6 (1, 2, 3, 4, 5, 6) [1]: Optionally, in your file manager, open the directory of your package: the whole file structure is now in there! Some
-explanations now:</p>
-<p>main_git_branch_name: your choice must be consistent with the settings of your git application. It is the name of your default branch in your git projects. If you do not know, it is probably “master”, but there is a current tendency to call it “main” instead and this will probably become standard in a near future.</p>
-<p>use_pytest: there are essentially three ways to do unit tests in Python: unittest (the standard solution), pytest (the recommended test package) and doctest (where tests are integrated in the docstrings). If you are new to testing, I suggest using doctest. But even so, pytest is useful to configure your tests (as we will do a bit later). For this reason, in all cases, I suggest to answer yes.</p>
-<p>use_codecov: you use Codecov to assess the coverage of your code by your tests. I suggest answering yes anyway, even if you do not plan to use Codecov for the moment.</p>
-<p>Click and Argparse allow you to easily call your program with unix-style command, e.g. python my_program.py –help. You can choose either of them without harm, even if you do not use it for the moment. But personally, I answer no.</p>
-<p>create_author_file: I suggest to answer yes.</p>
-<p>Open Your Project and Create a Virtual Environment (or not) A virtual environment is essentially a Python installation dedicated to your project, with its own versions of the third-party packages. It ensures that if you reuse this project several months later, it will still work… However, it can be difficult to use in conjunction with Jupyter Notebook. If using Jupyter is important, I suggest that you do not use virtual environments.</p>
-<p>In PyCharm:</p>
-<p>Choose “Open” and select the directory of your package.</p>
-<p>A prompt window named “Creating Virtual Environment” opens. If you want to create a virtual environment, validate with the default options. Otherwise, cancel.</p>
-<p>In the bottom right part of the window, you will probably see some background tasks running. Wait until they are finished.</p>
-<p>In the bottom right part of the window, the interpreter should be indicated: something like “Python X.X (your_package)”. If “No Interpreter” appears instead, click on it and select the desired interpreter (virtual environment or not).</p>
-<p>Install Dev Requirements The file requirements_dev.txt contains the list of the third-party packages that you need for development, such as sphinx or pytest, but that the end-user does not need when using your package.</p>
-<p>In PyCharm’s terminal:</p>
-<p>Ensure you are in the directory of your package (e.g. D:<span class="math">\GitHub</span><span class="math">\my</span>_toy_package).</p>
-<p>Ensure that your virtual environment is activated: there should be (venv) at the beginning of the line. If not:</p>
-<p>Windows: venv:nbsphinx-math:<cite>Scripts</cite><span class="math">\activate</span> Linux: source venv/bin/activate pip install -r requirements_dev.txt</p>
-<p>Install Your Package in “Development Mode” This way, your package behaves as if it were installed, but any change you make will have effect immediately.</p>
-<p>In PyCharm’s terminal, you should still be in the directory of your package. Do:</p>
-<p>python setup.py develop Check That Everything Is Working Locally In PyCharm: menu Run → Run → All Tests. It runs all the tests of the project. If you are new to testing, you can take example from the classes provided by the template, such as my_class_1.py.</p>
-<p>Open the file cov/index.html (in your web browser). It displays what parts of your code are covered by the tests.</p>
-<p>In PyCharm: menu Run → Run → Generate docs. It generates the html documentation of your project. The template provides examples of classes, such as the file my_class_1.py. You can use them as models if you are new to Sphinx documentation.</p>
-<p>Open the file build/index.html (in your web browser). It displays the html documentation of your project.</p>
-<p>Create the GitHub Repo In PyCharm:</p>
-<p>From the file README.rst of your package, copy the short description sentence, e.g.: “My Toy Package is a beautiful package.” (you will paste it in the form below).</p>
-<p>Menu VCS → Share project on GitHub.</p>
-<p>Fill in the form and validate, e.g.:</p>
-<p>New repository name: my_toy_package Remote name: origin Description: My Toy Package is a beautiful package. Accept to add all the files as proposed by PyCharm.</p>
-<p>In a browser, you can go to your GitHub account to check that everything is there.</p>
-<p>Check your GitHub Actions In GitHub:</p>
-<p>GitHub page of your package → Actions.</p>
-<p>Check that the actions are successes (it may take several minutes). The “build” action runs the tests of the package. The “docs” actions builds the documentation, and publishes it online if the branch is your default git branch (“main” or “master”).</p>
-<p>GitHub Settings On the GitHub page of your package:</p>
-<p>Tell GitHub Pages that the documentation files are in the “gh-pages” branch of your project:</p>
-<p>Settings → Pages → Source.</p>
-<p>Select “gh-pages”.</p>
-<p>Select “/ (root)”.</p>
-<p>Save.</p>
-<p>Configure Codecov:</p>
-<p>On Codecov’s website, log in with your GitHub account. On your main page: Not yet setup → select your project (you may have to wait for syncing before it appears). Then copy the Codecov token.</p>
-<p>Back to GitHub: Settings → Secrets → New repository secret. Name: CODECOV_TOKEN. Value: paste the codecov token.</p>
-<p>Register your PyPI credentials as “secrets”, so that GitHub can automatically publish your package on PyPI for you:</p>
-<p>Settings → Secrets.</p>
-<p>Select “New repository secret”. Name: PYPI_USERNAME. Value: your PyPI username.</p>
-<p>Select “New repository secret”. Name: PYPI_PASSWORD. Value: your PyPI password.</p>
-<p>Your First Commit In PyCharm, make a slight modification, e.g. in the file README.rst. Then commit/push:</p>
-<p>Menu Git → Commit.</p>
-<p>Enter a commit message.</p>
-<p>Commit and push.</p>
-<p>Push.</p>
-<p>Check That Everything Is Working Online GitHub page of your package → Actions. Wait until your actions are finished.</p>
-<p>Check the documentation:</p>
-<p>GitHub page of your package (main page) → near the bottom of the page, follow the link to your documentation. Check that the documentation is there.</p>
-<p>In the table of contents, click on the first page (e.g. My Toy Package). Depending on your initial choice of options, you should have up to four badges:</p>
-<p>PyPI: package or version not found (there will be the version number after your first release).</p>
-<p>Build: passing.</p>
-<p>Docs: passing.</p>
-<p>Codecov: with a percentage.</p>
-<p>In the table of contents: Reference → MyClass1. You should see the documentation of the first example of class provided by the template.</p>
-<p>On Check your test coverage:</p>
-<p>GitHub page of your package (main page) → near the bottom of the page, click on the Codecov badge.</p>
-<p>You can navigate in your project to see what parts of the code are covered by the tests.</p>
-<p>If you wish, you are now ready to release your first version (cf. below).</p>
 </section>
-<section id="[Advanced]-Make-your-logo!">
-<h2>[Advanced] Make your logo!<a class="headerlink" href="#[Advanced]-Make-your-logo!" title="Link to this heading"></a></h2>
-<p>It’s always nice to brand your package with a logo and/or a favicon.</p>
+<section id="Generate-your-package-with-Package-Helper-3">
+<h2>Generate your package with Package Helper 3<a class="headerlink" href="#Generate-your-package-with-Package-Helper-3" title="Link to this heading"></a></h2>
+<p>In a terminal (e.g. Anaconda Prompt, Powershell, …):</p>
+<ol class="arabic simple">
+<li><p>Go to the parent directory of where you want to put the directory of your package, e.g. <code class="docutils literal notranslate"><span class="pre">D:\GitHub\</span></code>, <code class="docutils literal notranslate"><span class="pre">/home/login/git/</span></code>, …</p></li>
+<li><p>Call Package Helper 3:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ph3
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Answer the questions (see above for the meaning). If you leave a question blank, the default proposal (in parenthesis) will be used. Here is an example:</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">PS C:\Users\fabienma\git\github&gt; ph3</span>
+<span class="go">  [1/12] full_name (Fabien Mathieu):</span>
+<span class="go">  [2/12] email (loufab@gmail.com):</span>
+<span class="go">  [3/12] github_username (balouf):</span>
+<span class="go">  [4/12] project_name (First Sandbox): My First PH3 Package</span>
+<span class="go">  [5/12] project_slug (my-first-ph3-package):</span>
+<span class="go">  [6/12] package_name (my_first_ph3_package):</span>
+<span class="go">  [7/12] project_description (Sandboxes are cool!): PH3 packages are quick to make!</span>
+<span class="go">  [8/12] version (0.1.0):</span>
+<span class="go">  [9/12] Select main_git_branch_name</span>
+<span class="go">    1 - main</span>
+<span class="go">    2 - master</span>
+<span class="go">    Choose from [1/2] (1):</span>
+<span class="go">  [10/12] Select command_line_interface</span>
+<span class="go">    1 - No command-line interface</span>
+<span class="go">    2 - Click</span>
+<span class="go">    3 - Argparse</span>
+<span class="go">    Choose from [1/2/3] (1): 2</span>
+<span class="go">  [11/12] dockerfile [y/n] (n):</span>
+<span class="go">  [12/12] Select open_source_license</span>
+<span class="go">    1 - MIT license</span>
+<span class="go">    2 - GNU General Public License v3</span>
+<span class="go">    3 - BSD license</span>
+<span class="go">    4 - ISC license</span>
+<span class="go">    5 - Apache Software License 2.0</span>
+<span class="go">    6 - Not open source</span>
+<span class="go">    Choose from [1/2/3/4/5/6] (1):</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Optionally, in your file manager, open the directory of your package: the whole file structure is now in there!</p></li>
+</ol>
+</section>
+<section id="Install-your-project">
+<h2>Install your project<a class="headerlink" href="#Install-your-project" title="Link to this heading"></a></h2>
+<p>Developing a project and using a package are two different things, so you should install your package twice, once in a dedicated environment, one in your main space!</p>
+<section id="Install-a-dedicated-environment.">
+<h3>Install a dedicated environment.<a class="headerlink" href="#Install-a-dedicated-environment." title="Link to this heading"></a></h3>
+<p>In a terminal prompt, go to the project directory (named as <code class="docutils literal notranslate"><span class="pre">project-slug</span></code>) and enter:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>install
+</pre></div>
+</div>
+<p>Wait for the installation to complete and you’re done!</p>
+<p>You can test that your environment is well configured by launching a shell:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>shell
+</pre></div>
+</div>
+<p>Your prompt should indicate the virtual environnment in parenthesis, for example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(my-first-ph3-package-py3.11)</span> <span class="go">C:\...\my-first-ph3-package&gt;</span>
+</pre></div>
+</div>
+<p>If you choose a CLI, you can try and run the default script:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(my-first-ph3-package-py3.11)</span> <span class="go">PS C:\...\my-first-ph3-package&gt; my_first_ph3_package --help</span>
+<span class="go">Usage: my_first_ph3_package [OPTIONS]</span>
+
+<span class="go">  Console script for my-first-ph3-package.</span>
+
+<span class="go">Options:</span>
+<span class="go">  --help  Show this message and exit.</span>
+</pre></div>
+</div>
+<p>You can leave the virtual environment with the command</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">exit</span>
+</pre></div>
+</div>
+<p>Note that poetry will install your package in <em>editable</em> mode. That means that everytime you load the package inside the dedicated environment, the current version will be used, not the one from the installation time.</p>
+<section id="[Windows-users]:-unable-to-load-error">
+<h4>[Windows users]: <code class="docutils literal notranslate"><span class="pre">unable</span> <span class="pre">to</span> <span class="pre">load</span></code> error<a class="headerlink" href="#[Windows-users]:-unable-to-load-error" title="Link to this heading"></a></h4>
+<p>Windows users may see an error when they try the <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">shell</span></code> command. This is usually due to the fact that you use a <code class="docutils literal notranslate"><span class="pre">Powershell</span></code> terminal, which by default has limited execution policies. Two options here (adapted from <a class="reference external" href="https://support.enthought.com/hc/en-us/articles/360058403072-Windows-error-activate-ps1-cannot-be-loaded-because-running-scripts-is-disabled-UnauthorizedAccess">https://support.enthought.com/hc/en-us/articles/360058403072-Windows-error-activate-ps1-cannot-be-loaded-because-running-scripts-is-disabled-UnauthorizedAccess</a>-):</p>
 <ul class="simple">
-<li><p>Create your pictures. If you have no inspiration, you can use <a class="reference external" href="https://favicon.io/favicon-generator/">https://favicon.io/favicon-generator/</a> to make one in a few seconds from a text (e.g. the acronym of your package).</p></li>
-<li><p>Edit your documentation files to include them.</p></li>
+<li><p>Don’t use Powershell. The old-fashioned Command Prompt does not rise the error.</p></li>
+<li><p>Elevate your Powershell rights by running the following command in a Powershell terminal:</p></li>
 </ul>
-<p>favicon is just a regular <code class="docutils literal notranslate"><span class="pre">png</span></code> file with small dimensions (16X16 or 32X32) and extension <code class="docutils literal notranslate"><span class="pre">.ico</span></code>. To include it, edit your <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code> file to include:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_favicon</span> <span class="o">=</span> <span class="s1">&#39;filename_of_the_fav.ico&#39;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted</span>
 </pre></div>
 </div>
-<p>Same thing for the logo, which will be displayed in the upper left corner of your documentation:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_logo</span> <span class="o">=</span> <span class="s1">&#39;filename_of_the_logo.png&#39;</span>
+</section>
+</section>
+<section id="Install-on-your-default-Python-distribution">
+<h3>Install on your default Python distribution<a class="headerlink" href="#Install-on-your-default-Python-distribution" title="Link to this heading"></a></h3>
+<p>Right now, your Python package is only available in its dedicated environment. To use it more broadly (e.g. if you want to run Jupyter Notebooks, combine it with other packages, etc…):</p>
+<ul class="simple">
+<li><p>Use a terminal prompt <strong>outside</strong> your dedicated environment (<code class="docutils literal notranslate"><span class="pre">exit</span></code> if you are within the dedicated environment);</p></li>
+<li><p>Go to the project directory and install your package:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </pre></div>
 </div>
-<p>By default, Sphinx will look for the files in the directory where <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> lies (usually <code class="docutils literal notranslate"><span class="pre">docs</span></code>). If you like to clean up, you can create a dedicated subdir for static files, like <code class="docutils literal notranslate"><span class="pre">_static</span></code>, and tell <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> about it:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_static_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_static&#39;</span><span class="p">]</span>
+<p>The <code class="docutils literal notranslate"><span class="pre">-e</span></code> option means that you will install the package in <em>editable</em> mode, like for the dedicated environment.</p>
+<p>Your package is now available outside your dedicated environment! For example, if you choose a CLI:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">PS C:\&gt;my_first_ph3_package</span>
+<span class="go">Replace this message by putting your code into my_first_ph3_package.cli.main</span>
+<span class="go">See click documentation at https://click.palletsprojects.com/</span>
 </pre></div>
 </div>
+<p>You can also try to open the Notebook <code class="docutils literal notranslate"><span class="pre">your-project-slug/docs/tutorials/tutorial.ipynb</span></code> and check that the calls to the package are working fine.</p>
+</section>
+</section>
+<section id="Try-your-project-with-PyCharm">
+<h2>Try your project with PyCharm<a class="headerlink" href="#Try-your-project-with-PyCharm" title="Link to this heading"></a></h2>
+<p>To open your project:</p>
+<ul class="simple">
+<li><p>Inside PyCharm, you can choose “Open” and select the directory of your project (<code class="docutils literal notranslate"><span class="pre">project-slug</span></code>).</p></li>
+<li><p>Alternatively, if you installed PyCharm with context menu, you can right-click the directory in your favorite file manager and select “Open folder as PyCharm project”</p></li>
+</ul>
+<p>In the bottom right part of the window, you will probably see some background tasks running. Wait until they are finished. In particular, wait until PyCharm discovered your dedicated environment, e.g. when <code class="docutils literal notranslate"><span class="pre">&lt;No</span> <span class="pre">interpreter&gt;</span></code> is replaced by something like <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">3.11</span> <span class="pre">(my-first-ph3-package)</span></code> (it is usually displayed in the lower right corner).</p>
+<section id="Run-tests-and-documentation-locally">
+<h3>Run tests and documentation locally<a class="headerlink" href="#Run-tests-and-documentation-locally" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>In PyCharm: menu Run → Run → All Tests. It runs all the tests of the project. PH3 provides in its template examples that you can re-use if you are new to testing (e.g. in <code class="docutils literal notranslate"><span class="pre">my_class_1.py</span></code>).</p></li>
+<li><p>Open the file <code class="docutils literal notranslate"><span class="pre">cov/index.html</span></code> (in your web browser). It displays what parts of your code are covered by the tests.</p></li>
+<li><p>In PyCharm: menu Run → Run → Generate docs. It generates the html documentation of your project. The template provides examples of classes, such as the file my_class_1.py. You can use them as models if you are new to Sphinx documentation.</p></li>
+<li><p>Open the file build/index.html (in your web browser). It displays the html documentation of your project.</p></li>
+</ul>
+</section>
+</section>
+<section id="Go-GitHub">
+<h2>Go GitHub<a class="headerlink" href="#Go-GitHub" title="Link to this heading"></a></h2>
+<p>First thing to do is create the GitHub repo of your project. In PyCharm:</p>
+<ul class="simple">
+<li><p>From the file <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> of your package, copy the <code class="docutils literal notranslate"><span class="pre">description</span></code> value, e.g. “PH3 packages are quick to make!” in the example above. You will paste it in the form below.</p></li>
+<li><p>Menu Version Control → Share project on GitHub.</p></li>
+<li><p>Fill in the form and validate, e.g.:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">New repository name: my_toy_package</span>
+<span class="go">Remote name: origin</span>
+<span class="go">Description: PH3 packages are quick to make!</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Accept to add all the files as proposed by PyCharm.</p></li>
+</ul>
+<p>In a browser, you can go to your GitHub account to check that everything is there.</p>
+<p><strong>Check repo visibility</strong>: GitHub repos can be private or public. Some features like publishing your documentation on GitHub pages are only available on public repos unless you have a paid account. If you set up your repo to private, you can switch visibility to public on the settings menu (the <em>Danger Zone</em> down the screen).</p>
+<section id="Check-GitHub-actions">
+<h3>Check GitHub actions<a class="headerlink" href="#Check-GitHub-actions" title="Link to this heading"></a></h3>
+<p>In GitHub:</p>
+<ul class="simple">
+<li><p>GitHub page of your package → Actions.</p></li>
+<li><p>Check that the actions are successes (it may take several minutes).</p>
+<ul>
+<li><p>The “build” action runs the tests of the package. Default PH3 triggers are:</p>
+<ul>
+<li><p>When something is pushed on the default branch</p></li>
+<li><p>When there is a pull request</p></li>
+<li><p>at 5:30 am the 1st and 15th of each month</p></li>
+</ul>
+</li>
+<li><p>The “docs” actions builds the documentation when something is pushed. It publishes it online if the branch is your default git branch (“main” or “master”).</p></li>
+<li><p>The “release” action should not have been triggered at this point. It will run when you release a version to publish it on PyPi.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="Declare-your-documentation">
+<h3>Declare your documentation<a class="headerlink" href="#Declare-your-documentation" title="Link to this heading"></a></h3>
+<p>Tell GitHub Pages that the documentation files are in the “gh-pages” branch of your project:</p>
+<ul class="simple">
+<li><p>Settings → Pages → Build and deployment</p></li>
+<li><p>Check that Source is “deploy from a branch”.</p></li>
+<li><p>Branch → “gh-pages”, “/ (root)”.</p></li>
+<li><p>Save.</p></li>
+</ul>
+</section>
+<section id="Share-a-few-secrets">
+<h3>Share a few secrets<a class="headerlink" href="#Share-a-few-secrets" title="Link to this heading"></a></h3>
+<p>Configure Codecov so you can publicly expose the test coverage of your package:</p>
+<ul class="simple">
+<li><p>On <a class="reference external" href="https://app.codecov.io/gh/">Codecov’s website</a>, log in with your GitHub account. On your main page: Not yet setup → select your project.</p></li>
+<li><p>You may have to wait for syncing before it appears. If it takes too long try to find out the <code class="docutils literal notranslate"><span class="pre">Can't</span> <span class="pre">find</span> <span class="pre">your</span> <span class="pre">repo?</span> <span class="pre">Try</span> <span class="pre">re-sync</span></code> link.</p></li>
+<li><p>In your project, copy the Codecov token.</p></li>
+<li><p>Back to GitHub: Settings → Secrets and variables → Actions → New repository secret. Name: <code class="docutils literal notranslate"><span class="pre">CODECOV_TOKEN</span></code>. Value: paste the codecov token.</p></li>
+</ul>
+<p>Register your PyPI token, so that GitHub can automatically publish your package on PyPI for you:</p>
+<ul class="simple">
+<li><p>Copy your PyPi token from the safe place where you stored it.</p></li>
+<li><p>In GitHub: Settings → Secrets and variables → Actions → New repository secret. Name: <code class="docutils literal notranslate"><span class="pre">PYPI_TOKEN</span></code>. Value: paste your PyPi token.</p></li>
+</ul>
+</section>
+<section id="Test-on-a-first-commit">
+<h3>Test on a first commit<a class="headerlink" href="#Test-on-a-first-commit" title="Link to this heading"></a></h3>
+<p>In PyCharm, make a slight modification, e.g. in the file <code class="docutils literal notranslate"><span class="pre">README.rst</span></code>. Then commit/push:</p>
+<ul class="simple">
+<li><p>From the VC menu, choose Commit (or <code class="docutils literal notranslate"><span class="pre">Ctrl+k</span></code>).</p></li>
+<li><p>Enter a commit message, click on <code class="docutils literal notranslate"><span class="pre">Commit</span></code>.</p></li>
+<li><p>From the VC menu, choose Push (or <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+K</span></code>).</p></li>
+<li><p>Click on Push.</p></li>
+</ul>
+<p>Then Check That Everything Is Working Online:</p>
+<ul class="simple">
+<li><p>GitHub page of your package → Actions. Wait until your actions are finished.</p></li>
+<li><p>Check the documentation:</p>
+<ul>
+<li><p>GitHub page of your package (main page) → near the bottom of the page, follow the link to your documentation. Check that the documentation is there.</p></li>
+<li><p>In the table of contents, click on the first page (e.g. My Toy Package). Depending on your initial choice of options, you should have up to five badges:</p>
+<ul>
+<li><p>PyPI: package or version not found (there will be the version number after your first release).</p></li>
+<li><p>Build: passing.</p></li>
+<li><p>Docs: passing.</p></li>
+<li><p>License: the license you choose.</p></li>
+<li><p>Codecov: with a percentage.</p></li>
+</ul>
+</li>
+<li><p>In the table of contents: Reference → MyClass1. You should see the documentation of the first example of class provided by the template.</p></li>
+</ul>
+</li>
+<li><p>Check your test coverage:</p>
+<ul>
+<li><p>GitHub page of your package (main page) → near the bottom of the page, click on the Codecov badge.</p></li>
+<li><p>You can navigate in your project to see what parts of the code are covered by the tests.</p></li>
+</ul>
+</li>
+</ul>
+<p>If you wish, you are now ready to release your first version! (cf. <a class="reference external" href="https://balouf.github.io/package-helper-3/maintain.html">Make a Release</a>).</p>
+</section>
+</section>
+<section id="Time-to-code!">
+<h2>Time to code!<a class="headerlink" href="#Time-to-code!" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Replace the toy code provided by PH3 with your actual code.</p></li>
+<li><p>Adjust everything accordingly:</p>
+<ul>
+<li><p>Add/remove dependencies according to your needs</p></li>
+</ul>
+</li>
+</ul>
 </section>
 </section>
 
@@ -211,7 +379,7 @@ explanations now:</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="preparation.html" class="btn btn-neutral float-left" title="Preliminaries: Once and for All" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="maintain.html" class="btn btn-neutral float-right" title="Develop and Maintain Your Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="maintain.html" class="btn btn-neutral float-right" title="Make a Release" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

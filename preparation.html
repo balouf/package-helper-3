@@ -57,14 +57,8 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Preliminaries: Once and for All</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Install-a-Python-distribution-(if-you-don't-have-one-already)">Install a Python distribution (if you don’t have one already)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Create-Accounts-on-the-Websites">Create Accounts on the Websites</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Install-Git">Install Git</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#[Beware]-Default-branch-name">[Beware] Default branch name</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#Install-Poetry">Install Poetry</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#[Optional-reading]-Interest-of-Poetry">[Optional reading] Interest of Poetry</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="#Install-Git">Install Git</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Install-Poetry">Install Poetry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Install-Package-Helper-3">Install Package Helper 3</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#[Optional]-Make-a-config-file">[Optional] Make a config file</a></li>
 </ul>
@@ -77,9 +71,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="creation.html">Create Your package</a></li>
-<li class="toctree-l2"><a class="reference internal" href="maintain.html">Develop and Maintain Your Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintain.html">Make a Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recap.html">Quick recap</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">F.A.Q.</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
@@ -119,32 +115,22 @@
 <li><p>The Python distribution is recent enough. As a rule of thumb, you should aim to keep one of the last three stable distributions at all times, e.g. 3.10, 3.11, 3.12 if 3.12 is the last stable (non-beta) release.</p></li>
 <li><p>The package manager <a class="reference external" href="https://pip.pypa.io/en/stable/">PIP</a> is included.</p></li>
 </ul>
-<p>Examples of distributions available:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.anaconda.com/download">Anaconda</a></p>
-<ul>
-<li><p>Pros: Anaconda installs by default a lot of common packages so you will not have to install them yourself (e.g. Numpy, Matplotlib, Jupyter, Pandas…).</p></li>
-<li><p>Cons: the distribution is very large to install and the including package manager (conda) can clash with PIP.</p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://www.python.org/downloads/">Vanilla Python</a></p>
-<ul>
-<li><p>Pro: Minimalist: as clean as possible.</p></li>
-<li><p>Cons: Minimalist: you’ll have to install your favorite packages on your own.</p></li>
-</ul>
-</li>
-</ul>
-<p>Anaconda is recommended for beginners who do not want to get too dirty in package management and are not afraid of re-installing the distribution once a year because of clash in package management.</p>
-<p>Vanilla Python is recommended for more experienced users who wants a full control of their environment(s) and are not afraid of re-installing the distribution once a year to stay sharp and up-to-date.</p>
 </section>
 <section id="Create-Accounts-on-the-Websites">
 <h2>Create Accounts on the Websites<a class="headerlink" href="#Create-Accounts-on-the-Websites" title="Link to this heading"></a></h2>
 <p>Ensure that you have accounts (preferably with the same login) on:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/">GitHub</a>,</p></li>
-<li><p><a class="reference external" href="https://app.codecov.io/gh/">Codecov</a>,</p></li>
 <li><p><a class="reference external" href="https://pypi.org/">PyPI</a>.</p></li>
 </ul>
+<p>In PyPi:</p>
+<ul class="simple">
+<li><p>Go to “Your account” → “Account Settings” → “API tokens” → “Add API token”.</p></li>
+<li><p>“Token name” → github (for example).</p></li>
+<li><p>“Scope” → “Entire account (all projects)”.</p></li>
+<li><p>Click on “create token”. Keep it somewhere safe.</p></li>
+</ul>
+<p>You will need access to <a class="reference external" href="https://app.codecov.io/gh/">Codecov</a>, but you can login with your GitHub account.</p>
 </section>
 <section id="Install-Git">
 <h2>Install Git<a class="headerlink" href="#Install-Git" title="Link to this heading"></a></h2>
@@ -155,14 +141,6 @@
 </pre></div>
 </div>
 <p>Ensure your version is recent enough (&gt;=2.40).</p>
-<section id="[Beware]-Default-branch-name">
-<h3>[Beware] Default branch name<a class="headerlink" href="#[Beware]-Default-branch-name" title="Link to this heading"></a></h3>
-<p>The git default branch name is used to name the principal branch in your git projects. It used to be “master” but the current standard is to call it “main”. When installing <code class="docutils literal notranslate"><span class="pre">git</span></code> you should setup “main” as default during the setup. The important thing is that the settings of your git application should be consistent with the setting of your <strong>new</strong> projects (there is no issue to manage an existing “master”-based project with a “main”-based git).</p>
-<p>To change the default branch name afterwards you can try:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>init.defaultBranch<span class="w"> </span>main
-</pre></div>
-</div>
-</section>
 </section>
 <section id="Install-Poetry">
 <h2>Install Poetry<a class="headerlink" href="#Install-Poetry" title="Link to this heading"></a></h2>
@@ -175,35 +153,12 @@
 <p>Additionally the following commands are recommended:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>config<span class="w"> </span>virtualenvs.in-project<span class="w"> </span><span class="nb">true</span>
 <span class="gp">$ </span>poetry<span class="w"> </span>self<span class="w"> </span>add<span class="w"> </span>poetry-bumpversion
+<span class="gp">$ </span>poetry<span class="w"> </span>self<span class="w"> </span>add<span class="w"> </span>poetry-plugin-up
 </pre></div>
 </div>
 <p>As one can guess, the first command tells that the virtual environment (venv) of a project should be created inside the project instead of within a centralized directory. It facilitates keeping track of the matchings between projects and venvs.</p>
 <p>The second command installs a poetry plugin that facilitates the management of the version number of your package.</p>
-<section id="[Optional-reading]-Interest-of-Poetry">
-<h3>[Optional reading] Interest of Poetry<a class="headerlink" href="#[Optional-reading]-Interest-of-Poetry" title="Link to this heading"></a></h3>
-<p>Before poetry, deploying packages required multiple files, e.g.:</p>
-<ul class="simple">
-<li><p>A <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file with some informations about the package and its dependencies;</p></li>
-<li><p>A <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file to facilitate the installation of dependencies with <code class="docutils literal notranslate"><span class="pre">pip</span></code>;</p></li>
-<li><p>A <code class="docutils literal notranslate"><span class="pre">requirements_dev.txt</span></code> file to describe the additional packages required to develop the package;</p></li>
-<li><p>Some dedicated config files like <code class="docutils literal notranslate"><span class="pre">tox.ini</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest.ini</span></code>, …</p></li>
-</ul>
-<p>All these files were to be update manually in most cases, leading to mismatch/conflicts between dependencies. And the environments were to be handled separately.</p>
-<p>Poetry uses two files:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> tells everything you need to know about your package, nicely split into sections.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code> gives an exhaustive set of exact versions (including where to find them) that works.</p></li>
-</ul>
-<p>The benefits are:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> can be automatically maintained by poetry commands to add/remove dependencies, update versions, …</p></li>
-<li><p>If required, it is easy to perform manual editions.</p></li>
-<li><p>You never need to edit <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code>, it is automatically managed.</p></li>
-<li><p>Dependencies can be split into groups, e.g. doc dependencies, dev dependencies, graphic dependencies… and you can customize the groups you want to install.</p></li>
-<li><p>Dependencies not available on <code class="docutils literal notranslate"><span class="pre">pip</span></code> can be integrated (e.g. private repositories).</p></li>
-<li><p>Installing your development environment is simple as <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">poetry</span> <span class="pre">install</span></code>. Installing the package in the main environment or pushing to pypi are also straightforward.</p></li>
-</ul>
-</section>
+<p>The last one installs a poetry plugin to automatically updates dependencies and bumps their versions in the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file.</p>
 </section>
 <section id="Install-Package-Helper-3">
 <h2>Install Package Helper 3<a class="headerlink" href="#Install-Package-Helper-3" title="Link to this heading"></a></h2>
@@ -212,19 +167,11 @@
 </pre></div>
 </div>
 <p>Check that the installation is correct:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ph3<span class="w"> </span>--version
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ph3<span class="w"> </span>--help
 </pre></div>
 </div>
 <section id="[Optional]-Make-a-config-file">
 <h3>[Optional] Make a config file<a class="headerlink" href="#[Optional]-Make-a-config-file" title="Link to this heading"></a></h3>
-<p>From <a class="reference external" href="https://cookiecutter.readthedocs.io/en/stable/advanced/user_config.html">https://cookiecutter.readthedocs.io/en/stable/advanced/user_config.html</a></p>
-<p>If you use Package Helper 3 / Cookiecutter a lot, you’ll find it useful to have a user config file. By default Cookiecutter tries to retrieve settings from a .cookiecutterrc file in your home directory. Recommended template for PH3:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">default_context</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">full_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Your</span><span class="nv"> </span><span class="s">Name</span><span class="nv"> </span><span class="s">Here&quot;</span>
-<span class="w">    </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my.name@example.com&quot;</span>
-<span class="w">    </span><span class="nt">github_username</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my-gh-username&quot;</span>
-</pre></div>
-</div>
 </section>
 </section>
 <section id="Install-Pycharm">

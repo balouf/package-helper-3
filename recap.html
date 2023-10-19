@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Make a Release &mdash; Package Helper 3 0.1.1 documentation</title>
+  <title>Quick recap &mdash; Package Helper 3 0.1.1 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
@@ -23,8 +23,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Quick recap" href="recap.html" />
-    <link rel="prev" title="Create Your package" href="creation.html" /> 
+    <link rel="next" title="F.A.Q." href="faq.html" />
+    <link rel="prev" title="Make a Release" href="maintain.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -56,8 +56,12 @@
 <li class="toctree-l1 current"><a class="reference internal" href="tutorial.html">Tutorial</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="preparation.html">Preliminaries: Once and for All</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creation.html">Create Your package</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Make a Release</a></li>
-<li class="toctree-l2"><a class="reference internal" href="recap.html">Quick recap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="maintain.html">Make a Release</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Quick recap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Preparation">Preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Creating-a-new-package">Creating a new package</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">F.A.Q.</a></li>
@@ -81,9 +85,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="tutorial.html">Tutorial</a></li>
-      <li class="breadcrumb-item active">Make a Release</li>
+      <li class="breadcrumb-item active">Quick recap</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/maintain.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/recap.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -91,16 +95,69 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Make-a-Release">
-<h1>Make a Release<a class="headerlink" href="#Make-a-Release" title="Link to this heading"></a></h1>
+  <section id="Quick-recap">
+<h1>Quick recap<a class="headerlink" href="#Quick-recap" title="Link to this heading"></a></h1>
+<p>If you used PH3 before and do not want to read all the lengthy tutorials again, here is an abridged version.</p>
+<section id="Preparation">
+<h2>Preparation<a class="headerlink" href="#Preparation" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Softwares Git, Poetry, Pycharm, PH3 (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">package-helper-3</span></code>)</p></li>
+<li><p>Poetry:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>config<span class="w"> </span>virtualenvs.in-project<span class="w"> </span><span class="nb">true</span>
+<span class="gp">$ </span>poetry<span class="w"> </span>self<span class="w"> </span>add<span class="w"> </span>poetry-bumpversion
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>PH3: create a <code class="docutils literal notranslate"><span class="pre">.cookiecutterrc</span></code> file (optional)</p></li>
+<li><p>Accounts: GitHub, Codecov, PyPi</p></li>
+<li><p>Link PyCharm to your Github account</p></li>
+</ul>
+</section>
+<section id="Creating-a-new-package">
+<h2>Creating a new package<a class="headerlink" href="#Creating-a-new-package" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Go to the parent directory of your future project</p></li>
+<li><p>In a terminal:</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ph3
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>my-project-slug
+<span class="gp">$ </span>poetry<span class="w"> </span>install
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Pycharm.</p>
+<ul>
+<li><p>Check run test &amp; documentation.</p></li>
+<li><p>Check local coverage and built documentation html files.</p></li>
+<li><p>Push project to GitHub.</p></li>
+</ul>
+</li>
+<li><p>Github</p>
+<ul>
+<li><p>Check the gh actions.</p></li>
+<li><p>Setup gh-pages as your public documentation.</p></li>
+<li><p>Install codecov and pypi tokens as project secrets.</p></li>
+</ul>
+</li>
+<li><p>Push a small commit, check everything (documentation, badges, coverage) is OK</p></li>
+<li><p>Start working on your project.</p>
+<ul>
+<li><p>Frequently run your configurations (tests &amp; documentation).</p></li>
+<li><p>Remind to update docs (especially reference) and tests, in particular when you change the structure.</p></li>
+</ul>
+</li>
+</ul>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="creation.html" class="btn btn-neutral float-left" title="Create Your package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="recap.html" class="btn btn-neutral float-right" title="Quick recap" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="maintain.html" class="btn btn-neutral float-left" title="Make a Release" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="faq.html" class="btn btn-neutral float-right" title="F.A.Q." accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
