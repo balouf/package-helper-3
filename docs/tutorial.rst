@@ -23,9 +23,7 @@ If you use all the tools presented in this tutorial, things will work this way:
 * When you make a *release* on GitHub, GitHub automatically publishes your package on PyPI_. This way, any Python
   user can install it with ``pip install``.
 
-When a section of the tutorial can be skipped, it is clearly indicated with some tags like `[optional]` or `[advanced]`.
-
-For people who used PH3 before, quick recaps are proposed at the beginning of each ot he main sections.
+For people who used PH3 before, a quick recap is proposed just to remind the key steps.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _PyCharm: https://www.jetbrains.com/pycharm
