@@ -8,6 +8,7 @@ Welcome to Package Helper 3's documentation!
    readme
    installation
    tutorial
+   faq
    contributing
    authors
    history
