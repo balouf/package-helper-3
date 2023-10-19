@@ -55,9 +55,11 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">F.A.Q.</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#I-am-used-to-setup.py-to-deploy-my-package.-Why-should-I-bother-with-Poetry?">I am used to <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> to deploy my package. Why should I bother with Poetry?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#How-to-manage-dependencies-(third-party-packages)?">How to manage dependencies (third-party packages)?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#I-have-a-great-package-based-on-setup.py.-How-can-I-switch-to-poetry?">I have a great package based on <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>. How can I switch to <code class="docutils literal notranslate"><span class="pre">poetry</span></code>?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Do-I-need-to-enter-my-name/email/github_login-everytime-I-make-a-package?">Do I need to enter my name/email/github_login everytime I make a package?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#How-to-call-a-method-from-a-prompt?">How to call a method from a prompt?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#How-to-add-a-logo?">How to add a logo?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#How-to-do-some-exotic-stuff-with-Poetry?">How to do <em>some exotic stuff</em> with Poetry?</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Install-from-a-private-repository:">Install from a private repository:</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Install-spacy-language-model">Install spacy language model</a></li>
@@ -65,13 +67,12 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Which-Python-distribution-should-I-use?">Which Python distribution should I use?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#What's-the-git-default-branch-name?">What’s the git default branch name?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#How-to-call-a-method-from-a-prompt?">How to call a method from a prompt?</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#How-to-add-a-logo?">How to add a logo?</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#PyPi">PyPi</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#What-if-I-lost-my-PyPi-token?">What if I lost my PyPi token?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#What-if-my-PyPi-token-is-compromised-(e.g.-I-published-it-in-a-public-page-by-mistake)?">What if my PyPi token is compromised (e.g. I published it in a public page by mistake)?</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#I-am-used-to-setup.py-to-deploy-my-package.-Why-should-I-bother-with-Poetry?">I am used to <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> to deploy my package. Why should I bother with Poetry?</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
@@ -105,31 +106,13 @@
              
   <section id="F.A.Q.">
 <h1>F.A.Q.<a class="headerlink" href="#F.A.Q." title="Link to this heading"></a></h1>
-<section id="I-am-used-to-setup.py-to-deploy-my-package.-Why-should-I-bother-with-Poetry?">
-<h2>I am used to <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> to deploy my package. Why should I bother with Poetry?<a class="headerlink" href="#I-am-used-to-setup.py-to-deploy-my-package.-Why-should-I-bother-with-Poetry?" title="Link to this heading"></a></h2>
-<p>Before poetry, deploying packages required multiple files, e.g.:</p>
-<ul class="simple">
-<li><p>A <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file with some informations about the package and its dependencies;</p></li>
-<li><p>A <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file to facilitate the installation of dependencies with <code class="docutils literal notranslate"><span class="pre">pip</span></code>;</p></li>
-<li><p>A <code class="docutils literal notranslate"><span class="pre">requirements_dev.txt</span></code> file to describe the additional packages required to develop the package;</p></li>
-<li><p>Some dedicated config files like <code class="docutils literal notranslate"><span class="pre">tox.ini</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest.ini</span></code>, …</p></li>
-</ul>
-<p>All these files were to be update manually in most cases, leading to mismatch/conflicts between dependencies. And the environments were to be handled separately.</p>
-<p>Poetry uses two files:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> tells everything you need to know about your package, nicely split into sections.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code> gives an exhaustive set of exact versions (including where to find them) that works.</p></li>
-</ul>
-<p>The benefits are:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> can be automatically maintained by poetry commands to add/remove dependencies, update versions, …</p></li>
-<li><p>If required, it is easy to perform manual editions.</p></li>
-<li><p>You never need to edit <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code>, it is automatically managed.</p></li>
-<li><p>Dependencies can be split into groups, e.g. doc dependencies, dev dependencies, graphic dependencies… and you can customize the groups you want to install.</p></li>
-<li><p>Dependencies not available on <code class="docutils literal notranslate"><span class="pre">pip</span></code> can be integrated (e.g. private repositories).</p></li>
-<li><p>Installing your development environment is simple as <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">poetry</span> <span class="pre">install</span></code>. Installing the package in the main environment or pushing to pypi are also straightforward.</p></li>
-</ul>
-<p>I used <a class="reference external" href="https://package-helper-2.readthedocs.io/en/latest/index.html">Package Helper 2 (PH2)</a> a lot to create my own packages. It was a great tool to bootstrap a new package in a couple of minutes, but it was based on a <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> approach. After one bite of Poetry I realized <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> was not an option for me anymore. This motivated the creation of <a class="reference external" href="https://balouf.github.io/package-helper-3/index.html">Package Helper 3</a>.</p>
+<section id="How-to-manage-dependencies-(third-party-packages)?">
+<h2>How to manage dependencies (third-party packages)?<a class="headerlink" href="#How-to-manage-dependencies-(third-party-packages)?" title="Link to this heading"></a></h2>
+<p>The most useful command you need to know is</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>add<span class="w"> </span>name_of_the_new_package
+</pre></div>
+</div>
+<p>But poetry offers a lot more. Don’t hesitate to browse its <a class="reference external" href="https://python-poetry.org/docs/">documentation</a>.</p>
 </section>
 <section id="I-have-a-great-package-based-on-setup.py.-How-can-I-switch-to-poetry?">
 <h2>I have a great package based on <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>. How can I switch to <code class="docutils literal notranslate"><span class="pre">poetry</span></code>?<a class="headerlink" href="#I-have-a-great-package-based-on-setup.py.-How-can-I-switch-to-poetry?" title="Link to this heading"></a></h2>
@@ -173,6 +156,42 @@
 </pre></div>
 </div>
 <p>(From <a class="reference external" href="https://cookiecutter.readthedocs.io/en/stable/advanced/user_config.html">https://cookiecutter.readthedocs.io/en/stable/advanced/user_config.html</a>)</p>
+</section>
+<section id="How-to-call-a-method-from-a-prompt?">
+<h2>How to call a method from a prompt?<a class="headerlink" href="#How-to-call-a-method-from-a-prompt?" title="Link to this heading"></a></h2>
+<p>With Poetry, you can easily setup commands to be executed directly from a prompt (a.k.a. Command Line Interface, CLI). This is made by linking some keywords (<em>entry points</em>) to methods of your package. The declarations are made in the <code class="docutils literal notranslate"><span class="pre">[tool.poetry.scripts]</span></code> section of <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.</p>
+<p>For example, if you choose a CLI when creating your project, you should have something like this:</p>
+<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.poetry.scripts]</span>
+<span class="n">my_first_ph3_package</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;my_first_ph3_package.cli:main&#39;</span>
+</pre></div>
+</div>
+<p>The key is the <em>entry point</em>, e.g. the command that will trigger the execution of your script. By default, PH3 sets up an entry point name like the package name but you may change that!</p>
+<p>The value tells where is located the method you want to execute. In the example above, it is the <code class="docutils literal notranslate"><span class="pre">main</span></code> method of the <code class="docutils literal notranslate"><span class="pre">cli.py</span></code> file located at the root of the <code class="docutils literal notranslate"><span class="pre">my_first_ph3_package</span></code> package.</p>
+<p><strong>Entry points and editable mode</strong>: it is important to understand that the <em>editable</em> mode of a package is <em>passive</em>. It just tell Python to look directly at the location of the package you are working on instead of the place where regular packages are installed. In particular, just editing the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> has no effect on the available entry points so if you change them you need to refresh your installations: inside your project directory and outside the dedicated environment, do:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>install
+<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>-U
+</pre></div>
+</div>
+</section>
+<section id="How-to-add-a-logo?">
+<h2>How to add a logo?<a class="headerlink" href="#How-to-add-a-logo?" title="Link to this heading"></a></h2>
+<p>It’s always nice to brand your package with a logo and/or a favicon.</p>
+<ul class="simple">
+<li><p>Create your pictures. If you have no inspiration, you can use <a class="reference external" href="https://favicon.io/favicon-generator/">https://favicon.io/favicon-generator/</a> to make one in a few seconds from a text (e.g. the acronym of your package).</p></li>
+<li><p>Edit your documentation files to include them.</p></li>
+</ul>
+<p>favicon is just a regular <code class="docutils literal notranslate"><span class="pre">png</span></code> file with small dimensions (16X16 or 32X32) and extension <code class="docutils literal notranslate"><span class="pre">.ico</span></code>. To include it, edit your <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code> file to include:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_favicon</span> <span class="o">=</span> <span class="s1">&#39;filename_of_the_fav.ico&#39;</span>
+</pre></div>
+</div>
+<p>Same thing for the logo, which will be displayed in the upper left corner of your documentation:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_logo</span> <span class="o">=</span> <span class="s1">&#39;filename_of_the_logo.png&#39;</span>
+</pre></div>
+</div>
+<p>By default, Sphinx will look for the files in the directory where <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> lies (usually <code class="docutils literal notranslate"><span class="pre">docs</span></code>). If you like to clean up, you can create a dedicated subdir for static files, like <code class="docutils literal notranslate"><span class="pre">_static</span></code>, and tell <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> about it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_static_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_static&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
 </section>
 <section id="How-to-do-some-exotic-stuff-with-Poetry?">
 <h2>How to do <em>some exotic stuff</em> with Poetry?<a class="headerlink" href="#How-to-do-some-exotic-stuff-with-Poetry?" title="Link to this heading"></a></h2>
@@ -223,42 +242,6 @@
 </pre></div>
 </div>
 </section>
-<section id="How-to-call-a-method-from-a-prompt?">
-<h2>How to call a method from a prompt?<a class="headerlink" href="#How-to-call-a-method-from-a-prompt?" title="Link to this heading"></a></h2>
-<p>With Poetry, you can easily setup commands to be executed directly from a prompt (a.k.a. Command Line Interface, CLI). This is made by linking some keywords (<em>entry points</em>) to methods of your package. The declarations are made in the <code class="docutils literal notranslate"><span class="pre">[tool.poetry.scripts]</span></code> section of <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>.</p>
-<p>For example, if you choose a CLI when creating your project, you should have something like this:</p>
-<div class="highlight-toml notranslate"><div class="highlight"><pre><span></span><span class="k">[tool.poetry.scripts]</span>
-<span class="n">my_first_ph3_package</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#39;my_first_ph3_package.cli:main&#39;</span>
-</pre></div>
-</div>
-<p>The key is the <em>entry point</em>, e.g. the command that will trigger the execution of your script. By default, PH3 sets up an entry point name like the package name but you may change that!</p>
-<p>The value tells where is located the method you want to execute. In the example above, it is the <code class="docutils literal notranslate"><span class="pre">main</span></code> method of the <code class="docutils literal notranslate"><span class="pre">cli.py</span></code> file located at the root of the <code class="docutils literal notranslate"><span class="pre">my_first_ph3_package</span></code> package.</p>
-<p><strong>Entry points and editable mode</strong>: it is important to understand that the <em>editable</em> mode of a package is <em>passive</em>. It just tell Python to look directly at the location of the package you are working on instead of the place where regular packages are installed. In particular, just editing the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> has no effect on the available entry points so if you change them you need to refresh your installations: inside your project directory and outside the dedicated environment, do:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>install
-<span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="w"> </span>-U
-</pre></div>
-</div>
-</section>
-<section id="How-to-add-a-logo?">
-<h2>How to add a logo?<a class="headerlink" href="#How-to-add-a-logo?" title="Link to this heading"></a></h2>
-<p>It’s always nice to brand your package with a logo and/or a favicon.</p>
-<ul class="simple">
-<li><p>Create your pictures. If you have no inspiration, you can use <a class="reference external" href="https://favicon.io/favicon-generator/">https://favicon.io/favicon-generator/</a> to make one in a few seconds from a text (e.g. the acronym of your package).</p></li>
-<li><p>Edit your documentation files to include them.</p></li>
-</ul>
-<p>favicon is just a regular <code class="docutils literal notranslate"><span class="pre">png</span></code> file with small dimensions (16X16 or 32X32) and extension <code class="docutils literal notranslate"><span class="pre">.ico</span></code>. To include it, edit your <code class="docutils literal notranslate"><span class="pre">docs/conf.py</span></code> file to include:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_favicon</span> <span class="o">=</span> <span class="s1">&#39;filename_of_the_fav.ico&#39;</span>
-</pre></div>
-</div>
-<p>Same thing for the logo, which will be displayed in the upper left corner of your documentation:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_logo</span> <span class="o">=</span> <span class="s1">&#39;filename_of_the_logo.png&#39;</span>
-</pre></div>
-</div>
-<p>By default, Sphinx will look for the files in the directory where <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> lies (usually <code class="docutils literal notranslate"><span class="pre">docs</span></code>). If you like to clean up, you can create a dedicated subdir for static files, like <code class="docutils literal notranslate"><span class="pre">_static</span></code>, and tell <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> about it:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">html_static_path</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_static&#39;</span><span class="p">]</span>
-</pre></div>
-</div>
-</section>
 <section id="PyPi">
 <h2>PyPi<a class="headerlink" href="#PyPi" title="Link to this heading"></a></h2>
 <section id="What-if-I-lost-my-PyPi-token?">
@@ -269,6 +252,32 @@
 <h3>What if my PyPi token is compromised (e.g. I published it in a public page by mistake)?<a class="headerlink" href="#What-if-my-PyPi-token-is-compromised-(e.g.-I-published-it-in-a-public-page-by-mistake)?" title="Link to this heading"></a></h3>
 <p>Immediately delete the compromised token and create a new one. You will have to change the <code class="docutils literal notranslate"><span class="pre">PYPI_TOKEN</span></code> secret of all your packages based on the old token.</p>
 </section>
+</section>
+<section id="I-am-used-to-setup.py-to-deploy-my-package.-Why-should-I-bother-with-Poetry?">
+<h2>I am used to <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> to deploy my package. Why should I bother with Poetry?<a class="headerlink" href="#I-am-used-to-setup.py-to-deploy-my-package.-Why-should-I-bother-with-Poetry?" title="Link to this heading"></a></h2>
+<p>Before poetry, deploying packages required multiple files, e.g.:</p>
+<ul class="simple">
+<li><p>A <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> file with some informations about the package and its dependencies;</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file to facilitate the installation of dependencies with <code class="docutils literal notranslate"><span class="pre">pip</span></code>;</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">requirements_dev.txt</span></code> file to describe the additional packages required to develop the package;</p></li>
+<li><p>Some dedicated config files like <code class="docutils literal notranslate"><span class="pre">tox.ini</span></code>, <code class="docutils literal notranslate"><span class="pre">pytest.ini</span></code>, …</p></li>
+</ul>
+<p>All these files were to be update manually in most cases, leading to mismatch/conflicts between dependencies. And the environments were to be handled separately.</p>
+<p>Poetry uses two files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> tells everything you need to know about your package, nicely split into sections.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code> gives an exhaustive set of exact versions (including where to find them) that works.</p></li>
+</ul>
+<p>The benefits are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> can be automatically maintained by poetry commands to add/remove dependencies, update versions, …</p></li>
+<li><p>If required, it is easy to perform manual editions.</p></li>
+<li><p>You never need to edit <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code>, it is automatically managed.</p></li>
+<li><p>Dependencies can be split into groups, e.g. doc dependencies, dev dependencies, graphic dependencies… and you can customize the groups you want to install.</p></li>
+<li><p>Dependencies not available on <code class="docutils literal notranslate"><span class="pre">pip</span></code> can be integrated (e.g. private repositories).</p></li>
+<li><p>Installing your development environment is simple as <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">poetry</span> <span class="pre">install</span></code>. Installing the package in the main environment or pushing to pypi are also straightforward.</p></li>
+</ul>
+<p>I used <a class="reference external" href="https://package-helper-2.readthedocs.io/en/latest/index.html">Package Helper 2 (PH2)</a> a lot to create my own packages. It was a great tool to bootstrap a new package in a couple of minutes, but it was based on a <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> approach. After one bite of Poetry I realized <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> was not an option for me anymore. This motivated the creation of <a class="reference external" href="https://balouf.github.io/package-helper-3/index.html">Package Helper 3</a>.</p>
 </section>
 </section>
 
