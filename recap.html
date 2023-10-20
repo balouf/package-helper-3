@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quick recap &mdash; Package Helper 3 0.1.1 documentation</title>
+  <title>Quick recap &mdash; Package Helper 3 0.2.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
@@ -14,7 +14,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="_static/documentation_options.js?v=938c9ccc"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -39,7 +39,7 @@
             Package Helper 3
           </a>
               <div class="version">
-                0.1.1
+                0.2.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -60,6 +60,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Quick recap</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Preparation">Preparation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Creating-a-new-package">Creating a new package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Make-a-release">Make a release</a></li>
 </ul>
 </li>
 </ul>
@@ -101,7 +102,7 @@
 <section id="Preparation">
 <h2>Preparation<a class="headerlink" href="#Preparation" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Softwares Git, Poetry, Pycharm, PH3 (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">package-helper-3</span></code>)</p></li>
+<li><p>Softwares Pandoc, Git, Poetry, Pycharm, PH3 (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">package-helper-3</span></code>)</p></li>
 <li><p>Poetry:</p></li>
 </ul>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>config<span class="w"> </span>virtualenvs.in-project<span class="w"> </span><span class="nb">true</span>
@@ -110,7 +111,7 @@
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>PH3: create a <code class="docutils literal notranslate"><span class="pre">.cookiecutterrc</span></code> file (optional)</p></li>
+<li><p>PH3: <cite>create a `</cite>.cookiecutterrc`` file &lt;<a class="reference external" href="https://balouf.github.io/package-helper-3/faq.html#Do-I-need-to-enter-my-name/email/github_login-everytime-I-make-a-package">https://balouf.github.io/package-helper-3/faq.html#Do-I-need-to-enter-my-name/email/github_login-everytime-I-make-a-package</a>?&gt;`__ (optional)</p></li>
 <li><p>Accounts: GitHub, PyPi</p></li>
 <li><p>PyPi: create a token (and save it!)</p></li>
 <li><p>Link PyCharm to your Github account</p></li>
@@ -150,6 +151,20 @@
 <li><p>Remind to update docs (especially reference) and tests, in particular when you change the structure.</p></li>
 </ul>
 </li>
+</ul>
+</section>
+<section id="Make-a-release">
+<h2>Make a release<a class="headerlink" href="#Make-a-release" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Bump your dependencies (<code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">up</span></code>)</p></li>
+<li><p>Import important classes in main <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code></p></li>
+<li><p>Check your docs (references and tutorials)</p></li>
+<li><p>Bulletproof tests (coverage!) and documentation building (look up Sphinx warnings)</p></li>
+<li><p>Bump version of your package (<code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">version</span> <span class="pre">patch/minor/major</span></code>)</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">HISTORY.rst</span></code>, beware of strict <code class="docutils literal notranslate"><span class="pre">.rst</span></code> compliance</p></li>
+<li><p>Commit/Push, merge into <code class="docutils literal notranslate"><span class="pre">main</span></code>/<code class="docutils literal notranslate"><span class="pre">master</span></code> if you were on a secondary branch</p></li>
+<li><p>Create release on GitHub. Use <code class="docutils literal notranslate"><span class="pre">vx.y.z</span></code> convention for the tag</p></li>
+<li><p>Wait for the badge to be updated, check the release on PyPi</p></li>
 </ul>
 </section>
 </section>

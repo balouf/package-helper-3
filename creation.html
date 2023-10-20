@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Create Your package &mdash; Package Helper 3 0.1.1 documentation</title>
+  <title>Create Your package &mdash; Package Helper 3 0.2.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
@@ -14,7 +14,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="_static/documentation_options.js?v=938c9ccc"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -39,7 +39,7 @@
             Package Helper 3
           </a>
               <div class="version">
-                0.1.1
+                0.2.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -121,9 +121,9 @@
 <ul class="simple">
 <li><p><strong>Name</strong> / <strong>email</strong> / <strong>github username</strong>. You should know the answer of these questions. If you do not want to re-renter them everytime you make a new project you can write a <a class="reference external" href="https://balouf.github.io/package-helper-3/faq.html#Do-I-need-to-enter-my-name/email/github_login-everytime-I-make-a-package?">user config file</a>.</p></li>
 <li><p><strong>Project Name</strong>: This is the name of your project in <em>human language</em>. It will be displayed in the documentation. You can (should?) use <strong>title case and spaces</strong> if you have multiple words. For example, <em>Package Helper 3</em>.</p></li>
-<li><p><strong>project-slug</strong>: This is where you <em>store</em> your package. It will typically be the name of the directory where you develop the package, the name of your github repository. The convention is to use <strong>lower case and dashes</strong>. Unless you have specific reasons, you should adopt a project slug consistent with your project name. For example, <code class="docutils literal notranslate"><span class="pre">package-helper-3</span></code>.</p></li>
-<li><p><strong>package_name</strong>: This is the <code class="docutils literal notranslate"><span class="pre">python</span></code> name of your package. It will typically be the name of the subdirectory of your project that contains the actual code, and the name for installing from <code class="docutils literal notranslate"><span class="pre">PyPi</span></code>. The convention is to use <strong>lower case and underscores</strong>. Unless you have specific reasons, you should adopt a package name consistent with your project name/slug. For example, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">package_helper_3</span> <span class="pre">as</span> <span class="pre">ph</span></code>. Also, you should <strong>check that your project slug is not used
-in</strong><a class="reference external" href="https://pypi.org/">PyPI</a>, even if you do not plan to use PyPI for the moment (e.g. to avoid any possible package collision).</p></li>
+<li><p><strong>project-slug</strong>: This is where you <em>store</em> your package. It will typically be the name of the directory where you develop the package, and the name of your GitHub/PyPi repositories. The convention is to use <strong>lower case and dashes</strong>. Unless you have specific reasons, you should adopt a project slug consistent with your project name. For example, <code class="docutils literal notranslate"><span class="pre">package-helper-3</span></code>. Also, you should <strong>check that your project slug is not used in</strong><a class="reference external" href="https://pypi.org/">PyPI</a>, even if you do not plan to use
+PyPI for the moment (e.g. to avoid any possible package collision).</p></li>
+<li><p><strong>package_name</strong>: This is the <code class="docutils literal notranslate"><span class="pre">python</span></code> name of your package. It will typically be the name of the subdirectory of your project that contains the actual code. The convention is to use <strong>lower case and underscores</strong>. Unless you have specific reasons, you should adopt a package name consistent with your project name/slug. For example, <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">package_helper_3</span> <span class="pre">as</span> <span class="pre">ph</span></code>.</p></li>
 <li><p><strong>Project description</strong>: one or two sentences that describes the purpose of your project. For example, “<em>Package Helper 3 explains how to create, develop, and maintain a Python package with Poetry.</em>”</p></li>
 <li><p><strong>version</strong>: PH3 adopts the <a class="reference external" href="https://semver.org/">semantic versioning</a> convention. As they suggest, we recommend to start your initial development release at 0.1.0.</p></li>
 <li><p><strong>default branch</strong>: Please use <code class="docutils literal notranslate"><span class="pre">main</span></code> (Cf <a class="reference external" href="https://balouf.github.io/package-helper-3/faq.html#What's-the-git-default-branch-name?">Default branch name</a>).</p></li>
@@ -314,7 +314,7 @@ in</strong><a class="reference external" href="https://pypi.org/">PyPI</a>, even
 <p>Configure Codecov so you can publicly expose the test coverage of your package:</p>
 <ul class="simple">
 <li><p>On <a class="reference external" href="https://app.codecov.io/gh/">Codecov’s website</a>, log in with your GitHub account. On your main page: Not yet setup → select your project.</p></li>
-<li><p>You may have to wait for syncing before it appears. If it takes too long try to find out the <code class="docutils literal notranslate"><span class="pre">Can't</span> <span class="pre">find</span> <span class="pre">your</span> <span class="pre">repo?</span> <span class="pre">Try</span> <span class="pre">re-sync</span></code> link.</p></li>
+<li><p>You may have to wait for syncing before it appears. If it takes too long try the <code class="docutils literal notranslate"><span class="pre">Can't</span> <span class="pre">find</span> <span class="pre">your</span> <span class="pre">repo?</span> <span class="pre">Try</span> <span class="pre">re-sync</span></code> link (but you may have to wait anyway).</p></li>
 <li><p>In your project, copy the Codecov token.</p></li>
 <li><p>Back to GitHub: Settings → Secrets and variables → Actions → New repository secret. Name: <code class="docutils literal notranslate"><span class="pre">CODECOV_TOKEN</span></code>. Value: paste the codecov token.</p></li>
 </ul>
@@ -366,6 +366,8 @@ in</strong><a class="reference external" href="https://pypi.org/">PyPI</a>, even
 <ul class="simple">
 <li><p>Replace the toy code provided by PH3 with your actual code.</p></li>
 <li><p><a class="reference external" href="https://balouf.github.io/package-helper-3/faq.html#How-to-manage-dependencies-(third-party-packages)?">Add/remove dependencies</a> according to your needs.</p></li>
+<li><p>Right click on PyCharm’s project tree to create new <em>modules</em> (i.e. Python files) and <em>packages</em> (directories with a <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> file).</p></li>
+<li><p>If you manually copy files in your project, don’t forget to add them to Git.</p></li>
 <li><p>Keep in mind that your project is not just your source code</p>
 <ul>
 <li><p>Update your documentation</p>

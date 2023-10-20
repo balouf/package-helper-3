@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Make a Release &mdash; Package Helper 3 0.1.1 documentation</title>
+  <title>Make a Release &mdash; Package Helper 3 0.2.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
@@ -14,7 +14,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=a58bc63e"></script>
+        <script src="_static/documentation_options.js?v=938c9ccc"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -39,7 +39,7 @@
             Package Helper 3
           </a>
               <div class="version">
-                0.1.1
+                0.2.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -56,7 +56,18 @@
 <li class="toctree-l1 current"><a class="reference internal" href="tutorial.html">Tutorial</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="preparation.html">Preliminaries: Once and for All</a></li>
 <li class="toctree-l2"><a class="reference internal" href="creation.html">Create Your package</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Make a Release</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Make a Release</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Bump-dependencies-in-your-pyproject.toml">Bump dependencies in your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#[optional]-Manual-upgrade">[optional] Manual upgrade</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Check-you-didn't-break-anything">Check you didn’t break anything</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#Make-it-easy-to-use">Make it easy to use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Bulletproof-your-tests-and-documentation">Bulletproof your tests and documentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Finalize-your-release">Finalize your release</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Publish">Publish</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="recap.html">Quick recap</a></li>
 </ul>
 </li>
@@ -93,6 +104,120 @@
              
   <section id="Make-a-Release">
 <h1>Make a Release<a class="headerlink" href="#Make-a-Release" title="Link to this heading"></a></h1>
+<p>Releases are a key step in the development of a project. A release tells to the world that a new version of your work is available.</p>
+<p>You cannot take a release back: if you made a mistake, you will have to make another release to patch your errors. It is therefore important to take your time when you craft a release.</p>
+<section id="Bump-dependencies-in-your-pyproject.toml">
+<h2>Bump dependencies in your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code><a class="headerlink" href="#Bump-dependencies-in-your-pyproject.toml" title="Link to this heading"></a></h2>
+<p>Unless stated otherwise, Poetry uses <a class="reference external" href="https://python-poetry.org/docs/dependency-specification/#caret-requirements">carets</a> to specify requirements. This basically claims that your package is compatible with new versions of your dependencies as long as these versions do not change too much.</p>
+<p>The caret system avoids the burden to constantly update your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. However, there is always a moment when your package become incompatible with the latest version of one dependency. Incompatibility can be semantic (e.g. the latest version is outside the caret range) or real (the latest version does not behave like you expect it to do).</p>
+<p>Being incompatible with latests versions will not stop anyone from installing your package in a dedicated environment (docker, <code class="docutils literal notranslate"><span class="pre">venv</span></code>, …) where the version of each dependency is controlled by <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code>. However, it will be harder and harder for users to use it in their main Python environment. For example, imagine that the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> requirement of your package is <code class="docutils literal notranslate"><span class="pre">^1.22.4</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">&gt;=1.22.4</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;1.23</span></code>) and that the latest Pandas requires <code class="docutils literal notranslate"><span class="pre">numpy&gt;=1.23.2</span></code>. This means that
+everytime you install your package in its latest version you will have to downgrade Pandas, and conversely.</p>
+<p>This is why you should regularly bump the versions of our dependencies, and releases are a good opportunity to do that. Forcing users to upgrade to more recent (stable) versions of dependencies is always preferred to forcing downgrades.</p>
+<p>If you followed all the steps of the tutorial and installed the Poetry plugin <code class="docutils literal notranslate"><span class="pre">up</span></code>, just enter (inside your project, for example in a Pycharm terminal)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>up
+</pre></div>
+</div>
+<section id="[optional]-Manual-upgrade">
+<h3>[optional] Manual upgrade<a class="headerlink" href="#[optional]-Manual-upgrade" title="Link to this heading"></a></h3>
+<p>Optionally, you can look inside <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. If you see non-caret requirements that you want to bump, you can try to force the update manually with</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>add<span class="w"> </span>package-name@latest
+</pre></div>
+</div>
+<p>Poetry will complain if there are semantic issues, possibly giving you suggestions to address them.</p>
+</section>
+<section id="Check-you-didn't-break-anything">
+<h3>Check you didn’t break anything<a class="headerlink" href="#Check-you-didn't-break-anything" title="Link to this heading"></a></h3>
+<p>After <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> is updated, refresh <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code> with</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>update
+</pre></div>
+</div>
+<p>Run your tests both locally and remotely. If your package is broken:</p>
+<ul class="simple">
+<li><p>Fix it if the error is obvious.</p></li>
+<li><p>If not, live to fight another day:</p>
+<ul>
+<li><p>Revert your git branch to the last commit before you did <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">up</span></code>. PyCharm has a nice graphical display of git branches that should make it easy.</p></li>
+<li><p>Refresh <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code> with a <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">update</span></code>.</p></li>
+<li><p>Check that your tests are back on track (locally and remotely).</p></li>
+<li><p>After the current release is done, you should prepare a dedicated release to make your package compatible with latests versions. If possible, preserve backward-compatibility, but not at all cost.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="Make-it-easy-to-use">
+<h2>Make it easy to use<a class="headerlink" href="#Make-it-easy-to-use" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>In the main <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>, import the classes that you believe users will use on a regular basis. <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">my_package</span> <span class="pre">import</span> <span class="pre">MyClass</span></code> is easier to use than <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">my_package.subpackage.my_class</span> <span class="pre">import</span> <span class="pre">MyClass</span></code>.</p></li>
+<li><p>If you have some notebooks in your documentation (e.g. tutorials), read and run them one last time to check they work and they are relevant.</p></li>
+<li><p>Check that the reference section of your documentation is consistent with your actual code, in particular, check that new classes/methods are documented (Sphinx will not complain if they are not).</p></li>
+</ul>
+<p>To reference a class:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">autoclass</span><span class="p">::</span> my_first_ph3_package.MyClass3
+    <span class="nc">:members:</span>
+</pre></div>
+</div>
+<p>To reference a module (all the content of a Python file):</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">automodule</span><span class="p">::</span> my_first_ph3_package.cli
+    <span class="nc">:members:</span>
+</pre></div>
+</div>
+</section>
+<section id="Bulletproof-your-tests-and-documentation">
+<h2>Bulletproof your tests and documentation<a class="headerlink" href="#Bulletproof-your-tests-and-documentation" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Be sure that your tests are running OK, both locally in Pycharm and remotely (GitHub actions).</p></li>
+<li><p>Check your coverage (locally in <code class="docutils literal notranslate"><span class="pre">cov/index.html</span></code> and/or on <a class="reference external" href="https://app.codecov.io/gh/">Codecov</a>) and add tests if necessary. It is usually recommended to maintain at least a 70%-80% coverage, but some people see the coverage badge as a motivation to maintain 100%.</p></li>
+<li><p>Coverage is here to give <strong>you</strong> some (relative) confidence that your code will do what you expect, and to ease pinpointing issues when/before they occur. It is not a rating.</p></li>
+<li><p>In particular, don’t abuse of <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">pragma:</span> <span class="pre">no</span> <span class="pre">cover</span></code> (a magic comment to exclude parts of your code from the coverage statistics) to artificially reach a high coverage.</p></li>
+<li><p>Generate the documentation (in PyCharm and/or with GitHub actions) in order to check that it is working.</p></li>
+<li><p>If Sphinx issue some warnings, investigate them as it is usually a sign you did something wrong.</p></li>
+<li><p>Take some time to browse the resulting documentation as if you were a regular user. Are you happy with it?</p></li>
+</ul>
+</section>
+<section id="Finalize-your-release">
+<h2>Finalize your release<a class="headerlink" href="#Finalize-your-release" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Bump the version of your project (unless it is your first release). In PyCharm’s terminal:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">version</span> <span class="pre">patch</span></code> (version x.y.z → x.y.(z+1)) when you made a backwards-compatible modification (such as a bug fix).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">version</span> <span class="pre">minor</span></code> (version x.y.z → x.(y+1).0) when you added a functionality.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">version</span> <span class="pre">major</span></code> (version x.y.z → (x+1).0.0) when you changed the API. Note: in versions 0.y.z, the API is not expected to be stable anyway.</p></li>
+</ul>
+</li>
+<li><p>Update the file <code class="docutils literal notranslate"><span class="pre">HISTORY.rst</span></code>:</p>
+<ul>
+<li><p>Follow the pattern of previous entries:</p>
+<ul>
+<li><p>Title enclosed in dashes lines (<code class="docutils literal notranslate"><span class="pre">------------</span></code>)</p></li>
+<li><p>The two dashes lines should never be shorter than your title.</p></li>
+<li><p>Title should have the version, date of release, and short description.</p></li>
+<li><p>Enter release notes (changes) in short items (lines starting with `* `)</p></li>
+</ul>
+</li>
+<li><p>Stick to pure <code class="docutils literal notranslate"><span class="pre">.rst</span></code> syntax: never use Sphinx’ specific directives such as <code class="docutils literal notranslate"><span class="pre">:class:`MyClass`</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Commit/push.</p></li>
+<li><p>If you were working on a secondary branch (which is desirable), do what you have to do: pull request to “main” or “master”, etc.</p></li>
+<li><p>Ensure that you are now in your default git branch (“main” or “master”).</p></li>
+<li><p>Wait for the last GitHub actions to finish.</p></li>
+</ul>
+</section>
+<section id="Publish">
+<h2>Publish<a class="headerlink" href="#Publish" title="Link to this heading"></a></h2>
+<p>On <a class="reference external" href="https://github.com/">GitHub’s website</a> go to your project:</p>
+<ul class="simple">
+<li><p>“releases” → “Create a new release”.</p></li>
+<li><p>“Choose a tag” → the version you publish prefixed with the letter “v” (e.g. <code class="docutils literal notranslate"><span class="pre">v0.1.0</span></code>) → “Create new tag”</p></li>
+<li><p>Add a release title as in <code class="docutils literal notranslate"><span class="pre">HISTORY.rst</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">First</span> <span class="pre">release</span></code>.</p></li>
+<li><p>Add release notes as in <code class="docutils literal notranslate"><span class="pre">HISTORY.rst</span></code>, e.g. `* First release on PyPI.`.</p></li>
+<li><p>Optionally, check “Set as a pre-release” so the release will be labeled as non-production ready (recommended for early versions of your package)</p></li>
+<li><p>Select “Publish release”.</p></li>
+</ul>
+<p>After a few minutes, GitHub has finished the built and it is deployed on PyPI. <em>If you want to check, search for your package name on PyPI and check that the version number is correct. Note that the PyPI badge may take several more minutes before being updated.</em></p>
+<p><em>Check that the readme will be correctly rendered on PyPI.</em></p>
+</section>
 </section>
 
 
