@@ -12,7 +12,7 @@ To install Package Helper 3, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install package_helper_3
+    $ pip install package-helper-3
 
 This is the preferred method to install Package Helper 3, as it will always install the most recent stable release.
 
