@@ -2,6 +2,18 @@
 History
 =======
 
+
+-----------------------------------------
+0.2.0 (2023-10-20): Fully working release
+-----------------------------------------
+
+* CLI command (ph3) has been tested in real conditions.
+* Tutorials to describe the main steps (installation, creation, release).
+* One recap tutorial to remind the important suff at one glance.
+* FAQ for specific/advanced/optional questions.
+* Many bugs squashed.
+
+
 --------------------------------------
 0.1.1 (2023-10-17): Bugfix
 --------------------------------------

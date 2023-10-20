@@ -2,8 +2,8 @@
 name = "{{ cookiecutter.project_slug }}"
 version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.project_description }}"
-authors = ["Fabien Mathieu <fabien.mathieu@normalesup.org>"]
-repository = "https://github.com/{{ cookiecutter.package_name }}/{{ cookiecutter.project_slug }}"
+authors = ["{{ cookiecutter.full_name }} <{{ cookiecutter.email }}>"]
+repository = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
 documentation = "https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.project_slug }}"
 readme = "README.rst"
 packages = [
