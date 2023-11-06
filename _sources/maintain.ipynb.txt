@@ -45,7 +45,7 @@
    "id": "06b3ecb9",
    "metadata": {},
    "source": [
-    "If you followed all the steps of the tutorial and installed the Poetry plugin `up`, just enter (inside your project, for example in a Pycharm terminal)\n",
+    "If you followed all the steps of the tutorial and installed the Poetry plugin `up`, just enter (inside your project, for example in a PyCharm terminal)\n",
     "\n",
     "```console\n",
     "$ poetry up\n",
@@ -148,7 +148,7 @@
    "id": "bf50e849",
    "metadata": {},
    "source": [
-    "- Be sure that your tests are running OK, both locally in Pycharm and remotely (GitHub actions).\n",
+    "- Be sure that your tests are running OK, both locally in PyCharm and remotely (GitHub actions).\n",
     "- Check your coverage (locally in `cov/index.html` and/or on [Codecov](https://app.codecov.io/gh/)) and add tests if necessary. It is usually recommended to maintain at least a 70%-80% coverage, but some people see the coverage badge as a motivation to maintain 100%.\n",
     "- Coverage is here to give **you** some (relative) confidence that your code will do what you expect, and to ease pinpointing issues when/before they occur. It is not a rating.\n",
     "- In particular, don't abuse of `# pragma: no cover` (a magic comment to exclude parts of your code from the coverage statistics) to artificially reach a high coverage.\n",

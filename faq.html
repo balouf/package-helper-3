@@ -139,7 +139,7 @@
 <li><p>Poetry usually gives useful suggestions when it fails.</p></li>
 <li><p>Rule of thumb: don’t hesitate to sacrifice compatibility with older Python versions. For example, if your current version has Python &gt;= 3.6 compatibility and the numpy (the latest version, which Poetry suggested you to install) requires Python&gt;=3.9, just accept that your future releases will have Python&gt;=3.9 compatibility.</p></li>
 </ul>
-<p>At this point, the venv you have is Poetry-based. Open your project in Pycharm and run your tests. Adjust until they work.</p>
+<p>At this point, the venv you have is Poetry-based. Open your project in PyCharm and run your tests. Adjust until they work.</p>
 <p>Most <code class="docutils literal notranslate"><span class="pre">.ini</span></code> files, e.g. for tox or pytest, can be transferred into <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. Google how to do it.</p>
 <p>You should now be able to remove the legacy files. Check you didn’t break anything.</p>
 <p>Push your changes on GitHub (preferably on a secondary branch) to check it works.</p>
@@ -224,7 +224,7 @@
 <li><p><a class="reference external" href="https://www.anaconda.com/download">Anaconda</a></p>
 <ul>
 <li><p>Pros: Anaconda installs by default a lot of common packages so you will not have to install them yourself (e.g. Numpy, Matplotlib, Jupyter, Pandas…).</p></li>
-<li><p>Cons: the distribution is very large to install and the included package manager (conda) can clash with PIP.</p></li>
+<li><p>Cons: the distribution is very large to install and the included package manager (conda) can clash with PIP, provoking dependency conflicts.</p></li>
 </ul>
 </li>
 <li><p><a class="reference external" href="https://www.python.org/downloads/">Vanilla Python</a></p>

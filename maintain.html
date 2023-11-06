@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Quick recap" href="recap.html" />
-    <link rel="prev" title="Create Your package" href="creation.html" /> 
+    <link rel="prev" title="Create Your Package" href="creation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -55,7 +55,7 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="tutorial.html">Tutorial</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="preparation.html">Preliminaries: Once and for All</a></li>
-<li class="toctree-l2"><a class="reference internal" href="creation.html">Create Your package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creation.html">Create Your Package</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Make a Release</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Bump-dependencies-in-your-pyproject.toml">Bump dependencies in your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#[optional]-Manual-upgrade">[optional] Manual upgrade</a></li>
@@ -113,7 +113,7 @@
 <p>Being incompatible with latests versions will not stop anyone from installing your package in a dedicated environment (docker, <code class="docutils literal notranslate"><span class="pre">venv</span></code>, …) where the version of each dependency is controlled by <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code>. However, it will be harder and harder for users to use it in their main Python environment. For example, imagine that the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> requirement of your package is <code class="docutils literal notranslate"><span class="pre">^1.22.4</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">&gt;=1.22.4</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;1.23</span></code>) and that the latest Pandas requires <code class="docutils literal notranslate"><span class="pre">numpy&gt;=1.23.2</span></code>. This means that
 everytime you install your package in its latest version you will have to downgrade Pandas, and conversely.</p>
 <p>This is why you should regularly bump the versions of our dependencies, and releases are a good opportunity to do that. Forcing users to upgrade to more recent (stable) versions of dependencies is always preferred to forcing downgrades.</p>
-<p>If you followed all the steps of the tutorial and installed the Poetry plugin <code class="docutils literal notranslate"><span class="pre">up</span></code>, just enter (inside your project, for example in a Pycharm terminal)</p>
+<p>If you followed all the steps of the tutorial and installed the Poetry plugin <code class="docutils literal notranslate"><span class="pre">up</span></code>, just enter (inside your project, for example in a PyCharm terminal)</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>up
 </pre></div>
 </div>
@@ -166,7 +166,7 @@ everytime you install your package in its latest version you will have to downgr
 <section id="Bulletproof-your-tests-and-documentation">
 <h2>Bulletproof your tests and documentation<a class="headerlink" href="#Bulletproof-your-tests-and-documentation" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>Be sure that your tests are running OK, both locally in Pycharm and remotely (GitHub actions).</p></li>
+<li><p>Be sure that your tests are running OK, both locally in PyCharm and remotely (GitHub actions).</p></li>
 <li><p>Check your coverage (locally in <code class="docutils literal notranslate"><span class="pre">cov/index.html</span></code> and/or on <a class="reference external" href="https://app.codecov.io/gh/">Codecov</a>) and add tests if necessary. It is usually recommended to maintain at least a 70%-80% coverage, but some people see the coverage badge as a motivation to maintain 100%.</p></li>
 <li><p>Coverage is here to give <strong>you</strong> some (relative) confidence that your code will do what you expect, and to ease pinpointing issues when/before they occur. It is not a rating.</p></li>
 <li><p>In particular, don’t abuse of <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">pragma:</span> <span class="pre">no</span> <span class="pre">cover</span></code> (a magic comment to exclude parts of your code from the coverage statistics) to artificially reach a high coverage.</p></li>
@@ -224,7 +224,7 @@ everytime you install your package in its latest version you will have to downgr
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="creation.html" class="btn btn-neutral float-left" title="Create Your package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="creation.html" class="btn btn-neutral float-left" title="Create Your Package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="recap.html" class="btn btn-neutral float-right" title="Quick recap" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

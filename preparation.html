@@ -23,7 +23,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Create Your package" href="creation.html" />
+    <link rel="next" title="Create Your Package" href="creation.html" />
     <link rel="prev" title="Tutorial" href="tutorial.html" /> 
 </head>
 
@@ -55,20 +55,20 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="tutorial.html">Tutorial</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Preliminaries: Once and for All</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Install-a-Python-distribution-(if-you-don't-have-one-already)">Install a Python distribution (if you don’t have one already)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Install-a-Python-Distribution-if-You-Don't-Have-One-Already">Install a Python Distribution if You Don’t Have One Already</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Create-Accounts-on-the-Websites">Create Accounts on the Websites</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Install-Git">Install Git</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Install-Pandoc">Install Pandoc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Install-Poetry">Install Poetry</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Install-Package-Helper-3">Install Package Helper 3</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Install-Pycharm">Install Pycharm</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Link-Pycharm-to-your-GitHub-account">Link Pycharm to your GitHub account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Install-PyCharm">Install PyCharm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Link-PyCharm-to-your-GitHub-account">Link PyCharm to your GitHub account</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#[recommended]-Change-the-documentation-style">[recommended] Change the documentation style</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="creation.html">Create Your package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="creation.html">Create Your Package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="maintain.html">Make a Release</a></li>
 <li class="toctree-l2"><a class="reference internal" href="recap.html">Quick recap</a></li>
 </ul>
@@ -106,8 +106,8 @@
              
   <section id="Preliminaries:-Once-and-for-All">
 <h1>Preliminaries: Once and for All<a class="headerlink" href="#Preliminaries:-Once-and-for-All" title="Link to this heading"></a></h1>
-<section id="Install-a-Python-distribution-(if-you-don't-have-one-already)">
-<h2>Install a Python distribution (if you don’t have one already)<a class="headerlink" href="#Install-a-Python-distribution-(if-you-don't-have-one-already)" title="Link to this heading"></a></h2>
+<section id="Install-a-Python-Distribution-if-You-Don't-Have-One-Already">
+<h2>Install a Python Distribution if You Don’t Have One Already<a class="headerlink" href="#Install-a-Python-Distribution-if-You-Don't-Have-One-Already" title="Link to this heading"></a></h2>
 <p>Ensure that the following requirements are made:</p>
 <ul class="simple">
 <li><p>The Python distribution is recent enough. As a rule of thumb, you should aim to keep one of the last three stable distributions at all times, e.g. 3.10, 3.11, 3.12 if 3.12 is the last stable (non-beta) release.</p></li>
@@ -121,7 +121,7 @@
 <li><p><a class="reference external" href="https://github.com/">GitHub</a>,</p></li>
 <li><p><a class="reference external" href="https://pypi.org/">PyPI</a>.</p></li>
 </ul>
-<p>In PyPi:</p>
+<p>PyPi:</p>
 <ul class="simple">
 <li><p>Go to “Your account” → “Account Settings” → “API tokens” → “Add API token”.</p></li>
 <li><p>“Token name” → github (for example).</p></li>
@@ -160,11 +160,11 @@
 </div>
 <p>As one can guess, the first command tells that the virtual environment (venv) of a project should be created inside the project instead of within a centralized directory. It facilitates keeping track of the matchings between projects and venvs.</p>
 <p>The second command installs a poetry plugin that facilitates the management of the version number of your package.</p>
-<p>The last one installs a poetry plugin to automatically updates dependencies and bumps their versions in the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file.</p>
+<p>The last one installs a poetry plugin to automatically update dependencies and bump their versions in the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> file.</p>
 </section>
 <section id="Install-Package-Helper-3">
 <h2>Install Package Helper 3<a class="headerlink" href="#Install-Package-Helper-3" title="Link to this heading"></a></h2>
-<p>In a terminal (e.g. Anaconda Prompt, Windows Powershell, …):</p>
+<p>In a terminal (e.g. Anaconda Prompt, Bash, Windows Powershell, …):</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>package-helper-3
 </pre></div>
 </div>
@@ -173,22 +173,22 @@
 </pre></div>
 </div>
 </section>
-<section id="Install-Pycharm">
-<h2>Install Pycharm<a class="headerlink" href="#Install-Pycharm" title="Link to this heading"></a></h2>
-<p>Install using the binaries available here: <a class="reference external" href="https://www.jetbrains.com/pycharm/download/">https://www.jetbrains.com/pycharm/download/</a></p>
-<section id="Link-Pycharm-to-your-GitHub-account">
-<h3>Link Pycharm to your GitHub account<a class="headerlink" href="#Link-Pycharm-to-your-GitHub-account" title="Link to this heading"></a></h3>
-<p>In Pycharm settings: Version Control → GitHub → Add account</p>
+<section id="Install-PyCharm">
+<h2>Install PyCharm<a class="headerlink" href="#Install-PyCharm" title="Link to this heading"></a></h2>
+<p>Install using the binaries available here: <a class="reference external" href="https://www.jetbrains.com/pycharm/download/">https://www.jetbrains.com/pycharm/download/</a>.</p>
+<section id="Link-PyCharm-to-your-GitHub-account">
+<h3>Link PyCharm to your GitHub account<a class="headerlink" href="#Link-PyCharm-to-your-GitHub-account" title="Link to this heading"></a></h3>
+<p>In PyCharm settings: Version Control → GitHub → Add account.</p>
 <p>Two options are available:</p>
 <ul class="simple">
-<li><p>Log In with Token seems to be the recommended way. The first time, click on the generate button to open a GitHub page that will create an access token. Copy the token and paste it in Pycharm. Pycharm should remind it but to avoid generating a new token every other week you should keep a copy somewhere else as well (in a very safe place!).</p></li>
+<li><p>Log In with Token seems to be the recommended way. The first time, click on the generate button to open a GitHub page that will create an access token. Copy the token and paste it in PyCharm. PyCharm should remind it but to avoid generating a new token every other week you should keep a copy somewhere else as well (in a very safe place!).</p></li>
 <li><p>(deprecated) Log In via GitHub will open a GitHub page to grant you access.</p></li>
 </ul>
 </section>
 <section id="[recommended]-Change-the-documentation-style">
 <h3>[recommended] Change the documentation style<a class="headerlink" href="#[recommended]-Change-the-documentation-style" title="Link to this heading"></a></h3>
 <p>We recommend the <a class="reference external" href="https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html">Numpy documentation style</a>.</p>
-<p>In Pycharm settings: Tools → Python Integrated Tools → Docstrings → Docstring format → NumPy.</p>
+<p>In PyCharm settings: Tools → Python Integrated Tools → Docstrings → Docstring format → NumPy.</p>
 </section>
 </section>
 </section>
@@ -198,7 +198,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="tutorial.html" class="btn btn-neutral float-left" title="Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="creation.html" class="btn btn-neutral float-right" title="Create Your package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="creation.html" class="btn btn-neutral float-right" title="Create Your Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
