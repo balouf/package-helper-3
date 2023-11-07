@@ -1,133 +1,484 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Make a Release &mdash; Package Helper 3 0.2.0 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="shortcut icon" href="_static/favicon.ico"/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Make a Release &#8212; Package Helper 3 0.2.0 documentation</title>
   
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=938c9ccc"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script src="_static/js/theme.js"></script>
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script src="_static/documentation_options.js?v=938c9ccc"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'maintain';</script>
+    <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Quick recap" href="recap.html" />
-    <link rel="prev" title="Create Your Package" href="creation.html" /> 
-</head>
+    <link rel="prev" title="Create Your Package" href="creation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-          
-          
-          <a href="index.html" class="icon icon-home">
-            Package Helper 3
-          </a>
-              <div class="version">
-                0.2.0
-              </div>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="readme.html">Package Helper 3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="tutorial.html">Tutorial</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="preparation.html">Preliminaries: Once and for All</a></li>
-<li class="toctree-l2"><a class="reference internal" href="creation.html">Create Your Package</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Make a Release</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Bump-dependencies-in-your-pyproject.toml">Bump dependencies in your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#[optional]-Manual-upgrade">[optional] Manual upgrade</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Check-you-didn't-break-anything">Check you didn’t break anything</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#Make-it-easy-to-use">Make it easy to use</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Bulletproof-your-tests-and-documentation">Bulletproof your tests and documentation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Finalize-your-release">Finalize your release</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Publish">Publish</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="recap.html">Quick recap</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="faq.html">F.A.Q.</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="authors.html">Credits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
-</ul>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-        </div>
-      </div>
-    </nav>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">Package Helper 3</a>
-      </nav>
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Package Helper 3 0.2.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="readme.html">
+                        Package Helper 3
+                      </a>
+                    </li>
+                
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="tutorial.html">Tutorial</a></li>
-      <li class="breadcrumb-item active">Make a Release</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="_sources/maintain.ipynb.txt" rel="nofollow"> View page source</a>
-      </li>
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="tutorial.html">
+                        Tutorial
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="faq.html">
+                        F.A.Q.
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="contributing.html">
+                        Contributing
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="authors.html">
+                        Credits
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="history.html">
+                        History
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
   </ul>
-  <hr/>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/balouf/package-helper-3" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="readme.html">
+                        Package Helper 3
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="installation.html">
+                        Installation
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="tutorial.html">
+                        Tutorial
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="faq.html">
+                        F.A.Q.
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="contributing.html">
+                        Contributing
+                      </a>
+                    </li>
+                
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links-2">
+                    More
+                </button>
+                <ul id="pst-nav-more-links-2" class="dropdown-menu">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="authors.html">
+                        Credits
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link dropdown-item nav-internal" href="history.html">
+                        History
+                      </a>
+                    </li>
+                
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/balouf/package-helper-3" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="preparation.html">Preliminaries: Once and for All</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creation.html">Create Your Package</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Make a Release</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recap.html">Quick recap</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="tutorial.html" class="nav-link">Tutorial</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Make a Release</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section id="Make-a-Release">
-<h1>Make a Release<a class="headerlink" href="#Make-a-Release" title="Link to this heading"></a></h1>
+<h1>Make a Release<a class="headerlink" href="#Make-a-Release" title="Link to this heading">#</a></h1>
 <p>Releases are a key step in the development of a project. A release tells to the world that a new version of your work is available.</p>
 <p>You cannot take a release back: if you made a mistake, you will have to make another release to patch your errors. It is therefore important to take your time when you craft a release.</p>
 <section id="Bump-dependencies-in-your-pyproject.toml">
-<h2>Bump dependencies in your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code><a class="headerlink" href="#Bump-dependencies-in-your-pyproject.toml" title="Link to this heading"></a></h2>
+<h2>Bump dependencies in your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code><a class="headerlink" href="#Bump-dependencies-in-your-pyproject.toml" title="Link to this heading">#</a></h2>
 <p>Unless stated otherwise, Poetry uses <a class="reference external" href="https://python-poetry.org/docs/dependency-specification/#caret-requirements">carets</a> to specify requirements. This basically claims that your package is compatible with new versions of your dependencies as long as these versions do not change too much.</p>
 <p>The caret system avoids the burden to constantly update your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. However, there is always a moment when your package become incompatible with the latest version of one dependency. Incompatibility can be semantic (e.g. the latest version is outside the caret range) or real (the latest version does not behave like you expect it to do).</p>
-<p>Being incompatible with latests versions will not stop anyone from installing your package in a dedicated environment (docker, <code class="docutils literal notranslate"><span class="pre">venv</span></code>, …) where the version of each dependency is controlled by <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code>. However, it will be harder and harder for users to use it in their main Python environment. For example, imagine that the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> requirement of your package is <code class="docutils literal notranslate"><span class="pre">^1.22.4</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">&gt;=1.22.4</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;1.23</span></code>) and that the latest Pandas requires <code class="docutils literal notranslate"><span class="pre">numpy&gt;=1.23.2</span></code>. This means that
+<p>Being incompatible with latest versions will not stop anyone from installing your package in a dedicated environment (docker, <code class="docutils literal notranslate"><span class="pre">venv</span></code>, etc) where the version of each dependency is controlled by <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code>. However, it will be harder and harder for users to use it in their main Python environment. For example, imagine that the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> requirement of your package is <code class="docutils literal notranslate"><span class="pre">^1.22.4</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">&gt;=1.22.4</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;1.23</span></code>) and that the latest Pandas requires <code class="docutils literal notranslate"><span class="pre">numpy&gt;=1.23.2</span></code>. This means that
 everytime you install your package in its latest version you will have to downgrade Pandas, and conversely.</p>
 <p>This is why you should regularly bump the versions of our dependencies, and releases are a good opportunity to do that. Forcing users to upgrade to more recent (stable) versions of dependencies is always preferred to forcing downgrades.</p>
-<p>If you followed all the steps of the tutorial and installed the Poetry plugin <code class="docutils literal notranslate"><span class="pre">up</span></code>, just enter (inside your project, for example in a PyCharm terminal)</p>
+<p>If you followed all the steps of the tutorial and installed the Poetry plugin <code class="docutils literal notranslate"><span class="pre">up</span></code>, just enter (inside your project, for example in a PyCharm terminal):</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>up
 </pre></div>
 </div>
 <section id="[optional]-Manual-upgrade">
-<h3>[optional] Manual upgrade<a class="headerlink" href="#[optional]-Manual-upgrade" title="Link to this heading"></a></h3>
-<p>Optionally, you can look inside <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. If you see non-caret requirements that you want to bump, you can try to force the update manually with</p>
+<h3>[optional] Manual upgrade<a class="headerlink" href="#[optional]-Manual-upgrade" title="Link to this heading">#</a></h3>
+<p>Optionally, you can look inside <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. If you see non-caret requirements that you want to bump, you can try to force the update manually with:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>add<span class="w"> </span>package-name@latest
 </pre></div>
 </div>
 <p>Poetry will complain if there are semantic issues, possibly giving you suggestions to address them.</p>
 </section>
 <section id="Check-you-didn't-break-anything">
-<h3>Check you didn’t break anything<a class="headerlink" href="#Check-you-didn't-break-anything" title="Link to this heading"></a></h3>
-<p>After <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> is updated, refresh <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code> with</p>
+<h3>Check you didn’t break anything<a class="headerlink" href="#Check-you-didn't-break-anything" title="Link to this heading">#</a></h3>
+<p>After <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> is updated, refresh <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code> with:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>poetry<span class="w"> </span>update
 </pre></div>
 </div>
@@ -139,14 +490,14 @@ everytime you install your package in its latest version you will have to downgr
 <li><p>Revert your git branch to the last commit before you did <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">up</span></code>. PyCharm has a nice graphical display of git branches that should make it easy.</p></li>
 <li><p>Refresh <code class="docutils literal notranslate"><span class="pre">poetry.lock</span></code> with a <code class="docutils literal notranslate"><span class="pre">poetry</span> <span class="pre">update</span></code>.</p></li>
 <li><p>Check that your tests are back on track (locally and remotely).</p></li>
-<li><p>After the current release is done, you should prepare a dedicated release to make your package compatible with latests versions. If possible, preserve backward-compatibility, but not at all cost.</p></li>
+<li><p>After the current release is done, you should prepare a dedicated release to make your package compatible with latest versions. If possible, preserve backward-compatibility, but not at all cost.</p></li>
 </ul>
 </li>
 </ul>
 </section>
 </section>
 <section id="Make-it-easy-to-use">
-<h2>Make it easy to use<a class="headerlink" href="#Make-it-easy-to-use" title="Link to this heading"></a></h2>
+<h2>Make it easy to use<a class="headerlink" href="#Make-it-easy-to-use" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>In the main <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>, import the classes that you believe users will use on a regular basis. <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">my_package</span> <span class="pre">import</span> <span class="pre">MyClass</span></code> is easier to use than <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">my_package.subpackage.my_class</span> <span class="pre">import</span> <span class="pre">MyClass</span></code>.</p></li>
 <li><p>If you have some notebooks in your documentation (e.g. tutorials), read and run them one last time to check they work and they are relevant.</p></li>
@@ -164,19 +515,23 @@ everytime you install your package in its latest version you will have to downgr
 </div>
 </section>
 <section id="Bulletproof-your-tests-and-documentation">
-<h2>Bulletproof your tests and documentation<a class="headerlink" href="#Bulletproof-your-tests-and-documentation" title="Link to this heading"></a></h2>
+<h2>Bulletproof your tests and documentation<a class="headerlink" href="#Bulletproof-your-tests-and-documentation" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Be sure that your tests are running OK, both locally in PyCharm and remotely (GitHub actions).</p></li>
-<li><p>Check your coverage (locally in <code class="docutils literal notranslate"><span class="pre">cov/index.html</span></code> and/or on <a class="reference external" href="https://app.codecov.io/gh/">Codecov</a>) and add tests if necessary. It is usually recommended to maintain at least a 70%-80% coverage, but some people see the coverage badge as a motivation to maintain 100%.</p></li>
+<li><p>Check your coverage (locally in <code class="docutils literal notranslate"><span class="pre">cov/index.html</span></code> and/or on <a class="reference external" href="https://app.codecov.io/gh/">Codecov</a>) and add tests if necessary.</p>
+<ul>
+<li><p>It is usually recommended to maintain at least a 70%-80% coverage, but some people see the coverage badge as a motivation to maintain 100%.</p></li>
 <li><p>Coverage is here to give <strong>you</strong> some (relative) confidence that your code will do what you expect, and to ease pinpointing issues when/before they occur. It is not a rating.</p></li>
 <li><p>In particular, don’t abuse of <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">pragma:</span> <span class="pre">no</span> <span class="pre">cover</span></code> (a magic comment to exclude parts of your code from the coverage statistics) to artificially reach a high coverage.</p></li>
+</ul>
+</li>
 <li><p>Generate the documentation (in PyCharm and/or with GitHub actions) in order to check that it is working.</p></li>
 <li><p>If Sphinx issue some warnings, investigate them as it is usually a sign you did something wrong.</p></li>
 <li><p>Take some time to browse the resulting documentation as if you were a regular user. Are you happy with it?</p></li>
 </ul>
 </section>
 <section id="Finalize-your-release">
-<h2>Finalize your release<a class="headerlink" href="#Finalize-your-release" title="Link to this heading"></a></h2>
+<h2>Finalize your release<a class="headerlink" href="#Finalize-your-release" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Bump the version of your project (unless it is your first release). In PyCharm’s terminal:</p>
 <ul>
@@ -189,66 +544,150 @@ everytime you install your package in its latest version you will have to downgr
 <ul>
 <li><p>Follow the pattern of previous entries:</p>
 <ul>
-<li><p>Title enclosed in dashes lines (<code class="docutils literal notranslate"><span class="pre">------------</span></code>)</p></li>
+<li><p>Title enclosed in dashes lines (<code class="docutils literal notranslate"><span class="pre">------------</span></code>).</p></li>
 <li><p>The two dashes lines should never be shorter than your title.</p></li>
-<li><p>Title should have the version, date of release, and short description.</p></li>
-<li><p>Enter release notes (changes) in short items (lines starting with `* `)</p></li>
+<li><p>The title should have the version, date of release, and short description.</p></li>
+<li><p>Enter release notes (changes) in short items (lines starting with <code class="docutils literal notranslate"><span class="pre">*</span></code>).</p></li>
 </ul>
 </li>
 <li><p>Stick to pure <code class="docutils literal notranslate"><span class="pre">.rst</span></code> syntax: never use Sphinx’ specific directives such as <code class="docutils literal notranslate"><span class="pre">:class:`MyClass`</span></code>.</p></li>
 </ul>
 </li>
 <li><p>Commit/push.</p></li>
-<li><p>If you were working on a secondary branch (which is desirable), do what you have to do: pull request to “main” or “master”, etc.</p></li>
+<li><p>If you were working on a secondary branch, do what you have to do: pull request to “main” or “master”, etc.</p></li>
 <li><p>Ensure that you are now in your default git branch (“main” or “master”).</p></li>
 <li><p>Wait for the last GitHub actions to finish.</p></li>
 </ul>
 </section>
 <section id="Publish">
-<h2>Publish<a class="headerlink" href="#Publish" title="Link to this heading"></a></h2>
+<h2>Publish<a class="headerlink" href="#Publish" title="Link to this heading">#</a></h2>
 <p>On <a class="reference external" href="https://github.com/">GitHub’s website</a> go to your project:</p>
 <ul class="simple">
-<li><p>“releases” → “Create a new release”.</p></li>
+<li><p>“Releases” → “Create a new release”.</p></li>
 <li><p>“Choose a tag” → the version you publish prefixed with the letter “v” (e.g. <code class="docutils literal notranslate"><span class="pre">v0.1.0</span></code>) → “Create new tag”</p></li>
 <li><p>Add a release title as in <code class="docutils literal notranslate"><span class="pre">HISTORY.rst</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">First</span> <span class="pre">release</span></code>.</p></li>
 <li><p>Add release notes as in <code class="docutils literal notranslate"><span class="pre">HISTORY.rst</span></code>, e.g. `* First release on PyPI.`.</p></li>
-<li><p>Optionally, check “Set as a pre-release” so the release will be labeled as non-production ready (recommended for early versions of your package)</p></li>
+<li><p>Optionally, check “Set as a pre-release” so the release will be labeled as non-production ready (recommended for early versions of your package).</p></li>
 <li><p>Select “Publish release”.</p></li>
 </ul>
-<p>After a few minutes, GitHub has finished the built and it is deployed on PyPI. <em>If you want to check, search for your package name on PyPI and check that the version number is correct. Note that the PyPI badge may take several more minutes before being updated.</em></p>
-<p><em>Check that the readme will be correctly rendered on PyPI.</em></p>
+<p>After a few minutes, GitHub has finished the built and it is deployed on PyPI. If you want to check: - Search for your package name on PyPI and check that the version number is correct. - Check that the readme is correctly rendered on PyPI. - Note that the PyPI badge may take several more minutes before being updated.</p>
 </section>
 </section>
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="creation.html" class="btn btn-neutral float-left" title="Create Your Package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="recap.html" class="btn btn-neutral float-right" title="Quick recap" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2023, Fabien Mathieu.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="creation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Create Your Package</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="recap.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Quick recap</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bump-dependencies-in-your-pyproject.toml">Bump dependencies in your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#[optional]-Manual-upgrade">[optional] Manual upgrade</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Check-you-didn't-break-anything">Check you didn’t break anything</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Make-it-easy-to-use">Make it easy to use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Bulletproof-your-tests-and-documentation">Bulletproof your tests and documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Finalize-your-release">Finalize your release</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Publish">Publish</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div class="tocsection sourcelink">
+    <a href="_sources/maintain.ipynb.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, Fabien Mathieu.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
 </html>
