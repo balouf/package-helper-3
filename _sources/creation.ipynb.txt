@@ -37,10 +37,13 @@
     "- **package_name**. This is the `python` name of your package. It will typically be the name of the subdirectory of your project that contains the actual code. The convention is to use **lower case and underscores**. Unless you have specific reasons, you should adopt a package name consistent with your project name/slug. For example, `import package_helper_3 as ph`.\n",
     "- **Project description**. One or two sentences that describes the purpose of your project. For example, \"*Package Helper 3 explains how to create, develop, and maintain a Python package with Poetry.*\"\n",
     "- **Version**. PH3 adopts the [semantic versioning](https://semver.org/) convention. As they suggest, we recommend to start your initial development release at 0.1.0.\n",
-    "- **Default branch**. Please use `main` (cf [Default branch name](https://balouf.github.io/package-helper-3/faq.html#What's-the-git-default-branch-name?)).\n",
+    "- **Documentation theme**. Decide the skin you want for your documentation: [PyData][PD] or [ReadTheDocs][RTD].\n",
     "- **Command line interface (CLI)**. If your package is intended to be always executed from Python, you do not need to care about the CLI. If you intend to execute commands directly from a terminal (Anaconda Prompt, Bash, Windows Powershell, etc), some Python packages are here to help you. Two of the most popular ones are `click` (recommended) or `argparse`.\n",
     "- **Dockerfile**. Do you plan to deploy your package on docker?\n",
-    "- **License**. Which open source license (if any) do you want for your package? Check https://choosealicense.com/ if you need advice."
+    "- **License**. Which open source license (if any) do you want for your package? Check https://choosealicense.com/ if you need advice.\n",
+    "\n",
+    "[RTD]: https://sphinx-rtd-theme.readthedocs.io/en/stable/\n",
+    "[PD]: https://pydata-sphinx-theme.readthedocs.io/en/stable/"
    ]
   },
   {
@@ -78,9 +81,9 @@
     "  [6/12] package_name (my_first_ph3_package):\n",
     "  [7/12] project_description (Sandboxes are cool!): PH3 packages are quick to make!\n",
     "  [8/12] version (0.1.0):\n",
-    "  [9/12] Select main_git_branch_name\n",
-    "    1 - main\n",
-    "    2 - master\n",
+    "  [9/12] Select documentation_theme\n",
+    "    1 - PyData\n",
+    "    2 - ReadTheDocs\n",
     "    Choose from [1/2] (1):\n",
     "  [10/12] Select command_line_interface\n",
     "    1 - No command-line interface\n",
