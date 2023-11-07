@@ -1,6 +1,6 @@
-========
-Tutorial
-========
+=============
+Full Tutorial
+=============
 
 Package Helper 3 helps you create, develop and maintain a package managed by Poetry.
 If you use all the tools presented in this tutorial, things will work this way:
@@ -37,4 +37,3 @@ For people who used PH3 before and don't need all explanations, a quick recap is
    preparation
    creation
    maintain
-   recap
