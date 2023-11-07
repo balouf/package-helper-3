@@ -64,6 +64,9 @@ development. Please note this documentation assumes you already have
     cd package-helper-3
     ```
     Install and activate the environment with:
+    ```bash
+    poetry install
+    ```
 
 4. Create a branch for local development:
     ```bash

@@ -3,18 +3,20 @@
 ## 0.3.0 (2023-11-07): Incorporate feedbacks
 
 - Add option to choose PyData theme (new default).
+- PH3 documentation now uses PyData.
 - Remove choice of default git branch. It is now always `main`.
 - Add markdown supports:
-  - Root documentation files (e.g. `README.md`) are now in markdown format for simplicity;
+  - Root documentation files (e.g. `README.md`) are now in Markdown format for simplicity;
   - Structural documentation files (inside `docs/`) stay as `rst` to benefit from `rst` commands;
   - Boilerplate tutorials stay in notebook format (`.ipynb`).
 - Lots of typos squashed.
+- Dependencies bumped.
 
 ## 0.2.0 (2023-10-20): Fully working release
 
 - CLI command (ph3) has been tested in real conditions.
 - Tutorials to describe the main steps (installation, creation, release).
-- One recap tutorial to remind the important suff at one glance.
+- One recap tutorial to remind the important stuff at one glance.
 - FAQ for specific/advanced/optional questions.
 - Many bugs squashed.
 

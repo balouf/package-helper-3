@@ -3,7 +3,7 @@ name: release-main
 on:
   release:
     types: [published]
-    branches: [{{ cookiecutter.main_git_branch_name }}]
+    branches: [main]
 
 jobs:
 
