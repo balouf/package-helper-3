@@ -33,7 +33,7 @@ import package_helper_3
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode', 'sphinx.ext.napoleon', 'sphinx.ext.githubpages',
               'nbsphinx', 'IPython.sphinxext.ipython_console_highlighting',
-              'sphinx.ext.imgconverter'
+              'sphinx.ext.imgconverter', 'sphinx_mdinclude'
               ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -42,8 +42,8 @@ templates_path = ['_templates']
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 #
-# source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
+source_suffix = ['.rst', '.md']
+# source_suffix = '.rst'
 
 # The master toctree document.
 master_doc = 'index'
@@ -87,7 +87,8 @@ todo_include_todos = False
 # a list of builtin themes.
 #
 # html_theme = 'alabaster'
-html_theme = 'sphinx_rtd_theme'
+# html_theme = 'sphinx_rtd_theme'
+html_theme = "pydata_sphinx_theme"
 html_favicon = 'favicon.ico'
 
 # Theme options are theme-specific and customize the look and feel of a
@@ -95,6 +96,19 @@ html_favicon = 'favicon.ico'
 # documentation.
 #
 # html_theme_options = {}
+html_theme_options = {
+    "icon_links": [
+        {
+            "name": "GitHub",
+            "url": "https://github.com/balouf/package-helper-3",
+            "icon": "fa-brands fa-github",
+        },
+    ],
+    "header_links_before_dropdown": 5,
+    "show_nav_level": 2,
+    "show_toc_level": 2,
+    "navigation_depth": 2,
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

@@ -15,4 +15,5 @@ Development Lead
 Contributors
 ------------
 
-None yet. Why not be the first?
+* François Durand (PH2 and feedback).
+* Marc-Olivier Buob (feedback).
