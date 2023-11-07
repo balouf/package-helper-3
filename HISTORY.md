@@ -5,9 +5,9 @@
 - Add option to choose PyData theme (new default).
 - PH3 documentation now uses PyData.
 - Remove choice of default git branch. It is now always `main`.
-- Add markdown supports:
-  - Root documentation files (e.g. `README.md`) are now in Markdown format for simplicity;
-  - Structural documentation files (inside `docs/`) stay as `rst` to benefit from `rst` commands;
+- Add markdown support:
+  - Root documentation files (e.g. `README.md`) are in Markdown format for simplicity;
+  - Structural documentation files (inside `docs/`) are in reStructuredText format for flexibility;
   - Boilerplate tutorials stay in notebook format (`.ipynb`).
 - Lots of typos squashed.
 - Dependencies bumped.
