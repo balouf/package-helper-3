@@ -49,7 +49,7 @@ $ pip install -e .
 - Check your docs (references and tutorials).
 - Bulletproof tests (coverage!) and documentation building (look up Sphinx warnings).
 - Bump version of your package (`poetry version patch/minor/major`).
-- Update `HISTORY.rst`, beware of strict `.rst` compliance.
+- Update `HISTORY.md`, beware of strict Markdown compliance.
 - Commit/Push, merge into `main`/`master` if you were on a secondary branch.
 - Create release on GitHub. Use `vx.y.z` convention for the tag.
 - Wait for the badge to be updated, check the release on PyPi.
