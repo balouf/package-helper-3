@@ -1,5 +1,9 @@
 # History
 
+## 0.3.1 (XXXX-XX-XX): Small improvements
+
+- Add git command to exclude gh-pages from fetch
+
 ## 0.3.0 (2023-11-07): Incorporate feedbacks
 
 - Add option to choose PyData theme (new default).
