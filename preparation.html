@@ -501,6 +501,11 @@ document.write(`
 </pre></div>
 </div>
 <p>Ensure your version is recent enough (&gt;=2.40).</p>
+<p>Recommended: enter the following command.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>config<span class="w"> </span>--add<span class="w"> </span>remote.origin.fetch<span class="w"> </span><span class="s1">&#39;^refs/heads/gh-pages&#39;</span>
+</pre></div>
+</div>
+<p>The command above tells <code class="docutils literal notranslate"><span class="pre">git</span></code> to ignore the branch <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code>. <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code> is the remote branch that hosts your compiled documentation. By default, git will store locally all versions of your documentation, which can take a lot of place for nothing.</p>
 </section>
 <section id="Install-Pandoc">
 <h2>Install Pandoc<a class="headerlink" href="#Install-Pandoc" title="Link to this heading">#</a></h2>

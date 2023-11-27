@@ -15,6 +15,12 @@ $ poetry self add poetry-bumpversion
 $ poetry self add poetry-plugin-up
 ```
 
+- Git:
+
+```bash
+$ git config --add remote.origin.fetch '^refs/heads/gh-pages'
+```
+
 - PH3: [create a .cookiecutterrc file](https://balouf.github.io/package-helper-3/faq.html#Do-I-need-to-enter-my-name/email/github_login-everytime-I-make-a-package?) (optional).
 - Link PyCharm to your GitHub account.
 
