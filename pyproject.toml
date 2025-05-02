@@ -41,3 +41,17 @@ dev = [
 
 [project.scripts]
 ph3 = 'package_helper_3.cli:main'
+
+[tool.coverage.report]
+skip_empty = true
+
+[tool.coverage.run]
+branch = true
+source = ["package_helper_3"]
+
+[tool.coverage.html]
+directory = "cov"
+
+[tool.pytest.ini_options]
+norecursedirs = "{{cookiecutter.project_slug}} hooks"
+addopts = "--doctest-modules --cov --cov-config=pyproject.toml --cov-report xml --cov-report html --showlocals --capture=no --exitfirst --failed-first"

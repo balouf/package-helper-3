@@ -8,5 +8,6 @@
   "project_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
   "version": "0.1.0",
   "command_line_interface": ["No command-line interface", "Click"],
+  "dockerfile": false,
   "open_source_license": ["MIT", "GPL-3.0-or-later", "BSD-3-Clause", "ISC", "Apache-2.0", "Not open source"]
 }
