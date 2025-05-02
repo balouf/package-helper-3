@@ -39,7 +39,7 @@ def fibo(n):
     >>> fibo(30)
     832040
     """
-    return 1 if n < 3 else fibo(n-1)+fibo(n-2)
+    return 1 if n < 3 else fibo(n - 1) + fibo(n - 2)
 
 
 if __name__ == "__main__":  # pragma: no cover
