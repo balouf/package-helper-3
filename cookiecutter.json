@@ -7,8 +7,6 @@
   "package_name": "{{ cookiecutter.project_slug.replace('-', '_') }}",
   "project_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
   "version": "0.1.0",
-  "documentation_theme": ["PyData", "ReadTheDocs"],
-  "command_line_interface": ["No command-line interface", "Click", "Argparse"],
-  "dockerfile": false,
-  "open_source_license": ["MIT license", "GNU General Public License v3", "BSD license", "ISC license", "Apache Software License 2.0", "Not open source"]
+  "command_line_interface": ["No command-line interface", "Click"],
+  "open_source_license": ["MIT", "GPL-3.0-or-later", "BSD-3-Clause", "ISC", "Apache-2.0", "Not open source"]
 }

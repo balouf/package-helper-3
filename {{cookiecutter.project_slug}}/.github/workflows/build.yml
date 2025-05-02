@@ -1,5 +1,6 @@
-# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+# This workflow will install the package with UV,
+# run the tests on multiple Python versions,
+# and upload the results on codecov.
 name: build
 
 on:
@@ -10,38 +11,38 @@ on:
     types: [opened, synchronize, reopened]
   schedule:
     - cron: '30 5 1,15 * *'
+env:
+  NUMBA_DISABLE_JIT: 1
 
 jobs:
-  tox:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['3.9', '3.10', '3.11', '3.12']
-      fail-fast: false
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
     steps:
-      - name: Check out
-        uses: actions/checkout@v3
 
-      - name: Set up python
-        uses: actions/setup-python@v4
-        with:
-          python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
+    - name: Checkout
+      uses: actions/checkout@v4
 
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
-        with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
+    - name: Set up Python {% raw %}${{ matrix.python-version }}{% endraw %}
+      uses: actions/setup-python@v5
+      with:
+        python-version: {% raw %}${{ matrix.python-version }}{% endraw %}
 
-      - name: Test with tox
-        run: |
-          poetry install
-          poetry update
-          source .venv/bin/activate
-          tox
+    - name: Set up uv
+      uses: astral-sh/setup-uv@v5
+      with:
+        version: "0.6.16"
 
-      - name: Upload coverage reports to Codecov with GitHub Action on Python 3.12
-        uses: codecov/codecov-action@v3
-        if: {% raw %}${{ matrix.python-version == '3.12' }}{% endraw %}
-        with:
-          file: ./coverage.xml
+    - name: Run tests
+      run: |
+        uv sync --all-extras
+        uv run pytest
+
+    - name: Upload coverage reports to Codecov with GitHub Action on Python 3.12
+      uses: codecov/codecov-action@v4
+      if: {% raw %}${{ matrix.python-version == '3.12' }}{% endraw %}
+      with:
+        file: ./coverage.xml
+        token: {% raw %}${{ secrets.CODECOV_TOKEN }}{% endraw %} # required

@@ -43,4 +43,4 @@ def fibo(n):
 
 
 if __name__ == "__main__":  # pragma: no cover
-    pass
+    print(foo())

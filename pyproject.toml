@@ -1,141 +1,43 @@
-[tool.poetry]
-name = "package-helper-3"
-version = "0.3.0"
-description = "Package Helper 3 explains how to create, develop, and maintain a Python package with Poetry."
-authors = ["Fabien Mathieu <fabien@swapcard.com>"]
-repository = "https://github.com/balouf/package-helper-3"
-documentation = "https://balouf.github.io/package-helper-3/"
-readme = "README.md"
-packages = [
-  {include = "package_helper_3"}
-]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
 include = [
-  '{{cookiecutter.project_slug}}/**/*',
+ '{{cookiecutter.project_slug}}/**/*',
   'cookiecutter.json',
   'hooks/*'
 ]
 
-[tool.poetry.dependencies]
-python = ">=3.9,<4.0"
-cookiecutter = "^2.4.0"
-click = "^8.1.7"
+[project]
+name = "package-helper-3"
+version = "0.3.0"
+description = "Package Helper 3 explains how to create, develop, and maintain a Python package with Poetry."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+    {name = "Fabien Mathieu", email = "fabien.mathieu@normalesup.org"}
+]
+maintainers = [
+    {name = "Fabien Mathieu", email = "fabien.mathieu@normalesup.org"}
+]
+license = "MIT"
+dependencies = ["cookiecutter", "click"]
 
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.4.3"
-pytest-cov = "^4.1.0"
-mypy = "^1.6.1"
-pre-commit = "^3.5.0"
-tox = "^4.11.3"
+[project.urls]
+repository = "https://github.com/balouf/package-helper-3"
+documentation = "https://balouf.github.io/package-helper-3/"
 
+[dependency-groups]
+dev = [
+    "ipython>=8.35.0",
+    "myst-parser[linkify]>=4.0.1",
+    "nbsphinx>=0.9.7",
+    "pydata-sphinx-theme>=0.16.1",
+    "pytest-cov>=6.1.1",
+    "ruff>=0.11.8",
+    "sphinx-copybutton>=0.5.2",
+]
 
-[tool.poetry.group.docs.dependencies]
-sphinx = "^7.2.6"
-ipython = "^8.17.2"
-nbsphinx = "^0.9.3"
-sphinx-rtd-theme = "^1.3.0"
-pydata-sphinx-theme = "^0.14.3"
-sphinx-mdinclude = "^0.5.3"
-
-[tool.poetry.scripts]
+[project.scripts]
 ph3 = 'package_helper_3.cli:main'
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.black]
-line-length = 120
-target-version = ['py37']
-preview = true
-
-[tool.mypy]
-files = ["package_helper_3"]
-disallow_untyped_defs = "False"
-disallow_any_unimported = "True"
-no_implicit_optional = "True"
-check_untyped_defs = "True"
-warn_return_any = "True"
-warn_unused_ignores = "True"
-show_error_codes = "True"
-
-[tool.ruff]
-target-version = "py37"
-line-length = 120
-fix = true
-select = [
-    # flake8-2020
-    "YTT",
-    # flake8-bandit
-    "S",
-    # flake8-bugbear
-    "B",
-    # flake8-builtins
-    "A",
-    # flake8-comprehensions
-    "C4",
-    # flake8-debugger
-    "T10",
-    # flake8-simplify
-    "SIM",
-    # isort
-    "I",
-    # mccabe
-    "C90",
-    # pycodestyle
-    "E", "W",
-    # pyflakes
-    "F",
-    # pygrep-hooks
-    "PGH",
-    # pyupgrade
-    "UP",
-    # ruff
-    "RUF",
-    # tryceratops
-    "TRY",
-]
-ignore = [
-    # LineTooLong
-    "E501",
-    # DoNotAssignLambda
-    "E731",
-]
-
-[tool.coverage.report]
-skip_empty = true
-
-[tool.coverage.run]
-branch = true
-source = ["package_helper_3"]
-
-[tool.coverage.html]
-directory = "cov"
-
-[tool.ruff.per-file-ignores]
-"tests/*" = ["S101"]
-
-[tool.pytest.ini_options]
-addopts = "--doctest-modules --ignore={{cookiecutter.project_slug}} --ignore=hooks --cov --cov-config=pyproject.toml --cov-report xml --cov-report html --showlocals --capture=no --exitfirst --failed-first"
-
-[tool.tox]
-legacy_tox_ini = """
-[tox]
-skipsdist = true
-
-[gh-actions]
-python =
-    3.9: py39
-    3.10: py310
-    3.11: py311
-    3.12: py312
-
-[testenv]
-passenv = PYTHON_VERSION
-allowlist_externals = poetry
-commands =
-    poetry install -v
-    pytest
-    mypy
-"""
-
-[tool.poetry_bumpversion.file."package_helper_3/__init__.py"]

@@ -31,19 +31,27 @@ import {{ cookiecutter.package_name }}
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode', 'sphinx.ext.napoleon', 'sphinx.ext.githubpages',
-              'sphinx.ext.intersphinx', 'nbsphinx', 'IPython.sphinxext.ipython_console_highlighting',
-              'sphinx.ext.imgconverter', 'sphinx_mdinclude'
-              ]
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode', 'sphinx.ext.napoleon', 'nbsphinx',
+              'IPython.sphinxext.ipython_console_highlighting', 'sphinx.ext.intersphinx',
+              'sphinx.ext.imgconverter', 'myst_parser', 'sphinx_copybutton']
+
+# Smart code copy
+copybutton_exclude = '.linenos, .gp, .go'
+
+# MYST configuration
+myst_enable_extensions = ['linkify', 'dollarmath', 'colon_fence']
+myst_heading_anchors = 3
+myst_links_external_new_tab = True
 
 # Add the possibility to access python documentation.
 intersphinx_mapping = {'python':('https://docs.python.org/3', None),
                        'sklearn':('https://scikit-learn.org/stable', None),
                        'ipython':('https://ipython.readthedocs.io/en/stable/', None),
-                       'numpy': ('https://docs.scipy.org/doc/numpy/', None),
-                       'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None),
-                       'matplotlib': ('http://matplotlib.sourceforge.net/', None),
-                       'numba': ('https://numba.readthedocs.io/en/stable/', None)}
+                       'numba': ('https://numba.readthedocs.io/en/stable/', None),
+                       'numpy': ('https://numpy.org/doc/stable/', None),
+                       'scipy': ('https://docs.scipy.org/doc/scipy/', None),
+                       'matplotlib': ('https://matplotlib.org/stable/', None),
+                       }
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -96,7 +104,6 @@ todo_include_todos = False
 # a list of builtin themes.
 #
 # html_theme = 'alabaster'
-{% if cookiecutter.documentation_theme == 'PyData' -%}
 html_theme = "pydata_sphinx_theme"
 
 # Theme options are theme-specific and customize the look and feel of a
@@ -117,15 +124,6 @@ html_theme_options = {
     "show_toc_level": 2,
     "navigation_depth": 2,
 }
-{% else %}
-html_theme = 'sphinx_rtd_theme'
-
-# Theme options are theme-specific and customize the look and feel of a
-# theme further.  For a list of options available for each theme, see the
-# documentation.
-#
-# html_theme_options = {}
-{% endif %}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

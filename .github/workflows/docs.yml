@@ -7,42 +7,41 @@ on:
     branches:
       - main
 
-permissions:
-  contents: write
-
 jobs:
-  docs:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out
-        uses: actions/checkout@v3
+
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
 
-      - name: Set up python
-        uses: actions/setup-python@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.12'
 
-      - name: Install Poetry
-        uses: snok/install-poetry@v1
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v5
         with:
-          virtualenvs-create: true
-          virtualenvs-in-project: true
+          version: "0.6.16"
 
-      - name: Install dependencies
-        run: |
-          poetry install
-          sudo apt install pandoc
+      - name: Setup Pandoc
+        uses: pandoc/actions/setup@v1
+        with:
+          version: '3.6.3'
 
       - name: Build Sphinx documentation
         run: |
-          source .venv/bin/activate
-          sphinx-build -a -E -b html docs build
+          uv sync --all-extras
+          uv run sphinx-build -a -E -b html docs build
 
       - name: Deploy Sphinx documentation on Github Pages
         uses: JamesIves/github-pages-deploy-action@v4
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/master'
         with:
-          BRANCH: gh-pages
-          FOLDER: build/
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: build/
+          single-commit: true

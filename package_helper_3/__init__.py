@@ -1,3 +1,6 @@
-__author__ = """Fabien Mathieu"""
-__email__ = 'fabien@swapcard.com'
-__version__ = '0.3.0'
+from importlib.metadata import metadata
+
+infos = metadata(__name__)
+__author__ = infos['Author']
+__email__ = infos['Author-Email']
+__version__ = infos['Version']

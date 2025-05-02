@@ -1,5 +1,15 @@
 # History
 
+## 0.4.0: UV Edition
+
+- UV is now the underlying management tool
+- Docs compilation is now MD+Sphinx (using myst-parser)
+- PyData is the only theme proposed
+- Argparse support removed (click is the only cli package proposed -> if you want something else do the change on your side!)
+- Simplified licence choices
+- Docker file support removed for now
+- Minor improvements
+
 ## 0.3.1 (XXXX-XX-XX): Small improvements
 
 - Add git command to exclude gh-pages from fetch

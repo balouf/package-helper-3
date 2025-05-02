@@ -51,30 +51,27 @@ Ready to contribute? Here's how to set up `{{ cookiecutter.project_slug }}` for 
 1. Fork the `{{ cookiecutter.project_slug }}` repo on GitHub.
 
 2. Clone your fork locally::
-    ```bash
+    ```console
     $ git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
     ```
 
-3. Install your local copy into a virtualenv. Assuming you have poetry installed, this is how you set up your fork for local development::
-    ```bash
+3. Install your local copy into a virtualenv. Assuming you have uv installed, this is how you set up your fork for local development:
+    ```console
     $ cd {{ cookiecutter.project_slug }}/
-    $ poetry install
+    $ uv sync --all-extras
     ```
 
 4. Create a branch for local development::
-    ```bash
+    ```console
     $ git checkout -b name-of-your-bugfix-or-feature
     ```
     Now you can make your changes locally.
 
-5. When you're done making changes, check that your changes pass flake8 and the
-   tests, including testing other Python versions with tox::
-    ```bash
-    $ flake8 {{ cookiecutter.project_slug }} tests
-    $ python setup.py test or pytest
-    $ tox
+5. When you're done making changes, check that your changes pass the
+   tests:
+    ```console
+    $ uv run pytest
     ```
-   To get flake8 and tox, just pip install them into your virtualenv.
 
 6. Commit your changes and push your branch to GitHub::
     ```bash
@@ -92,14 +89,13 @@ Before you submit a pull request, check that it meets these guidelines:
 1. The pull request should include tests.
 2. If the pull request adds functionality, the docs should be updated. Put
    your new functionality into a function with a docstring, and add the
-   feature to the list in `README.md`.
-3. The pull request should work for the last three versions of Python (e.g. Python 3.9, 3.10, and 3.11 in August 2023). Check
-   https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/actions?query=workflow%3Abuild
-   and make sure that the tests pass for all supported Python versions.
+   feature to the list in `README.md` or `HISTORY.md`.
+3. The pull request should work for Python for the versions supported by the package (ideally, the three latest minor CPython versions).
+   Make sure that the tests pass for all supported Python versions.
 
 ## Tips
 
 To run a subset of tests:
 ```bash
-$ pytest tests.test_{{ cookiecutter.project_slug }}
+$ uv run pytest tests.test_{{ cookiecutter.project_slug }}
 ```

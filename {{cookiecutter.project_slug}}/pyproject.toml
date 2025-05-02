@@ -1,108 +1,45 @@
-[tool.poetry]
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
 name = "{{ cookiecutter.project_slug }}"
 version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.project_description }}"
-authors = ["{{ cookiecutter.full_name }} <{{ cookiecutter.email }}>"]
-repository = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
-documentation = "https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.project_slug }}"
 readme = "README.md"
-packages = [
-  {include = "{{ cookiecutter.package_name }}"}
+requires-python = ">=3.10"
+authors = [
+    {name = "{{ cookiecutter.full_name }}", email = "{{ cookiecutter.email }}"}
 ]
-
-[tool.poetry.dependencies]
-python = ">=3.9,<4.0"
+maintainers = [
+    {name = "{{ cookiecutter.full_name }}", email = "{{ cookiecutter.email }}"}
+]
+license = "MIT"
+dependencies = [
 {% if cookiecutter.command_line_interface == 'Click' -%}
-click = "^8.1.7"
-{% elif cookiecutter.command_line_interface == 'Argparse' -%}
-argparse = "^1.4.0"
+    "click>=8.1.8",
 {% endif %}
+]
 
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.4.3"
-pytest-cov = "^4.1.0"
-mypy = "^1.6.1"
-pre-commit = "^3.5.0"
-tox = "^4.11.3"
+[project.urls]
+Repository = "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}"
+Documentation = "https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.project_slug }}"
 
-[tool.poetry.group.docs.dependencies]
-sphinx = "^7.2.6"
-ipython = "^8.17.2"
-nbsphinx = "^0.9.3"
-sphinx-mdinclude = "^0.5.3"
-{% if cookiecutter.documentation_theme == 'PyData' -%}
-pydata-sphinx-theme = "^0.14.3"
-{% else %}
-sphinx-rtd-theme = "^1.3.0"
-{% endif %}
+[dependency-groups]
+dev = [
+    "ipython>=8.35.0",
+    "myst-parser[linkify]>=4.0.1",
+    "nbsphinx>=0.9.7",
+    "pydata-sphinx-theme>=0.16.1",
+    "pytest-cov>=6.1.1",
+    "ruff>=0.11.8",
+    "sphinx-copybutton>=0.5.2"
+]
 
-{% if cookiecutter.command_line_interface == 'No command-line interface' -%}
-{% else %}
-[tool.poetry.scripts]
+{% if cookiecutter.command_line_interface == 'Click' -%}
+[project.scripts]
 {{ cookiecutter.package_name }} = '{{ cookiecutter.package_name }}.cli:main'
-
 {% endif %}
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.black]
-line-length = 120
-target-version = ['py37']
-preview = true
-
-[tool.mypy]
-files = ["{{ cookiecutter.package_name }}"]
-disallow_untyped_defs = "False"
-disallow_any_unimported = "True"
-no_implicit_optional = "True"
-check_untyped_defs = "True"
-warn_return_any = "True"
-warn_unused_ignores = "True"
-show_error_codes = "True"
-
-[tool.ruff]
-target-version = "py37"
-line-length = 120
-fix = true
-select = [
-    # flake8-2020
-    "YTT",
-    # flake8-bandit
-    "S",
-    # flake8-bugbear
-    "B",
-    # flake8-builtins
-    "A",
-    # flake8-comprehensions
-    "C4",
-    # flake8-debugger
-    "T10",
-    # flake8-simplify
-    "SIM",
-    # isort
-    "I",
-    # mccabe
-    "C90",
-    # pycodestyle
-    "E", "W",
-    # pyflakes
-    "F",
-    # pygrep-hooks
-    "PGH",
-    # pyupgrade
-    "UP",
-    # ruff
-    "RUF",
-    # tryceratops
-    "TRY",
-]
-ignore = [
-    # LineTooLong
-    "E501",
-    # DoNotAssignLambda
-    "E731",
-]
 
 [tool.coverage.report]
 skip_empty = true
@@ -114,31 +51,5 @@ source = ["{{ cookiecutter.package_name }}"]
 [tool.coverage.html]
 directory = "cov"
 
-[tool.ruff.per-file-ignores]
-"tests/*" = ["S101"]
-
 [tool.pytest.ini_options]
 addopts = "--doctest-modules --cov --cov-config=pyproject.toml --cov-report xml --cov-report html --showlocals --capture=no --exitfirst --failed-first"
-
-[tool.tox]
-legacy_tox_ini = """
-[tox]
-skipsdist = true
-
-[gh-actions]
-python =
-    3.9: py39
-    3.10: py310
-    3.11: py311
-    3.12: py312
-
-[testenv]
-passenv = PYTHON_VERSION
-allowlist_externals = poetry
-commands =
-    poetry install -v
-    pytest
-    mypy
-"""
-
-[tool.poetry_bumpversion.file."{{ cookiecutter.package_name }}/__init__.py"]

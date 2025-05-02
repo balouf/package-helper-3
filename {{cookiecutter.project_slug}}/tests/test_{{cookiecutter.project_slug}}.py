@@ -12,6 +12,11 @@ from {{ cookiecutter.package_name }} import {{ cookiecutter.package_name }}
 from {{ cookiecutter.package_name }} import cli
 {%- endif %}
 
+
+def test_foo():
+    assert {{ cookiecutter.package_name }}.a == 42
+
+
 @pytest.fixture
 def response():
     """Sample pytest fixture.

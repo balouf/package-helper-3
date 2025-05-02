@@ -6,7 +6,7 @@ import click
 @click.version_option(message="Package Helper 3, version %(version)s")
 def main() -> None:  # pragma: no cover
     """
-    Package Helper 3 command that creates a Python poetry project.
+    Package Helper 3 command that creates a UV-powered Python project.
 
     Cf https://balouf.github.io/package-helper-3/
     """
