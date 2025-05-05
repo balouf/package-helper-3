@@ -1,10 +1,6 @@
 # History
 
-## 0.4.1 (2025-05-06): UVX Edition
-
-- Add possibility to install PH3 as a UV tool so you don't need any Python distribution installed.  
-
-## 0.4.0 (2025-05-05): UV Edition
+## 0.4.2 (2025-05-05): UV Edition
 
 This version aims at making things simpler and faster, mostly thanks to [UV].
 
@@ -13,6 +9,7 @@ This version aims at making things simpler and faster, mostly thanks to [UV].
 - [PyData] is the theme proposed
 - [click] is the cli interface
 - License is now defined in the `pyproject.toml` (no more dedicated `LICENCE` file)
+- Add possibility to install PH3 as a UV tool so you don't need any Python distribution installed.  
 - Minor improvements (e.g. update versions and such)
 
 [UV]: https://docs.astral.sh/uv/
