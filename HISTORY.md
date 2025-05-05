@@ -1,6 +1,10 @@
 # History
 
-## 0.4.0 (2025-05-06): UV Edition
+## 0.4.1 (2025-05-06): UVX Edition
+
+- Add possibility to install PH3 as a UV tool so you don't need any Python distribution installed.  
+
+## 0.4.0 (2025-05-05): UV Edition
 
 This version aims at making things simpler and faster, mostly thanks to [UV].
 
