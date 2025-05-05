@@ -1,0 +1,15 @@
+{% set parts = cookiecutter.full_name|split_last %}
+cff-version: 1.2.0
+title: {{ cookiecutter.project_name }}
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - family-names: {{ parts.right }}
+    given-names: {{ parts.left }}
+    email: {{ cookiecutter.email }}
+repository-code: "https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}/"
+url: "https://{{ cookiecutter.github_username }}.github.io/{{ cookiecutter.project_slug }}/"
+abstract: {{ cookiecutter.project_description }}
+license: {{ cookiecutter.open_source_license }}
