@@ -13,7 +13,7 @@ It is a fork/mix of https://github.com/audreyr/cookiecutter-pypackage/, https://
 
 The most prominent feature of Package Helper 3 is a **tutorial** that gives a checklist of how to:
 
-- Create your package in a few minutes with [Cookiecutter][CC] and [Poetry][PO],
+- Create your package in a few minutes with [Cookiecutter][CC] and [UV],
 - Develop and maintain your package with [PyCharm][PC],
 - Host your package on [GitHub][GH] and leverage GitHub actions,
 - Publish your package on [PyPi][PP],
@@ -22,25 +22,25 @@ The most prominent feature of Package Helper 3 is a **tutorial** that gives a ch
 A simple **Command-Line Interface** initiates the creation of the package using a **template** of Python package.
 Here are the main features of the template:
 
-- Personalize default options.
+- Default options that can be personalized.
 - Include example files for classes, with examples of documentation and testing.
 - Use Poetry for all-in-one management of dependencies and settings.
 - Documentation:
 
-  - Use a GitHub action and GitHub Pages to publish the documentation.
+  - Use GitHub actions and GitHub Pages to publish the documentation.
   - Use ``sphinx.ext.napoleon`` to benefit from NumPy style of documentation.
-  - Use [ReadTheDocs][RTD] or [PyData][PD] themes.
+  - Use [PyData][PD] theme.
   - Add a "reference" section in the documentation of the package.
 
-- Use a GitHub action to perform unit tests.
-- Use a GitHub action to deploy the package on PyPI.
+- Use GitHub actions to perform unit tests.
+- Use GitHub actions to deploy the package on PyPI.
 - Generate a local html page displaying the test coverage.
-- Use Codecov.
+- Use Codecov for getting a public badge of your test coverage.
 
 Documentation: https://balouf.github.io/package-helper-3/.
 
 [CC]: https://github.com/audreyr/cookiecutter
-[PO]: https://python-poetry.org/
+[UV]: https://docs.astral.sh/uv/
 [PC]: https://www.jetbrains.com/pycharm
 [GH]: https://github.com
 [PP]: https://pypi.python.org/pypi

@@ -1,3 +1,6 @@
+```{highlight} shell
+```
+
 # Contributing
 
 Contributions are welcome, and they are greatly appreciated! Every little bit
@@ -54,23 +57,21 @@ development. Please note this documentation assumes you already have
 1. Fork the `package-helper-3` repo on GitHub.
 
 2. Clone your fork locally:
-    ```bash
-    cd <directory_in_which_repo_should_be_created>
-    git clone git@github.com:YOUR_NAME/package-helper-3.git
+    ```console
+    $ cd <directory_in_which_repo_should_be_created>
+    $ git clone git@github.com:YOUR_NAME/package-helper-3.git
     ```
    
-3. Now we need to install the environment. Navigate into the directory:
-    ```bash
-    cd package-helper-3
-    ```
-    Install and activate the environment with:
-    ```bash
-    poetry install
-    ```
+3. Install your local copy into a virtualenv. Assuming you have uv installed, this is how you set up your fork for local development:
+
+   ```console
+   $ cd package-helper-3 
+   $ uv sync --all-extras
+   ```
 
 4. Create a branch for local development:
-    ```bash
-    git checkout -b name-of-your-bugfix-or-feature
+    ```console
+    $ git checkout -b name-of-your-bugfix-or-feature
     ```
 
     Now you can make your changes locally.
@@ -79,23 +80,20 @@ development. Please note this documentation assumes you already have
 
 6. When you're done making changes, check that your changes pass the tests:
     ```bash
-    pytest
+    uv run pytest
     ```
 
-7. Before raising a pull request you should also run tox. This will run the
-   tests across different versions of Python:
-    ```bash
-    tox
+7. Before raising a pull request you should also run `ruff`.:
+    ```console
+    $ uv run ruff check .
+    $ uv run ruff format . 
     ```
-    This requires you to have multiple versions of python installed.
-    This step is also triggered in the CI/CD pipeline, so you could also choose to skip this 
-    step locally.
 
 8. Commit your changes and push your branch to GitHub:
-    ```bash
-    git add .
-    git commit -m "Your detailed description of your changes."
-    git push origin name-of-your-bugfix-or-feature
+    ```console
+    $ git add .
+    $ git commit -m "Your detailed description of your changes."
+    $ git push origin name-of-your-bugfix-or-feature
     ```
 
 9. Submit a pull request through the GitHub website.
@@ -110,4 +108,4 @@ Before you submit a pull request, check that it meets these guidelines:
    new functionality into a function with a docstring, and add the feature to
    the list in `README.md`.
 
-3. The pull request should work for the last three stable Python release, e.g. 3.9, 3.10, and 3.11 if Python 3.11 is the latest stable version.
+3. The pull request should work for the last three stable Python release, e.g. 3.11, 3.12, and 3.13 if Python 3.13 is the latest stable version.

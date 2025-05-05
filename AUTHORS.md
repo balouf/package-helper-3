@@ -12,4 +12,3 @@ This package mixes two forks of https://github.com/audreyr/cookiecutter-pypackag
 ## Contributors
 
 - François Durand (PH2 and feedback).
-- Marc-Olivier Buob (feedback).

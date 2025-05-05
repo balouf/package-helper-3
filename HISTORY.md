@@ -1,18 +1,21 @@
 # History
 
-## 0.4.0: UV Edition
+## 0.4.0 (2025-05-06): UV Edition
 
-- UV is now the underlying management tool
-- Docs compilation is now MD+Sphinx (using myst-parser)
-- PyData is the only theme proposed
-- Argparse support removed (click is the only cli package proposed -> if you want something else do the change on your side!)
-- Simplified licence choices
-- Docker file support removed for now
-- Minor improvements
+This version aims at making things simpler and faster, mostly thanks to [UV].
 
-## 0.3.1 (XXXX-XX-XX): Small improvements
+- [UV] is now the underlying management tool
+- Docs compilation is now 100% Markdown (using [Sphinx]+[MyST])
+- [PyData] is the theme proposed
+- [click] is the cli interface
+- License is now defined in the `pyproject.toml` (no more dedicated `LICENCE` file)
+- Minor improvements (e.g. update versions and such)
 
-- Add git command to exclude gh-pages from fetch
+[UV]: https://docs.astral.sh/uv/
+[Sphinx]: https://www.sphinx-doc.org/en/master/
+[MyST]: https://myst-parser.readthedocs.io/en/v0.15.1/index.html
+[PyData]: https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html
+[click]: https://click.palletsprojects.com/en/stable/
 
 ## 0.3.0 (2023-11-07): Incorporate feedbacks
 
