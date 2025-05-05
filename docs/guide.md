@@ -1,6 +1,9 @@
 # Quick Guide
 
-If you used PH3 before and do not want to read all the lengthy tutorial again, here is an abridged version.
+:::{note}
+This guide is intended for people that have used PH3 before or with some experience in Python packaging/publishing. 
+Otherwise, it is recommended to use the [full tutorial](tutorial.md).
+:::
 
 ## Preliminaries
 

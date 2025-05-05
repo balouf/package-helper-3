@@ -1,5 +1,8 @@
 # Full Tutorial
 
+:::{note} For people who used PH3 before and don't need all explanations, use the [quick guide](guide.md) to remind the key steps.
+:::
+
 Package Helper 3 helps you create, develop and maintain a package managed by UV.
 If you use all the tools presented in this tutorial, things will work this way:
 
@@ -16,7 +19,6 @@ If you use all the tools presented in this tutorial, things will work this way:
 * When you make a *release* on GitHub, it automatically publishes your package on [PyPI]. This way, any Python
   user can install it with ``pip install``.
 
-For people who used PH3 before and don't need all explanations, a [quick recap](guide.md) is proposed to remind the key steps.
 
 [Cookiecutter]: https://github.com/audreyr/cookiecutter
 [PyCharm]: https://www.jetbrains.com/pycharm
