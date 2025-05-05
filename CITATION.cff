@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+title: Package Helper 3
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - family-names: Mathieu
+    given-names: Fabien
+    email: fabien.mathieu@normalesup.org
+repository-code: "https://github.com/balouf/package-helper-3/"
+url: "https://balouf.github.io/package-helper-3/"
+abstract: Package Helper 3 helps to create, develop, and maintain a Python package with UV.
+license: MIT
