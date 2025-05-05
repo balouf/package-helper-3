@@ -298,6 +298,8 @@ Configure Codecov so you can publicly expose the test coverage of your package:
 
 +++
 
+https://docs.pypi.org/trusted-publishers/
+
 Register your PyPI token, so that GitHub can automatically publish your package on PyPI for you:
 
 - Copy your PyPi token from the safe place where you stored it.

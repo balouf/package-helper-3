@@ -3,7 +3,7 @@
 [![PyPI Status](https://img.shields.io/pypi/v/package-helper-3.svg)](https://pypi.python.org/pypi/package-helper-3)
 [![Build Status](https://github.com/balouf/package-helper-3/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/balouf/package-helper-3/actions?query=workflow%3Amain)
 [![Documentation Status](https://github.com/balouf/package-helper-3/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/balouf/package-helper-3/actions?query=workflow%3Adocs)
-[![License](https://img.shields.io/github/license/balouf/package-helper-3)](https://github.com/balouf/package-helper-3/blob/main/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code Coverage](https://codecov.io/gh/balouf/package-helper-3/branch/main/graphs/badge.svg)](https://codecov.io/gh/balouf/package-helper-3/tree/main)
 
 
