@@ -24,7 +24,7 @@ Here are the main features of the template:
 
 - Default options that can be personalized.
 - Include example files for classes, with examples of documentation and testing.
-- Use Poetry for all-in-one management of dependencies and settings.
+- Use [UV] for all-in-one management of dependencies and settings.
 - Documentation:
 
   - Use GitHub actions and GitHub Pages to publish the documentation.
