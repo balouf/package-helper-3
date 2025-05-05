@@ -266,3 +266,11 @@ PH3 is a relatively simple BoilerPlate for Python packages. It lacks many featur
 
 - If you think *XXX* is a must for PH3, you can [Make a PR](https://balouf.github.io/package-helper-3/contributing.html) that implements *XXX*.
 - Many other BoilerPlates are available on the Web. For example, https://github.com/BrianPugh/python-template offers much more possibilities than PH3.
+
+## GitHub Actions
+
+### `The process '/usr/bin/git' failed with exit code 128`
+
+Check Workflow Permissions:
+- Go to your repository's Settings > Actions > General > Workflow permissions.
+- Ensure that "Read and write permissions" is enabled for the GITHUB_TOKEN

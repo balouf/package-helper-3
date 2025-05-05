@@ -31,7 +31,7 @@ import package_helper_3
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode', 'sphinx.ext.napoleon', 'nbsphinx',
+extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode', 'sphinx.ext.napoleon',
               'IPython.sphinxext.ipython_console_highlighting', 'sphinx.ext.intersphinx',
               'sphinx.ext.imgconverter', 'myst_parser', 'sphinx_copybutton']
 

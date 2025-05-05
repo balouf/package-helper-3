@@ -21,7 +21,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v5
         with:
-          version: "0.6.16"  # Pin to specific uv version
+          version: "0.7.2"  # Pin to specific uv version
 
       - name: Build package
         run: uv build --no-sources  # Recommended for production builds
