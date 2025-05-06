@@ -14,7 +14,7 @@ kernelspec:
 # F.A.Q.
 
 +++
-
+(dependencies)=
 ## How to manage dependencies (third-party packages)?
 
 +++
@@ -69,6 +69,7 @@ Bump&Release!
 
 +++
 
+(rcfile)=
 ## Do I need to enter my name/email/github_login everytime I make a package?
 
 +++
@@ -174,7 +175,12 @@ This avoids you to have to run a post-install script, but you will have to manua
 
 ## Which Python distribution should I use?
 
-+++
+(pythonless)=
+:::{important}
+You don't need any Python distribution if you use UV!
+:::
+
+However, it can be comfortable to be able to run `python` from any shell.
 
 There is no good answer here as long as you don't install a 2.7 version. It's like asking Mac or PC.
 

@@ -12,41 +12,86 @@ kernelspec:
 ---
 
 # Preliminaries: Once and for All
+{sub-ref}`wordcount-minutes` min read
 
 +++
 
-## Install a Python Distribution if You Don't Have One Already
+## 1. Install [UV]
 
 +++
 
-Ensure that the following requirements are made:
+[UV] will handle all the issues related to package management (dependencies, versioning, deployment) for you.
 
-- The Python distribution is recent enough. As a rule of thumb, you should aim to keep one of the last three stable distributions at all times, e.g. 3.10, 3.11, 3.12 if 3.12 is the last stable (non-beta) release.
-- The package manager [PIP](https://pip.pypa.io/en/stable/) is included.
+To install it, please follow the instructions from https://docs.astral.sh/uv/getting-started/installation/
+
+:::{admonition} Please install the standalone version
+One of the benefit of [UV] is that it does not need to be attached to a specific Python distribution. 
+It can use existing distributions if they are compatible with the requirements of a project, or it can ship its own versions. 
+This means:
+- Having Python installed is not required.
+- If you break/update your global Python distribution, [UV] won't be affected.
+- You can easily and transparently upgrade your Python version in your UV projects.
+:::
+
+Check that it works:
+
+```console
+$ uv --version
+```
+
+[UV]: https://docs.astral.sh/uv/
 
 +++
 
-## Create Accounts on the Websites
+## 2. Install Package Helper 3
+
++++
+
+In a terminal (Anaconda Prompt, Bash, Windows Powershell, etc):
+
++++
+
+```console
+$ uv tool install package-helper-3
+```
+
++++
+
+This will install PH3 as a uv tool. Check that the installation is correct:
+
+```console
+$ ph3 --help
+```
+
++++
+
+:::{note} If you have a python distribution with `pip` on your system, you can also install with
+```console
+$ pip install package-helper-3
+```
+However, this will tie PH3 to your python distribution.
+:::
+
+## 3. Create Accounts on the Websites
 
 +++
 
 Ensure that you have accounts (preferably with the same login) on:
 
 - [GitHub](https://github.com/),
-- [PyPI](https://pypi.org/).
+- [PyPI].
+- You will need access to [Codecov](https://app.codecov.io/gh/), but you can login with your GitHub account.
 
-PyPi:
+:::{note}
+In previous PH3 versions, you were asked to get an *API token* from [PyPI]. 
+This is not required anymore, as [PyPI] now proposes a [Trusted Publishers](https://docs.pypi.org/trusted-publishers/) approach. 
+:::
 
-- Go to "Your account" → "Account Settings" → "API tokens" → "Add API token".
-- "Token name" → github (for example).
-- "Scope" → "Entire account (all projects)".
-- Click on "create token". Keep it somewhere safe.
-
-You will need access to [Codecov](https://app.codecov.io/gh/), but you can login with your GitHub account.
+[PyPI]: https://pypi.org/
 
 +++
 
-## Install Git
+## 4. Install Git
 
 +++
 
@@ -62,78 +107,19 @@ $ git --version
 
 Ensure your version is recent enough (>=2.40).
 
++++
 
-Recommended: enter the following command.
-
-```console
-$ git config --add remote.origin.fetch '^refs/heads/gh-pages'
-```
-
-The command above tells `git` to ignore the branch `gh-pages`. `gh-pages` is the remote branch that hosts your compiled documentation. By default, git will store locally all versions of your documentation, which can take a lot of place for nothing. 
+## 5. Install Pandoc
 
 +++
 
-## Install Pandoc
+PH3 gives you the possibility to insert Jupyter Notebooks in your documentation. 
+This requires the installation of the Pandoc converter: https://pandoc.org/installing.html
 
 +++
 
-PH3 gives you the possibility to insert Jupyter Notebooks in your documentation. This requires the installation of the Pandoc converter: https://pandoc.org/installing.html
 
-+++
-
-## Install Poetry
-
-+++
-
-[Poetry](https://python-poetry.org/) will handle all the issues related to package management (dependencies, versioning, deployment) for you.
-
-To install it, please follow the instructions from https://python-poetry.org/docs/#installation
-
-Check that it works:
-
-```console
-$ poetry --version
-```
-
-Additionally the following commands are recommended:
-
-```console
-$ poetry config virtualenvs.in-project true
-$ poetry self add poetry-bumpversion
-$ poetry self add poetry-plugin-up
-```
-
-As one can guess, the first command tells that the virtual environment (venv) of a project should be created inside the project instead of within a centralized directory. It facilitates keeping track of the matchings between projects and venvs.
-
-The second command installs a poetry plugin that facilitates the management of the version number of your package.
-
-The last one installs a poetry plugin to automatically update dependencies and bump their versions in the `pyproject.toml` file. 
-
-+++
-
-## Install Package Helper 3
-
-+++
-
-In a terminal (Anaconda Prompt, Bash, Windows Powershell, etc):
-
-+++
-
-```console
-$ pip install package-helper-3
-```
-
-+++
-
-Check that the installation is correct:
-
-```console
-$ ph3 --help
-```
-
-+++
-
-## Install PyCharm
+## 6. Install PyCharm
 
 +++
 
@@ -149,15 +135,12 @@ In PyCharm settings: Version Control → GitHub → Add account.
 
 Two options are available:
 
-- Log In with Token seems to be the recommended way. The first time, click on the generate button to open a GitHub page that will create an access token. Copy the token and paste it in PyCharm. PyCharm should remind it but to avoid generating a new token every other week you should keep a copy somewhere else as well (in a very safe place!).  
-- (deprecated) Log In via GitHub will open a GitHub page to grant you access.
+- Log In with Token. The first time, click on the generate button to open a GitHub page that will create an access token. Copy the token and paste it in PyCharm. PyCharm should remind it but to avoid generating a new token every other week you should keep a copy somewhere else as well (in a very safe place!).  
+- Log In via GitHub will open a GitHub page to grant you access (2FA is likely to be required).
 
-+++
 
-### [recommended] Change the documentation style
-
-+++
-
+:::{admonition} Change the documentation style
 We recommend the [Numpy documentation style](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html).
 
 In PyCharm settings: Tools → Python Integrated Tools → Docstrings → Docstring format → NumPy.
+:::

@@ -13,7 +13,7 @@ This is the preferred method to install {{ cookiecutter.project_name }}, as it w
 If you don't have [pip] installed, this [Python installation guide] can guide
 you through the process.
 
-````note
+````{note}
 If you want to use {{ cookiecutter.project_name }} as a dependency in a UV-managed project, add it with
 ```console
 $ uv add {{ cookiecutter.project_slug }}

@@ -11,49 +11,98 @@ kernelspec:
   name: python3
 ---
 
+(release)=
 # Make a Release
+{sub-ref}`wordcount-minutes` min read
+
 
 +++
 
-Releases are a key step in the development of a project. A release tells to the world that a new version of your work is available.
+Releases are a key step in the development of a project. 
+A release tells to the world that a new version of your work is available.
 
-You cannot take a release back: if you made a mistake, you will have to make another release to patch your errors. It is therefore important to take your time when you craft a release.
-
-+++
-
-## Bump dependencies in your `pyproject.toml` 
+You cannot take a release back: if you made a mistake, you will have to make another release to patch your errors. 
+It is therefore important to take your time when you craft a release.
 
 +++
 
-Unless stated otherwise, Poetry uses [carets](https://python-poetry.org/docs/dependency-specification/#caret-requirements) to specify requirements. This basically claims that your package is compatible with new versions of your dependencies as long as these versions do not change too much.
+## 1. Ruff your code
 
-The caret system avoids the burden to constantly update your `pyproject.toml`. However, there is always a moment when your package become incompatible with the latest version of one dependency. Incompatibility can be semantic (e.g. the latest version is outside the caret range) or real (the latest version does not behave like you expect it to do).
-
-Being incompatible with latest versions will not stop anyone from installing your package in a dedicated environment (docker, `venv`, etc) where the version of each dependency is controlled by `poetry.lock`. However, it will be harder and harder for users to use it in their main Python environment. For example, imagine that the `numpy` requirement of your package is `^1.22.4` (e.g. `>=1.22.4` and `<1.23`) and that the latest Pandas requires `numpy>=1.23.2`. This means that everytime you install your package in its latest version you will have to downgrade Pandas, and conversely.
-
-This is why you should regularly bump the versions of our dependencies, and releases are a good opportunity to do that. Forcing users to upgrade to more recent (stable) versions of dependencies is always preferred to forcing downgrades.
-
-+++
-
-If you followed all the steps of the tutorial and installed the Poetry plugin `up`, just enter (inside your project, for example in a PyCharm terminal):
+Pycharm gives you a lot of hints about the quality of your code, but you don't always look at all the signs 
+on the right of the screen. You can use [Ruff] to check all your files at once.
 
 ```console
-$ poetry up
+$ uv run ruff format .
 ```
 
-+++
-
-### [optional] Manual upgrade
-
-+++
-
-Optionally, you can look inside `pyproject.toml`. If you see non-caret requirements that you want to bump, you can try to force the update manually with:
+→ Make your code look prettier.
 
 ```console
-$ poetry add package-name@latest
+$ uv run ruff check .
 ```
 
-Poetry will complain if there are semantic issues, possibly giving you suggestions to address them. 
+→ Investigate possible issues (you can use `--fix` to try auto-fixing them if possible).
+
+:::{hint}
+Inside the PyCharm terminal the virtual environment should be activated by default so the `uv run` part is not needed:
+
+```console
+$ ruff format
+$ ruff check --fix
+```
+:::
+
+[Ruff]: https://docs.astral.sh/ruff/
+
+## 2. Check dependencies in your `pyproject.toml` 
+
++++
+
+:::{hint}
+If you have time, check [the UV documentation about dependencies](https://docs.astral.sh/uv/concepts/projects/dependencies/).
+:::
+
+Your dependencies (i.e. the packages you rely upon) are handled in two places:
+
+- Inside `pyproject.toml`, you declare (manually or using `uv add`) them, optionally with some version requirements:
+  - Use `>=x.y.z` to declare a minimum required version, e.g. `"numpy>=1.23.4"`.
+  - Use `<x.y.z` to declare a *stopping point*, e.g. `"numpy>=1.23.4,<2"`.
+- The `uv.lock` file describes a combination of specific versions that respects the constraints of `pyproject.toml`:
+  - The lock handles all required packages (including dependecies of dependencies of dependencies of depen...) with many metadata, so it can be quite large.
+  - See it as a recipe to install *something that works*.
+  - **NEVER EDIT IT MANUALLY**. The lock is managed by uv through the `uv sync` command. 
+
+Once in a while, especially when you draft a new release, it can be good to check your versions:
+- Upgrade the requirements from your `pyproject.toml` if you need to.
+- Use `uv sync --upgrade` to push your version to the limit and test that your code still works.
+- If you detect some strong incompatibility, declare a *stopping point* (e.g. `"<2"`).
+
+:::{hint}
+To upgrade a package to the latest version in `pyproject.toml` you can do things like
+```console
+$ uv remove pkg && uv add --upgrade pkg
+```
+:::
+
+:::{admonition} Prefer future to past
+
+Being incompatible with latest versions will not stop anyone from installing your package in a dedicated environment 
+(docker, `.venv`, etc.) where the version of each dependency is controlled by `uv.lock`. 
+However, it will be harder and harder for users to use it in their main Python environment.
+
+For example, imagine that your code uses both `numpy` and `pandas`, but your code requires `numpy<2`,
+while the latest Pandas requires `numpy>=2`. 
+This means that everytime you install your package you will have to downgrade pandas, whereas other packages 
+of your distribution may need the latest versions...
+
+To avoid this as much as possible, whenever you need to choose between `pkg1>=x.y.z` and `pkg2<a.b.c` try to enforce 
+the first option (sadly, it is not always possible). This will maximize the chances that your package can co-exist 
+gracefully with other (well-maintained) packages in a Python distribution.
+
+This also applies to your Python version (the `requires-python` entry of your `pyproject.toml`): if you need to drop 
+`python 3.4` compatibility because one of your dependencies did, so be it! 
+It is better to be compatible with the last few minor Python versions than with a 10 years old version.
+:::
 
 +++
 
@@ -61,13 +110,7 @@ Poetry will complain if there are semantic issues, possibly giving you suggestio
 
 +++
 
-After `pyproject.toml` is updated, refresh `poetry.lock` with:
-
-```console
-$ poetry update
-```
-
-Run your tests both locally and remotely. If your package is broken:
+After `pyproject.toml` and `uv.lock` are updated, run your tests both locally and remotely. If your package is broken:
 
 - Fix it if the error is obvious.
 - If not, live to fight another day:
@@ -78,7 +121,7 @@ Run your tests both locally and remotely. If your package is broken:
 
 +++
 
-## Make it easy to use
+## 3. Make it easy to use
 
 +++
 

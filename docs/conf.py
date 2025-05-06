@@ -103,6 +103,7 @@ html_favicon = 'favicon.ico'
 # documentation.
 #
 # html_theme_options = {}
+html_title = f'Package Helper 3 v{package_helper_3.__version__}'
 html_theme_options = {
     "icon_links": [
         {

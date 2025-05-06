@@ -12,27 +12,33 @@ kernelspec:
 ---
 
 # Create Your Package
+{sub-ref}`wordcount-minutes` min read
+
 
 +++
 
-Creating your package locally should take less than 5 minutes. Full deployment on the different websites  (GitHub, Codecov, Pypi) will take a bit more time, but likely less than 20 minutes (maybe more the first time).
+:::{note}
+- Creating your package locally should take less than 5 minutes. 
+- Full deployment on the different websites  (GitHub, Codecov, Pypi) will take a bit more time, but likely less than 20 minutes.
+- Expect a bit more the first time.
+- Actual coding time of your package is not included in these estimates.
+:::
 
 +++
 
-## Before Starting: Decide What You Want
+## 1. Decide What You Want
 
 +++
 
-PH3 will ask you some information. It is best to think ahead of the answers:
+Before you start, you should decide a few things about your package that PH3 will ask you:
 
-- **Name** / **email** / **github username**. You should know the answer of these questions. If you do not want to re-renter them everytime you make a new project you can write a [user config file](https://balouf.github.io/package-helper-3/faq.html#Do-I-need-to-enter-my-name/email/github_login-everytime-I-make-a-package?).
+- **Name** / **email** / **github username**. You should know the answer of these questions. If you do not want to re-renter them everytime you make a new project you can write a {ref}`user config file <rcfile>`.
 - **Project Name**. This is the name of your project in *human language*. It will be displayed in the documentation. You can (should?) use **title case and spaces** if you have multiple words. For example, *Package Helper 3*.
 - **project-slug**. This is where you *store* your package. It will typically be the name of the directory where you develop the package, and the name of your GitHub/PyPi repositories. The convention is to use **lower case and dashes**. Unless you have specific reasons, you should adopt a project slug consistent with your project name. For example, `package-helper-3`.  Also, you should **check that your project slug is not used in [PyPI](https://pypi.org/)**, even if you do not plan to use PyPI for the moment (e.g. to avoid any possible package collision).
 - **package_name**. This is the `python` name of your package. It will typically be the name of the subdirectory of your project that contains the actual code. The convention is to use **lower case and underscores**. Unless you have specific reasons, you should adopt a package name consistent with your project name/slug. For example, `import package_helper_3 as ph`.
-- **Project description**. One or two sentences that describes the purpose of your project. For example, "*Package Helper 3 explains how to create, develop, and maintain a Python package with Poetry.*"
-- **Version**. PH3 adopts the [semantic versioning](https://semver.org/) convention. As they suggest, we recommend to start your initial development release at 0.1.0.
-- **Documentation theme**. Decide the skin you want for your documentation: [PyData][PD] or [ReadTheDocs][RTD].
-- **Command line interface (CLI)**. If your package is intended to be always executed from Python, you do not need to care about the CLI. If you intend to execute commands directly from a terminal (Anaconda Prompt, Bash, Windows Powershell, etc), some Python packages are here to help you. Two of the most popular ones are `click` (recommended) or `argparse`.
+- **Project description**. One or two sentences that describes the purpose of your project. For example, "*Package Helper 3 helps to create, develop, and maintain a Python package with UV.*"
+- **Version**. PH3 adopts the [semantic versioning](https://semver.org/) convention. [As they suggest](https://semver.org/#how-should-i-deal-with-revisions-in-the-0yz-initial-development-phase), we recommend to start your initial development release at 0.1.0.
+- **Command line interface (CLI)**. If your package is intended to be always executed from Python, you do not need to care about the CLI. If you intend to execute commands directly from a terminal (Anaconda Prompt, Bash, Windows Powershell, etc), some Python packages are here to help you. PH3 relies on [Click](https://click.palletsprojects.com/en/stable/).
 - **Dockerfile**. Do you plan to deploy your package on docker?
 - **License**. Which open source license (if any) do you want for your package? Check https://choosealicense.com/ if you need advice.
 
@@ -41,7 +47,7 @@ PH3 will ask you some information. It is best to think ahead of the answers:
 
 +++
 
-## Generate Your Package with Package Helper 3
+## 2. Execute PH3
 
 +++
 
@@ -58,77 +64,93 @@ $ ph3
   3. Answer the questions (see above for the meaning). If you leave a question blank, the default proposal (in parenthesis) will be used. Here is an example:
 
 ```console
-PS C:\Users\fabienma\git\github> ph3
-  [1/12] full_name (Fabien Mathieu):
-  [2/12] email (loufab@gmail.com):
-  [3/12] github_username (balouf):
-  [4/12] project_name (First Sandbox): My First PH3 Package
-  [5/12] project_slug (my-first-ph3-package):
-  [6/12] package_name (my_first_ph3_package):
-  [7/12] project_description (Sandboxes are cool!): PH3 packages are quick to make!
-  [8/12] version (0.1.0):
-  [9/12] Select documentation_theme
-    1 - PyData
-    2 - ReadTheDocs
-    Choose from [1/2] (1):
-  [10/12] Select command_line_interface
+PS C:\Users\loufa\git> ph3
+  [1/11] full_name (Fabien Mathieu):
+  [2/11] email (fabien.mathieu@normalesup.org):
+  [3/11] github_username (balouf):
+  [4/11] project_name (Python Boilerplate): My First PH3 Package
+  [5/11] project_slug (my-first-ph3-package):
+  [6/11] package_name (my_first_ph3_package):
+  [7/11] project_description (Python Boilerplate contains all the boilerplate you need to create a Python package.)PH3 packages are quick to make!
+  [8/11] version (0.1.0):
+  [9/11] Select command_line_interface
     1 - No command-line interface
     2 - Click
-    3 - Argparse
-    Choose from [1/2/3] (1): 2
-  [11/12] dockerfile [y/n] (n):
-  [12/12] Select open_source_license
-    1 - MIT license
-    2 - GNU General Public License v3
-    3 - BSD license
-    4 - ISC license
-    5 - Apache Software License 2.0
+    Choose from [1/2] (1): 2
+  [10/11] dockerfile [y/n] (n):
+  [11/11] Select open_source_license
+    1 - MIT
+    2 - GPL-3.0-or-later
+    3 - BSD-3-Clause
+    4 - ISC
+    5 - Apache-2.0
     6 - Not open source
     Choose from [1/2/3/4/5/6] (1):
 ```
 
-  4. Optionally, in your file manager, open the directory of your package: the whole file structure is now in there!
+:::{note}
+In your file manager, open the directory of your package: the whole file structure is now in there!
+:::
 
 +++
 
-## Install Your Project
+## 3. Install Your Project
 
 +++
 
-Developing a project and using a package are two different things, so you should install your package twice, once in a dedicated environment, one in your main space!
+Developing a project and using a package are two different things. Each usage has its own rules!
 
 +++
 
-### Install a dedicated environment
+### Install a development environment
 
 +++
 
-In a terminal prompt, go to the project directory (named as `project-slug`) and enter:
+In a terminal prompt, go to the project directory (we will use `my-first-ph3-package` as a running example) and enter:
 
 ```console
-$ poetry install
+$ uv sync --all-extras
 ```
 
 Wait for the installation to complete and you're done!
 
 +++
 
-You can test that your environment is well configured by launching a shell:
+:::{tip}
+
+The command `uv sync` creates a virtual environment for developing your package, located in your project directory in a `.venv` subdirectory.
+
+The package is installed in *editable* mode. That means that everytime you load the package with `uv`, 
+the current version of your code will be used, not the one from the installation time.
+:::
+
+:::{note}
+Before `uv`, virtual environments were usually *activated* (`.\.venv\Scripts\activate`).
+
+With `uv`, you still can activate but don't need to. The usual practice is to execute `uv run ...`. This will activate on-the-fly the environment and exit after use.
+
+For example, after having created your venv, you can test that your environment is well configured by launching python:
 
 ```console
-$ poetry shell
+$ uv run python
+Python 3.12.8 (tags/v3.12.8:2dc476b, Dec  3 2024, 19:30:04) [MSC v.1942 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
 ```
 
-Your prompt should indicate the virtual environnment in parenthesis, for example:
+This will start a Python session where your package is available.
 
-```console
-(my-first-ph3-package-py3.11) C:\...\my-first-ph3-package>
+```python
+>>> from my_first_ph3_package import MyClass1
+>>> res = MyClass1(2, 3)
+>>> res.my_string
+'a = 2 and b = 3'
 ```
 
-If you choose a CLI, you can try and run the default script:
+If you choose a CLI, you can also try and run the default script:
 
 ```console
-(my-first-ph3-package-py3.11) PS C:\...\my-first-ph3-package> my_first_ph3_package --help
+$ uv run my_first_ph3_package --help
 Usage: my_first_ph3_package [OPTIONS]
 
   Console script for my-first-ph3-package.
@@ -137,30 +159,7 @@ Options:
   --help  Show this message and exit.
 ```
 
-You can leave the virtual environment with the command
-
-```console
-$ exit
-```
-
-+++
-
-Note that poetry will install your package in *editable* mode. That means that everytime you load the package inside the dedicated environment, the current version will be used, not the one from the installation time.
-
-+++
-
-#### [Windows users]: `unable to load` error
-
-+++
-
-Windows users may see an error when they try the `poetry shell` command. This is usually due to the fact that you use a `Powershell` terminal, which by default has limited execution policies. Two options here (adapted from https://support.enthought.com/hc/en-us/articles/360058403072-Windows-error-activate-ps1-cannot-be-loaded-because-running-scripts-is-disabled-UnauthorizedAccess-):
-
-- Don't use Powershell. The old-fashioned Command Prompt does not rise the error.
-- Elevate your Powershell rights by running the following command in a Powershell terminal:
-
-```console
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
-```
+:::
 
 +++
 
@@ -168,11 +167,13 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 
 +++
 
-Right now, your Python package is only available in its dedicated environment. To use it more broadly (e.g. if you want to run Jupyter Notebooks, combine it with other packages, etc...):
+At this point, your Python package is only available in its dedicated development virtual environment. 
 
+If you have a Python distribution ({ref}`this is not required <pythonless>`) and want to use it more broadly 
+(e.g. if you want to run Jupyter Notebooks, combine it with other packages, etc...):
 +++
 
-- Use a terminal prompt **outside** your dedicated environment (`exit` if you are within the dedicated environment);
+- Use a terminal prompt **outside** your dedicated environment (check that the package name is not present in the prompt);
 - Go to the project directory and install your package:
 
 ```console
@@ -190,18 +191,18 @@ The `.` (dot) tells that the package to install is in the working directory.
 Your package is now available outside your dedicated environment! For example, if you chose a CLI:
 
 ```console
-PS C:\>my_first_ph3_package
+$ my_first_ph3_package
 Replace this message by putting your code into my_first_ph3_package.cli.main
 See click documentation at https://click.palletsprojects.com/
 ```
 
 +++
 
-You can also try to open the Notebook `your-project-slug/docs/tutorials/tutorial.ipynb` and check that the calls to the package are working fine.
+You can also try to open the Notebook `my-first-ph3-package/docs/tutorials/tutorial.ipynb` and check that the calls to the package are working fine.
 
 +++
 
-## Try Your Project with PyCharm
+## 4. Open your Project with PyCharm
 
 +++
 
@@ -211,28 +212,34 @@ To open your project:
 - Alternatively, if you installed PyCharm with context menu, you can right-click the directory in your favorite file manager and select "Open folder as PyCharm project"
 
 
-In the bottom right part of the window, you will probably see some background tasks running. Wait until they are finished. In particular, wait until PyCharm discovered your dedicated environment, e.g. when `<No interpreter>` is replaced by something like `Python 3.11 (my-first-ph3-package)` (it is usually displayed in the lower right corner).
+In the bottom right part of the window, you will probably see some background tasks running. 
+Wait until they are finished. 
+In particular, wait until PyCharm discovered your dedicated environment, 
+e.g. when `<No interpreter>` is replaced by something like `Python 3.12 (my-first-ph3-package)` 
+(it is usually displayed in the lower right corner).
 
-**Note:** Some users reported that PyCharm sometimes fails to locate the dedicated environment. If that happens, try to open (in PyCharm) the main Python file of the project, PyCharm should then propose to use the environment in a banner.
+:::{note}
+Some users reported that PyCharm sometimes fails to locate the dedicated environment. If that happens, try to open (in PyCharm) the main Python file of the project, PyCharm should then propose to use the environment in a banner.
+:::
 
 +++
 
-### Run tests and documentation locally
-
-+++
+### Run your tests locally
 
 - In PyCharm: menu Run → Run → All Tests. It runs all the tests of the project. PH3 provides in its template examples that you can re-use if you are new to testing (e.g. in `my_class_1.py`).
 
-
 - Open the file `cov/index.html` (in your web browser). It displays what parts of your code are covered by the tests.
+
+### Build your documentation locally
+
 
 - In PyCharm: menu Run → Run → Generate docs. It generates the html documentation of your project. The template provides examples of classes, such as the file my_class_1.py. You can use them as models if you are new to Sphinx documentation.
 
-- Open the file build/index.html (in your web browser). It displays the html documentation of your project.
+- Open the file `build/index.html` (in your web browser). It displays the html documentation of your project.
 
 +++
 
-## Go GitHub
+## 5. Go GitHub
 
 +++
 
@@ -242,7 +249,7 @@ First thing to do is create the GitHub repo of your project. In PyCharm:
 - Menu Version Control → Share project on GitHub.
 - Fill in the form and validate, e.g.:
 ```console
-New repository name: my_toy_package
+New repository name: my_first_ph3_package
 Remote name: origin
 Description: PH3 packages are quick to make!
 ```
@@ -251,9 +258,17 @@ Description: PH3 packages are quick to make!
 
 In a browser, you can go to your GitHub account to check that everything is there.
 
-**Check repo visibility**: GitHub repos can be private or public. Some features like publishing your documentation on GitHub pages are only available on public repos unless you have a paid account. If you set up your repo to private, you can switch visibility to public on the settings menu (the *Danger Zone* down the screen).
-
+:::{admonition} Check repo visibility
+GitHub repos can be private or public. 
+Some features like publishing your documentation on GitHub pages are only available on public repos unless you have a paid account. If you set up your repo to private, you can switch visibility to public on the settings menu (the *Danger Zone* down the screen).
+:::
 +++
+
+:::{admonition} Check Workflow permissions
+GitHub actions can use a `GITHUB_TOKEN` to perform different operations on the repo. 
+PH3 need thetoken to have `read` **AND** `write` permission, e.g. to publish the documentation on a dedicated branch.
+To avoid errors, go to Settings → Actions → General → Workflow permissions and check that `GITHUB_TOKEN` is `read and write`.
+:::
 
 ### Check GitHub actions
 
@@ -264,12 +279,16 @@ In GitHub:
 - GitHub page of your package → Actions.
 - Check that the actions are successes (it may take several minutes). 
   - The "build" action runs the tests of the package. Default PH3 triggers are:
-    - When something is pushed on the default branch ("main" or "master").
+    - When something is pushed on the default branch ("main").
     - When there is a pull request.
     - At 5:30 am the 1st and 15th of each month.
-  - The "docs" actions builds the documentation when something is pushed. It publishes it online if the branch is your default git branch ("main" or "master").
+  - The "docs" actions builds the documentation when something is pushed. It publishes it online if the branch is your default git branch ("main").
   - The "release" action should not have been triggered at this point. It will run when you release a version to publish it on PyPi.
 
+:::{note}
+If the permissions of `GITHUB_TOKEN` were initially too restrictive, the initial build of `docs` may have failed. 
+After permissions have been fixed, the action should work as expected.
+:::
 +++
 
 ### Declare your documentation
@@ -285,7 +304,7 @@ Tell GitHub Pages that the documentation files are in the "gh-pages" branch of y
 
 +++
 
-### Share a few secrets
+### Link with Codecov
 
 +++
 
@@ -298,12 +317,19 @@ Configure Codecov so you can publicly expose the test coverage of your package:
 
 +++
 
-https://docs.pypi.org/trusted-publishers/
+### Link with [PyPI]
 
-Register your PyPI token, so that GitHub can automatically publish your package on PyPI for you:
+[PyPI] has a [Trusted Publisher policy](https://docs.pypi.org/trusted-publishers/) to allow GitHub to publish new versions on your behalf.
 
-- Copy your PyPi token from the safe place where you stored it.
-- In GitHub: Settings → Secrets and variables → Actions → New repository secret. Name: `PYPI_TOKEN`. Value: paste your PyPi token.
+Follow the quickstart instructions there to enable publishing. You should enter these information in the `GitHub` tab:
+
+- PyPI Project Name: your project slug (e.g. `my-first-ph3-package`)
+- Owner: Your GitHub username
+- Repository name: your project slug (e.g. `my-first-ph3-package`)
+- Workflow name: `release.yml`
+- Environment name: `pypi`
+
+[PyPI]: https://pypi.org
 
 +++
 
@@ -335,14 +361,14 @@ Then check that everything is working online:
   - GitHub page of your package (main page) → near the bottom of the page, click on the Codecov badge.
   - You can navigate in your project to see what parts of the code are covered by the tests.
 
-If you wish, you are now ready to release your first version! (cf [Make a Release](https://balouf.github.io/package-helper-3/maintain.html)).
+If you wish, you are now ready to release your first version! (cf {ref}`release`). But maybe you should add some real code first.
 
 +++
 
-## Time to Code!
+## 6. Time to Code!
 
 - Replace the toy code provided by PH3 with your actual code.
-- [Add/remove dependencies](https://balouf.github.io/package-helper-3/faq.html#How-to-manage-dependencies-(third-party-packages)?) according to your needs.
+- {ref}`Add/remove dependencies <dependencies>` according to your needs.
 - Right click on PyCharm's project tree to create new *modules* (i.e. Python files) and *(sub)packages* (directories with a `__init__.py` file).
 - If you manually copy files in your project, don't forget to add them to Git.
 - Keep in mind that your project is not just your source code
