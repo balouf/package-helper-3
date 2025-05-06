@@ -132,28 +132,28 @@ After `pyproject.toml` and `uv.lock` are updated, run your tests both locally an
 
 To reference a class:
 
-
-    ```{eval-rst}
-    .. automodule:: my_first_ph3_package.MyClass1
-        :members:
-    ```
-
-
-```rst
+````rst
+```{eval-rst}
 .. autoclass:: my_first_ph3_package.MyClass3
     :members:
 ```
+````
+
 
 To reference a module (all the content of a Python file):
 
-```rst
+````rst
+```{eval-rst}
 .. automodule:: my_first_ph3_package.cli
     :members:
 ```
+````
+
+These references are to be inserted in a referenced markdown file within the `reference` part of the `docs` directory. 
 
 +++
 
-## Bulletproof your tests and documentation
+## 4. Bulletproof your tests and documentation
 
 +++
 
@@ -163,34 +163,33 @@ To reference a module (all the content of a Python file):
   - Coverage is here to give **you** some (relative) confidence that your code will do what you expect, and to ease pinpointing issues when/before they occur. It is not a rating.
   - In particular, don't abuse of `# pragma: no cover` (a magic comment to exclude parts of your code from the coverage statistics) to artificially reach a high coverage.
 - Generate the documentation (in PyCharm and/or with GitHub actions) in order to check that it is working.
-- If Sphinx issue some warnings, investigate them as it is usually a sign you did something wrong.
+- If Sphinx issues some warnings, investigate them as it is usually a sign you did something wrong.
 - Take some time to browse the resulting documentation as if you were a regular user. Are you happy with it?
 
 +++
 
-## Finalize your release
+## 5. Finalize your release
 
 +++
 
-- Bump the version of your project (unless it is your first release). In PyCharm's terminal:
-  - `poetry version patch` (version x.y.z → x.y.(z+1)) when you made a backwards-compatible modification (such as a bug fix).
-  - `poetry version minor` (version x.y.z → x.(y+1).0) when you added a functionality.
-  - `poetry version major` (version x.y.z → (x+1).0.0) when you changed the API. Note: in versions 0.y.z, the API is not expected to be stable anyway.
-- Update the file `HISTORY.rst`:
+- Bump the version of your project (unless it is your first release). In a terminal:
+  - `uv version --bump patch` (version x.y.z → x.y.(z+1)) when you made a backwards-compatible modification (such as a bug fix).
+  - `uv version --bump minor` (version x.y.z → x.(y+1).0) when you added a functionality.
+  - `uv version --bump major` (version x.y.z → (x+1).0.0) when you changed the API. Note: in versions 0.y.z, the API is not expected to be stable anyway.
+- Update the file `HISTORY.md`:
   - Follow the pattern of previous entries:
-    - Title enclosed in dashes lines (`------------`).
-    - The two dashes lines should never be shorter than your title.
+    - Title prefixed with `##`.
     - The title should have the version, date of release, and short description.
-    - Enter release notes (changes) in short items (lines starting with `*`).
-  - Stick to pure `.rst` syntax: never use Sphinx' specific directives such as ``:class:`MyClass` ``.
+    - Enter release notes (changes) in short items (lines starting with `-`).
+  - Stick to pure Markdown syntax: never use MystParser specific directives.
 - Commit/push.
-- If you were working on a secondary branch, do what you have to do: pull request to "main" or "master", etc.
-- Ensure that you are now in your default git branch ("main" or "master").
+- If you were working on a secondary branch, do what you have to do: pull request to "main", etc.
+- Ensure that you are now in your default git branch ("main").
 - Wait for the last GitHub actions to finish.
 
 +++
 
-## Publish
+## 6. Publish
 
 +++
 
@@ -198,12 +197,12 @@ On [GitHub's website](https://github.com/) go to your project:
 
 - "Releases" → "Create a new release".
 - "Choose a tag" → the version you publish prefixed with the letter "v" (e.g. `v0.1.0`) → "Create new tag"
-- Add a release title as in `HISTORY.rst`, e.g. `First release`.
-- Add release notes as in `HISTORY.rst`, e.g. `* First release on PyPI.`.
+- Add a release title as in `HISTORY.md`, e.g. `First release`.
+- Add release notes as in `HISTORY.md`, e.g. `- First release on PyPI.`.
 - Optionally, check "Set as a pre-release" so the release will be labeled as non-production ready (recommended for early versions of your package).
 - Select "Publish release".
 
-After a few minutes, GitHub has finished the built and it is deployed on PyPI. If you want to check:
+After a few minutes, GitHub has finished the built, and it is deployed on PyPI. If you want to check:
 - Search for your package name on PyPI and check that the version number is correct.
 - Check that the readme is correctly rendered on PyPI.
 - Note that the PyPI badge may take several more minutes before being updated.

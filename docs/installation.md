@@ -6,16 +6,24 @@
 
 ## Stable release
 
-To install Package Helper 3, run this command in your terminal:
+To install Package Helper 3 on your Python distribution, you can run this command in your terminal:
 
 ```console
 $ pip install package-helper-3
 ```
 
-This is the preferred method to install Package Helper 3, as it will always install the most recent stable release.
-
 If you don't have [pip] installed, this [Python installation guide] can guide
 you through the process.
+
+
+However, if you have `uv` installed (highly recommended), it is best to install PH3 as a UV tool:
+
+(install)=
+```console
+$ uv tool install package-helper-3
+```
+
+This is the preferred method to install Package Helper 3, as it will not tie PH3 to your Python installation.
 
 
 ## From sources

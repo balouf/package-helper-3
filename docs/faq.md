@@ -22,50 +22,54 @@ kernelspec:
 The most useful command you need to know is
 
 ```console
-$ poetry add name_of_the_new_package
+$ uv add <pkg-name>
 ```
 
-But poetry offers a lot more. Don't hesitate to browse its [documentation](https://python-poetry.org/docs/).
+But UV offers a lot more. Don't hesitate to browse its [documentation](https://docs.astral.sh/uv/concepts/projects/dependencies/).
 
 +++
 
-## I have a great package based on `setup.py`. How can I switch to `poetry`?
+## I have a great package based on `setup.py`. How can I switch to `uv`?
 
 +++
 
 I personally find that making a manual conversion has a good simplicity/efficiency trade-off.
 
 - Start with a fresh `git clone my_package` (no venv or anything).
-- Open `setup.py` in some text editor to have a look at your parameters (current version, description, requirements...)
-- Create your `pyproject.toml` project with
+- Open `setup.py` or other files in some text editor to have a look at your parameters (current version, description, requirements...)
+- Create your `pyproject.toml` inside your project directory with
 
 ```console
-$ poetry init
+$ uv init
 ```
 
-- Answer the questions. When asked for dependencies, you can add the content of `requirements` from your `setup.py`.
-- By default, poetry associates `readme` with `README.md`. If your readme is in another format, e.g. `README.rst`, edit the `pyproject.toml` file accordingly.
-- Try to install an environment
+- Add dependencies with `uv add` (use `--dev` to isolate dev dependencies like `sphinx`).
+- By default, poetry associates `readme` with `README.md`. If your readme is in another format, e.g. `README.rst`, convert it to Markdown ([rst2myst is great](https://rst-to-myst.readthedocs.io/en/latest/index.html)).
 
-```console
-$ poetry install
-```
 
-Depending on your dependencies, poetry may complain of compatibility issues.
+Depending on your dependencies, `UV` may complain of compatibility issues.
 
-- Resolve them by editing `pyproject.toml` and running `poetry install` until it works.
-- Poetry usually gives useful suggestions when it fails.
-- Rule of thumb: don't hesitate to sacrifice compatibility with older Python versions. For example, if your current version has Python >= 3.6 compatibility and the numpy (the latest version, which Poetry suggested you to install) requires Python>=3.9, just accept that your future releases will have Python>=3.9 compatibility.
+- Resolve them by editing `pyproject.toml` and running `uv sync` until it works.
+- UV usually gives useful suggestions when it fails.
+- Rule of thumb: don't hesitate to sacrifice compatibility with older Python versions. For example, if your current version has Python >= 3.6 compatibility and the numpy (the latest version, which UV suggested you to install) requires Python>=3.9, just accept that your future releases will have Python>=3.9 compatibility.
 
-At this point, the venv you have is Poetry-based. Open your project in PyCharm and run your tests. Adjust until they work.
+Open your project in PyCharm and run your tests. Adjust until they work.
 
-Most `.ini` files, e.g. for tox or pytest, can be transferred into `pyproject.toml`. Google how to do it.
+Most `.ini` files, e.g. for tox or pytest, can be transferred into `pyproject.toml`. Google how to do it or adapt a previous PH3 project.
 
 You should now be able to remove the legacy files. Check you didn't break anything.
 
 Push your changes on GitHub (preferably on a secondary branch) to check it works.
 
 Bump&Release!
+
+## I have a great package based on `poetry`. How can I switch to `uv`?
+
+In theory, you just have two things to do:
+
+- Upgrade the `pyproject.toml` to the UV format. This can be tedious, don't hesitate to Google it or copy from a PH3 dummy package.
+- Install with `uv sync`.
+- Remove the old `poetry.lock` and add to git the new `uv.lock`.
 
 +++
 
@@ -93,12 +97,12 @@ default_context:
 
 +++
 
-With Poetry, you can easily setup commands to be executed directly from a prompt (a.k.a. Command Line Interface, CLI). This is made by linking some keywords (*entry points*) to methods of your package. The declarations are made in the `[tool.poetry.scripts]` section of `pyproject.toml`. 
+With `pyproject.toml`, you can easily setup commands to be executed directly from a prompt (a.k.a. Command Line Interface, CLI). This is made by linking some keywords (*entry points*) to methods of your package. The declarations are made in the `[project.scripts]` section of `pyproject.toml`. 
 
 For example, if you choose a CLI when creating your project, you should have something like this:
 
 ```toml
-[tool.poetry.scripts]
+[project.scripts]
 my_first_ph3_package = 'my_first_ph3_package.cli:main'
 ```
 
@@ -106,12 +110,14 @@ The key is the *entry point*, e.g. the command that will trigger the execution o
 
 The value tells where is located the method you want to execute. In the example above, it is the `main` method of the `cli.py` file located at the root of the `my_first_ph3_package` package.
 
-**Entry points and editable mode**: it is important to understand that the *editable* mode of a package is *passive*. It just tell Python to look directly at the location of the package you are working on instead of the place where regular packages are installed. In particular, just editing the `pyproject.toml` has no effect on the available entry points so if you change them you need to refresh your installations: inside your project directory and outside the dedicated environment, do:
+**Entry points and editable mode**: it is important to understand that the *editable* mode of a package is *passive*. It just tell Python to look directly at the location of the package you are working on instead of the place where regular packages are installed. In particular, just editing the `pyproject.toml` has no effect on the available entry points so if you change them you need to refresh your installations:
 
 ```console
-$ poetry install
+$ uv sync
 $ pip install -e . -U
 ```
+
+(the last one is optional, in case you have a Python distribution installed)
 
 +++
 
@@ -141,35 +147,27 @@ html_static_path = ['_static']
 
 +++
 
-## How to do *some exotic stuff* with Poetry?
+## How to do *some exotic stuff* with UV?
 
 +++
 
-Google is your friend. Most of the time, you just need a special line in `pyproject.toml`. A few examples from my personal experience:
+Google is your friend. Most of the time, you just need a special line in `pyproject.toml`.
 
-### Install from a private repository:
+The [UV documentation](https://docs.astral.sh/uv/concepts/projects/) contains many useful examples.
 
-```toml
-my-private-package = {git = "git@github.com:My-Corporation/my-private-package"}
-```
 
-It requires that the machine where `poetry install` runs has a git with credentials to your private repo.
+:::{admonition} Example: Install spacy language model
 
-Another variant: asking for `https` and a specific release tag:
+Spacy usually requires a language model which you need to install separately, e.g. with `python -m spacy download en_core_web_sm`. 
+It seems that you can do this inside `poetry.toml`:
 
 ```toml
-other-package = {git = "https://github.com/My-Corporation/other-package.git", tag = "v2.2.1"}
+[tool.uv.sources]
+en_core_web_sm = { url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0.tar.gz" }
 ```
-
-### Install spacy language model
-
-Spacy usually requires a language model which you need to install separately, e.g. with `python -m spacy download en_core_web_sm`. It seems that you can do this inside Poetry with the magic line:
-
-```toml
-en_core_web_sm = {url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.0/en_core_web_sm-3.7.0.tar.gz"}
-```
-
 This avoids you to have to run a post-install script, but you will have to manually maintain consistency between the versions of spacy and your model.
+:::
+
 
 +++
 
@@ -180,7 +178,7 @@ This avoids you to have to run a post-install script, but you will have to manua
 You don't need any Python distribution if you use UV!
 :::
 
-However, it can be comfortable to be able to run `python` from any shell.
+However, it can be comfortable to be able to run `python` from any shell, and you need a proper Python installation for that.
 
 There is no good answer here as long as you don't install a 2.7 version. It's like asking Mac or PC.
 
@@ -190,8 +188,8 @@ But if you have no idea, here are two popular distributions:
   - Pros: Anaconda installs by default a lot of common packages so you will not have to install them yourself (e.g. Numpy, Matplotlib, Jupyter, Pandas...).
   - Cons: the distribution is very large to install and the included package manager (conda) can clash with PIP, provoking dependency conflicts.
 - [Vanilla Python](https://www.python.org/downloads/)
-  - Pro: Minimalist: as clean as possible.
-  - Cons: Minimalist: you'll have to install your favorite packages on your own.
+  - Pro: Minimalist → as clean as possible.
+  - Cons: Minimalist → you'll have to install your favorite packages on your own.
   
 Anaconda is recommended for beginners who do not want to get too dirty in package management and are not afraid of re-installing the distribution once a year because of clash in package management.
 
@@ -213,31 +211,11 @@ $ git config --global init.defaultBranch main
 
 +++
 
-## PyPi
-
-+++
-
-### What if I lost my PyPi token?
-
-+++
-
-Just create a new one.
-
-+++
-
-### What if my PyPi token is compromised (e.g. I published it in a public page by mistake)?
-
-+++
-
-Immediately delete the compromised token and create a new one. You will have to change the `PYPI_TOKEN` secret of all your packages based on the old token.
-
-+++
-
 ## I am used to `setup.py` to deploy my package. Why should I bother with Poetry?
 
 +++
 
-Before poetry, deploying packages required multiple files, e.g.:
+Before the `pyproject.toml` approach, managing packages required multiple files, e.g.:
 
 - A `setup.py` file with some informations about the package and its dependencies;
 - A `requirements.txt` file to facilitate the installation of dependencies with `pip`;
@@ -246,22 +224,23 @@ Before poetry, deploying packages required multiple files, e.g.:
 
 All these files were to be update manually in most cases, leading to mismatch/conflicts between dependencies. And the environments were to be handled separately.
 
-Poetry uses two files:
+With UV, all is concentrated in two files:
 
 - `pyproject.toml` tells everything you need to know about your package, nicely split into sections.
-- `poetry.lock` gives an exhaustive set of exact versions (including where to find them) that works.
+- `uv.lock` gives an exhaustive set of exact versions (including where to find them) that works.
 
 The benefits are:
 
-- `pyproject.toml` can be automatically maintained by poetry commands to add/remove dependencies, update versions, ...
+- `pyproject.toml` can be automatically maintained by uv commands to add/remove dependencies, update versions, ...
 - If required, it is easy to perform manual editions.
-- You never need to edit `poetry.lock`, it is automatically managed.
-- Dependencies can be split into groups, e.g. doc dependencies, dev dependencies, graphic dependencies... and you can customize the groups you want to install.
+- You never need to edit `uv.lock`, it is automatically managed.
+- Dependencies can be split into groups, e.g. optional dependencies (e.g. graphic packages), dev dependencies... and you can customize the groups you want to install.
 - Dependencies not available on `pip` can be integrated (e.g. private repositories).
-- Installing your development environment is simple as `$ poetry install`. Installing the package in the main environment or pushing to pypi are also straightforward.
+- Installing your development environment is simple as `$ uv sync`. Installing the package in the main environment or pushing to pypi are also straightforward.
 
-I used [Package Helper 2 (PH2)](https://package-helper-2.readthedocs.io/en/latest/index.html) a lot to create my own packages. It was a great tool to bootstrap a new package in a couple of minutes, but it was based on a `setup.py` approach. After one bite of Poetry I realized `setup.py` was not an option for me anymore. This motivated the creation of [Package Helper 3](https://balouf.github.io/package-helper-3/index.html).
+I used [Package Helper 2 (PH2)](https://package-helper-2.readthedocs.io/en/latest/index.html) a lot to create my own packages. It was a great tool to bootstrap a new package in a couple of minutes, but it was based on a `setup.py` approach. After one bite of Poetry[^1], I realized `setup.py` was not an option for me anymore. This motivated the creation of [Package Helper 3](https://balouf.github.io/package-helper-3/index.html).
 
+[^1]: Poetry is the precursor of UV. Notably, it introduced `pyproject.toml`.
 +++
 
 ## Why isn't feature *XXX* available in PH3?
@@ -273,7 +252,7 @@ PH3 is a relatively simple BoilerPlate for Python packages. It lacks many featur
 - If you think *XXX* is a must for PH3, you can [Make a PR](https://balouf.github.io/package-helper-3/contributing.html) that implements *XXX*.
 - Many other BoilerPlates are available on the Web. For example, https://github.com/BrianPugh/python-template offers much more possibilities than PH3.
 
-## GitHub Actions
+## GitHub Actions Issues
 
 ### `The process '/usr/bin/git' failed with exit code 128`
 
