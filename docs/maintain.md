@@ -114,10 +114,11 @@ After `pyproject.toml` and `uv.lock` are updated, run your tests both locally an
 
 - Fix it if the error is obvious.
 - If not, live to fight another day:
-  - Revert your git branch to the last commit before you did `poetry up`. PyCharm has a nice graphical display of git branches that should make it easy.
-  - Refresh `poetry.lock` with a `poetry update`.
+  - Revert your git branch to the last commit before you updated your `pyproject.toml`. PyCharm has a nice graphical display of git branches that should make it easy.
+  - Refresh `uv.lock` with a `uv sync`.
   - Check that your tests are back on track (locally and remotely).
-  - After the current release is done, you should prepare a dedicated release to make your package compatible with latest versions. If possible, preserve backward-compatibility, but not at all cost.
+  - After the current release is done, you should prepare a dedicated release to make your package compatible with latest versions. 
+  - Reminder: preserve backward-compatibility if possible, but not at all cost.
 
 +++
 
@@ -130,6 +131,13 @@ After `pyproject.toml` and `uv.lock` are updated, run your tests both locally an
 - Check that the reference section of your documentation is consistent with your actual code, in particular, check that new classes/methods are documented (Sphinx will not complain if they are not).
 
 To reference a class:
+
+
+    ```{eval-rst}
+    .. automodule:: my_first_ph3_package.MyClass1
+        :members:
+    ```
+
 
 ```rst
 .. autoclass:: my_first_ph3_package.MyClass3
