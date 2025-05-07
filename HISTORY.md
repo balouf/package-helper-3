@@ -1,6 +1,6 @@
 # History
 
-## 0.4.2 (2025-05-07): Minor update
+## 0.4.3 (2025-05-07): Minor update
 
 * Documentation fully re-written to follow the new workflow.
 * Fix a few bugs (e.g. misconfiguration of some *GitHub Actions*).
