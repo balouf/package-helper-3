@@ -380,3 +380,10 @@ If you wish, you are now ready to release your first version! (cf {ref}`release`
     - Update your docstrings.
     - Update your `tests` directory.
     - Check your coverage.
+
+:::{hint}
+Your documentation uses [MyST], a flavor of Markdown that allows many nice things (boxes, maths, footnotes...). 
+Don't hesitate to [browse its documentation][MyST] to see the possibilities!
+:::
+
+[MyST]: https://myst-parser.readthedocs.io/en/v0.15.1/index.html

@@ -1,5 +1,11 @@
 # History
 
+## 0.4.2 (2025-05-07): Minor update
+
+* Documentation fully re-written to follow the new workflow.
+* Fix a few bugs (e.g. misconfiguration of some *GitHub Actions*).
+
+
 ## 0.4.2 (2025-05-05): UV Edition
 
 This version aims at making things simpler and faster, mostly thanks to [UV].

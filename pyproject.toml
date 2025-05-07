@@ -13,7 +13,7 @@ include = [
 
 [project]
 name = "package-helper-3"
-version = "0.4.2"
+version = "0.4.3"
 description = "Package Helper 3 helps to create, develop, and maintain a Python package with UV."
 readme = "README.md"
 requires-python = ">=3.10"
