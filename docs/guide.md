@@ -49,6 +49,7 @@ $ pip install -e . # optional
 - Import important classes in main `__init__.py`.
 - Check your docs (references and tutorials).
 - Bulletproof tests (coverage!) and documentation building (look up Sphinx warnings).
+- Ruff your code (`format` and `check`).
 - Bump version of your package (`uv version --bump patch/minor/major`).
 - Update `HISTORY.md`, beware of strict Markdown compliance.
 - Commit/Push, merge into `main` if you were on a secondary branch.
