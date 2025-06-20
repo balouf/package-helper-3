@@ -1,0 +1,689 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Make a Release &#8212; Package Helper 3 v0.4.5</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=340bb9e5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=6dbb43f8"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'maintain';</script>
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="F.A.Q." href="faq.html" />
+    <link rel="prev" title="Create Your Package" href="creation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.4.5" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Package Helper 3 v0.4.5</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="presentation.html">
+    Presentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="guide.html">
+    Quick Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="tutorial.html">
+    Full Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="faq.html">
+    F.A.Q.
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/balouf/package-helper-3" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="presentation.html">
+    Presentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="guide.html">
+    Quick Guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="tutorial.html">
+    Full Tutorial
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="faq.html">
+    F.A.Q.
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/balouf/package-helper-3" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="preparation.html">Preliminaries: Once and for All</a></li>
+<li class="toctree-l1"><a class="reference internal" href="creation.html">Create Your Package</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Make a Release</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="tutorial.html" class="nav-link">Full Tutorial</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Make a Release</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="make-a-release">
+<span id="release"></span><h1>Make a Release<a class="headerlink" href="#make-a-release" title="Link to this heading">#</a></h1>
+<p>6 min read</p>
+<p>Releases are a key step in the development of a project.
+A release tells to the world that a new version of your work is available.</p>
+<p>You cannot take a release back: if you made a mistake, you will have to make another release to patch your errors.
+It is therefore important to take your time when you craft a release.</p>
+<section id="ruff-your-code">
+<h2>1. Ruff your code<a class="headerlink" href="#ruff-your-code" title="Link to this heading">#</a></h2>
+<p>Pycharm gives you a lot of hints about the quality of your code, but you don’t always look at all the signs
+on the right of the screen. You can use <a class="reference external" href="https://docs.astral.sh/ruff/" rel="noreferer noopener" target="_blank">Ruff</a> to check all your files at once.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>uv<span class="w"> </span>run<span class="w"> </span>ruff<span class="w"> </span>format<span class="w"> </span>.
+</pre></div>
+</div>
+<p>→ Make your code look prettier.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>uv<span class="w"> </span>run<span class="w"> </span>ruff<span class="w"> </span>check<span class="w"> </span>.
+</pre></div>
+</div>
+<p>→ Investigate possible issues (you can use <code class="docutils literal notranslate"><span class="pre">--fix</span></code> to try auto-fixing them if possible).</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Inside the PyCharm terminal the virtual environment should be activated by default so the <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">run</span></code> part is not needed:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ruff<span class="w"> </span>format
+<span class="gp">$ </span>ruff<span class="w"> </span>check<span class="w"> </span>--fix
+</pre></div>
+</div>
+</div>
+</section>
+<section id="check-dependencies-in-your-pyproject-toml">
+<h2>2. Check dependencies in your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code><a class="headerlink" href="#check-dependencies-in-your-pyproject-toml" title="Link to this heading">#</a></h2>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you have time, check <a class="reference external" href="https://docs.astral.sh/uv/concepts/projects/dependencies/" rel="noreferer noopener" target="_blank">the UV documentation about dependencies</a>.</p>
+</div>
+<p>Your dependencies (i.e. the packages you rely upon) are handled in two places:</p>
+<ul class="simple">
+<li><p>Inside <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>, you declare (manually or using <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">add</span></code>) them, optionally with some version requirements:</p>
+<ul>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">&gt;=x.y.z</span></code> to declare a minimum required version, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;numpy&gt;=1.23.4&quot;</span></code>.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">&lt;x.y.z</span></code> to declare a <em>stopping point</em>, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;numpy&gt;=1.23.4,&lt;2&quot;</span></code>.</p></li>
+</ul>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">uv.lock</span></code> file describes a combination of specific versions that respects the constraints of <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>:</p>
+<ul>
+<li><p>The lock handles all required packages (including dependecies of dependencies of dependencies of depen…) with many metadata, so it can be quite large.</p></li>
+<li><p>See it as a recipe to install <em>something that works</em>.</p></li>
+<li><p><strong>NEVER EDIT IT MANUALLY</strong>. The lock is managed by uv through the <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">sync</span></code> command.</p></li>
+</ul>
+</li>
+</ul>
+<p>Once in a while, especially when you draft a new release, it can be good to check your versions:</p>
+<ul class="simple">
+<li><p>Upgrade the requirements from your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> if you need to.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">sync</span> <span class="pre">--upgrade</span></code> to push your version to the limit and test that your code still works.</p></li>
+<li><p>If you detect some strong incompatibility, declare a <em>stopping point</em> (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;&lt;2&quot;</span></code>).</p></li>
+</ul>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>To upgrade a package to the latest version in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> you can do things like</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>uv<span class="w"> </span>remove<span class="w"> </span>pkg<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>uv<span class="w"> </span>add<span class="w"> </span>--upgrade<span class="w"> </span>pkg
+</pre></div>
+</div>
+</div>
+<div class="admonition-prefer-future-to-past admonition">
+<p class="admonition-title">Prefer future to past</p>
+<p>Being incompatible with latest versions will not stop anyone from installing your package in a dedicated environment
+(docker, <code class="docutils literal notranslate"><span class="pre">.venv</span></code>, etc.) where the version of each dependency is controlled by <code class="docutils literal notranslate"><span class="pre">uv.lock</span></code>.
+However, it will be harder and harder for users to use it in their main Python environment.</p>
+<p>For example, imagine that your code uses both <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, but your code requires <code class="docutils literal notranslate"><span class="pre">numpy&lt;2</span></code>,
+while the latest Pandas requires <code class="docutils literal notranslate"><span class="pre">numpy&gt;=2</span></code>.
+This means that everytime you install your package you will have to downgrade pandas, whereas other packages
+of your distribution may need the latest versions…</p>
+<p>To avoid this as much as possible, whenever you need to choose between <code class="docutils literal notranslate"><span class="pre">pkg1&gt;=x.y.z</span></code> and <code class="docutils literal notranslate"><span class="pre">pkg2&lt;a.b.c</span></code> try to enforce
+the first option (sadly, it is not always possible). This will maximize the chances that your package can co-exist
+gracefully with other (well-maintained) packages in a Python distribution.</p>
+<p>This also applies to your Python version (the <code class="docutils literal notranslate"><span class="pre">requires-python</span></code> entry of your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>): if you need to drop
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">3.4</span></code> compatibility because one of your dependencies did, so be it!
+It is better to be compatible with the last few minor Python versions than with a 10 years old version.</p>
+</div>
+<section id="check-you-didn-t-break-anything">
+<h3>Check you didn’t break anything<a class="headerlink" href="#check-you-didn-t-break-anything" title="Link to this heading">#</a></h3>
+<p>After <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> and <code class="docutils literal notranslate"><span class="pre">uv.lock</span></code> are updated, run your tests both locally and remotely. If your package is broken:</p>
+<ul class="simple">
+<li><p>Fix it if the error is obvious.</p></li>
+<li><p>If not, live to fight another day:</p>
+<ul>
+<li><p>Revert your git branch to the last commit before you updated your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code>. PyCharm has a nice graphical display of git branches that should make it easy.</p></li>
+<li><p>Refresh <code class="docutils literal notranslate"><span class="pre">uv.lock</span></code> with a <code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">sync</span></code>.</p></li>
+<li><p>Check that your tests are back on track (locally and remotely).</p></li>
+<li><p>After the current release is done, you should prepare a dedicated release to make your package compatible with latest versions.</p></li>
+<li><p>Reminder: preserve backward-compatibility if possible, but not at all cost.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="make-it-easy-to-use">
+<h2>3. Make it easy to use<a class="headerlink" href="#make-it-easy-to-use" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>In the main <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>, import the classes that you believe users will use on a regular basis. <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">my_package</span> <span class="pre">import</span> <span class="pre">MyClass</span></code> is easier to use than <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">my_package.subpackage.my_class</span> <span class="pre">import</span> <span class="pre">MyClass</span></code>.</p></li>
+<li><p>If you have some notebooks in your documentation (e.g. tutorials), read and run them one last time to check they work and they are relevant.</p></li>
+<li><p>Check that the reference section of your documentation is consistent with your actual code, in particular, check that new classes/methods are documented (Sphinx will not complain if they are not).</p></li>
+</ul>
+<p>To reference a class:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="s">```{eval-rst}</span>
+<span class="s">.. autoclass:: my_first_ph3_package.MyClass3</span>
+<span class="s">    :members:</span>
+<span class="s">```</span>
+</pre></div>
+</div>
+<p>To reference a module (all the content of a Python file):</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="s">```{eval-rst}</span>
+<span class="s">.. automodule:: my_first_ph3_package.cli</span>
+<span class="s">    :members:</span>
+<span class="s">```</span>
+</pre></div>
+</div>
+<p>These references are to be inserted in a referenced markdown file within the <code class="docutils literal notranslate"><span class="pre">reference</span></code> part of the <code class="docutils literal notranslate"><span class="pre">docs</span></code> directory.</p>
+</section>
+<section id="bulletproof-your-tests-and-documentation">
+<h2>4. Bulletproof your tests and documentation<a class="headerlink" href="#bulletproof-your-tests-and-documentation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Be sure that your tests are running OK, both locally in PyCharm and remotely (GitHub actions).</p></li>
+<li><p>Check your coverage (locally in <code class="docutils literal notranslate"><span class="pre">cov/index.html</span></code> and/or on <a class="reference external" href="https://app.codecov.io/gh/" rel="noreferer noopener" target="_blank">Codecov</a>) and add tests if necessary.</p>
+<ul>
+<li><p>It is usually recommended to maintain at least a 70%-80% coverage, but some people see the coverage badge as a motivation to maintain 100%.</p></li>
+<li><p>Coverage is here to give <strong>you</strong> some (relative) confidence that your code will do what you expect, and to ease pinpointing issues when/before they occur. It is not a rating.</p></li>
+<li><p>In particular, don’t abuse of <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">pragma:</span> <span class="pre">no</span> <span class="pre">cover</span></code> (a magic comment to exclude parts of your code from the coverage statistics) to artificially reach a high coverage.</p></li>
+</ul>
+</li>
+<li><p>Generate the documentation (in PyCharm and/or with GitHub actions) in order to check that it is working.</p></li>
+<li><p>If Sphinx issues some warnings, investigate them as it is usually a sign you did something wrong.</p></li>
+<li><p>Take some time to browse the resulting documentation as if you were a regular user. Are you happy with it?</p></li>
+</ul>
+</section>
+<section id="finalize-your-release">
+<h2>5. Finalize your release<a class="headerlink" href="#finalize-your-release" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Bump the version of your project (unless it is your first release). In a terminal:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">version</span> <span class="pre">--bump</span> <span class="pre">patch</span></code> (version x.y.z → x.y.(z+1)) when you made a backwards-compatible modification (such as a bug fix).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">version</span> <span class="pre">--bump</span> <span class="pre">minor</span></code> (version x.y.z → x.(y+1).0) when you added a functionality.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uv</span> <span class="pre">version</span> <span class="pre">--bump</span> <span class="pre">major</span></code> (version x.y.z → (x+1).0.0) when you changed the API. Note: in versions 0.y.z, the API is not expected to be stable anyway.</p></li>
+</ul>
+</li>
+<li><p>Update the file <code class="docutils literal notranslate"><span class="pre">HISTORY.md</span></code>:</p>
+<ul>
+<li><p>Follow the pattern of previous entries:</p>
+<ul>
+<li><p>Title prefixed with <code class="docutils literal notranslate"><span class="pre">##</span></code>.</p></li>
+<li><p>The title should have the version, date of release, and short description.</p></li>
+<li><p>Enter release notes (changes) in short items (lines starting with <code class="docutils literal notranslate"><span class="pre">-</span></code>).</p></li>
+</ul>
+</li>
+<li><p>Stick to pure Markdown syntax: never use MystParser specific directives.</p></li>
+</ul>
+</li>
+<li><p>Commit/push.</p></li>
+<li><p>If you were working on a secondary branch, do what you have to do: pull request to “main”, etc.</p></li>
+<li><p>Ensure that you are now in your default git branch (“main”).</p></li>
+<li><p>Wait for the last GitHub actions to finish.</p></li>
+</ul>
+</section>
+<section id="publish">
+<h2>6. Publish<a class="headerlink" href="#publish" title="Link to this heading">#</a></h2>
+<p>On <a class="reference external" href="https://github.com/" rel="noreferer noopener" target="_blank">GitHub’s website</a> go to your project:</p>
+<ul class="simple">
+<li><p>“Releases” → “Create a new release”.</p></li>
+<li><p>“Choose a tag” → the version you publish prefixed with the letter “v” (e.g. <code class="docutils literal notranslate"><span class="pre">v0.1.0</span></code>) → “Create new tag”</p></li>
+<li><p>Add a release title as in <code class="docutils literal notranslate"><span class="pre">HISTORY.md</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">First</span> <span class="pre">release</span></code>.</p></li>
+<li><p>Add release notes as in <code class="docutils literal notranslate"><span class="pre">HISTORY.md</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">-</span> <span class="pre">First</span> <span class="pre">release</span> <span class="pre">on</span> <span class="pre">PyPI.</span></code>.</p></li>
+<li><p>Optionally, check “Set as a pre-release” so the release will be labeled as non-production ready (recommended for early versions of your package).</p></li>
+<li><p>Select “Publish release”.</p></li>
+</ul>
+<p>After a few minutes, GitHub has finished the built, and it is deployed on PyPI. If you want to check:</p>
+<ul class="simple">
+<li><p>Search for your package name on PyPI and check that the version number is correct.</p></li>
+<li><p>Check that the readme is correctly rendered on PyPI.</p></li>
+<li><p>Note that the PyPI badge may take several more minutes before being updated.</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="creation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Create Your Package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="faq.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">F.A.Q.</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ruff-your-code">1. Ruff your code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-dependencies-in-your-pyproject-toml">2. Check dependencies in your <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-you-didn-t-break-anything">Check you didn’t break anything</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-it-easy-to-use">3. Make it easy to use</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bulletproof-your-tests-and-documentation">4. Bulletproof your tests and documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finalize-your-release">5. Finalize your release</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publish">6. Publish</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/maintain.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2023, Fabien Mathieu.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
