@@ -1,5 +1,11 @@
 # History
 
+## 0.4.4 (2025-06-20): Minor update
+
+* Fix deploying condition for the `docs` GH action.
+* Fix bad `note` environment in `installation.md`
+
+
 ## 0.4.3 (2025-05-07): Minor update
 
 * Documentation fully re-written to follow the new workflow.

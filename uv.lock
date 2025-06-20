@@ -556,7 +556,7 @@ linkify = [
 
 [[package]]
 name = "package-helper-3"
-version = "0.4.2"
+version = "0.4.4"
 source = { editable = "." }
 dependencies = [
     { name = "click" },
