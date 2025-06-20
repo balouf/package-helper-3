@@ -1,7 +1,8 @@
 # History
 
-## 0.4.4 (2025-06-20): Minor update
+## 0.4.5 (2025-06-20): Minor update
 
+* Fix Jekyll invading actions by default.
 * Fix deploying condition for the `docs` GH action.
 * Fix bad `note` environment in `installation.md`
 
