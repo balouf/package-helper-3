@@ -33,7 +33,7 @@ import {{ cookiecutter.package_name }}
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.viewcode', 'sphinx.ext.napoleon', 'nbsphinx',
               'IPython.sphinxext.ipython_console_highlighting', 'sphinx.ext.intersphinx',
-              'sphinx.ext.imgconverter', 'myst_parser', 'sphinx_copybutton']
+              'sphinx.ext.imgconverter', 'myst_parser', 'sphinx_copybutton', 'sphinx.ext.githubpages',]
 
 # Smart code copy
 copybutton_exclude = '.linenos, .gp, .go'
