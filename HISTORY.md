@@ -1,5 +1,25 @@
 # History
 
+## 0.5.0 (2026-02-02): Dependency Modernization
+
+### Breaking Changes
+* Replace Black formatter with ruff-format in pre-commit hooks
+
+### Updates
+* Add Python 3.13 and 3.14 support to CI test matrix
+* Update pre-commit hooks:
+  - pre-commit-hooks: v4.4.0 -> v6.0.0
+  - ruff-pre-commit: v0.0.230 -> v0.14.14 (migrated to astral-sh)
+  - Remove Black (replaced by ruff-format)
+* Update UV version in all workflows: 0.7.2 -> 0.9.28
+* Update ruff dependency: >=0.11.8 -> >=0.14.0
+* Template now generates projects with updated configurations
+
+### Fixes
+* Fix typo "dependecies" in docs/maintain.md
+* Fix typo "poetry.toml" in docs/faq.md
+* Update outdated Poetry references to UV in FAQ
+
 ## 0.4.5 (2025-06-20): Minor update
 
 * Fix Jekyll invading actions by default.
@@ -22,7 +42,7 @@ This version aims at making things simpler and faster, mostly thanks to [UV].
 - [PyData] is the theme proposed
 - [click] is the cli interface
 - License is now defined in the `pyproject.toml` (no more dedicated `LICENCE` file)
-- Add possibility to install PH3 as a UV tool so you don't need any Python distribution installed.  
+- Add possibility to install PH3 as a UV tool so you don't need any Python distribution installed.
 - Minor improvements (e.g. update versions and such)
 
 [UV]: https://docs.astral.sh/uv/

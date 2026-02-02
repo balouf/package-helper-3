@@ -1,18 +1,18 @@
 # Quick Guide
 
 :::{note}
-This guide is intended for people that have used PH3 before or with some experience in Python packaging/publishing. 
+This guide is intended for people that have used PH3 before or with some experience in Python packaging/publishing.
 Otherwise, it is recommended to use the [full tutorial](tutorial.md).
 :::
 
 ## Preliminaries
 
 - Accounts: [GitHub](https://github.com/), [PyPI](https://pypi.org/).
-- Software: 
-  - [Git](https://git-scm.com/downloads), 
-  - [Pandoc](https://pandoc.org/installing.html), 
-  - [UV](https://docs.astral.sh/uv/getting-started/installation/) (standalone preferred), 
-  - {ref}`PH3 <install>` (`uv tool install package-helper-3`), 
+- Software:
+  - [Git](https://git-scm.com/downloads),
+  - [Pandoc](https://pandoc.org/installing.html),
+  - [UV](https://docs.astral.sh/uv/getting-started/installation/) (standalone preferred),
+  - {ref}`PH3 <install>` (`uv tool install package-helper-3`),
   - [PyCharm](https://www.jetbrains.com/pycharm/download/).
 - PH3: {ref}`create a .cookiecutterrc file <rcfile>` (optional).
 - Link PyCharm to your GitHub account.

@@ -97,7 +97,7 @@ default_context:
 
 +++
 
-With `pyproject.toml`, you can easily setup commands to be executed directly from a prompt (a.k.a. Command Line Interface, CLI). This is made by linking some keywords (*entry points*) to methods of your package. The declarations are made in the `[project.scripts]` section of `pyproject.toml`. 
+With `pyproject.toml`, you can easily setup commands to be executed directly from a prompt (a.k.a. Command Line Interface, CLI). This is made by linking some keywords (*entry points*) to methods of your package. The declarations are made in the `[project.scripts]` section of `pyproject.toml`.
 
 For example, if you choose a CLI when creating your project, you should have something like this:
 
@@ -125,7 +125,7 @@ $ pip install -e . -U
 
 It's always nice to brand your package with a logo and/or a favicon.
 
-- Create your pictures. If you have no inspiration, you can use https://favicon.io/favicon-generator/ to make one in a few seconds from a text (e.g. the acronym of your package). 
+- Create your pictures. If you have no inspiration, you can use https://favicon.io/favicon-generator/ to make one in a few seconds from a text (e.g. the acronym of your package).
 - Edit your documentation files to include them.
 
 favicon is just a regular `png` file with small dimensions (16X16 or 32X32) and extension `.ico`. To include it, edit your `docs/conf.py` file to include:
@@ -158,8 +158,8 @@ The [UV documentation](https://docs.astral.sh/uv/concepts/projects/) contains ma
 
 :::{admonition} Example: Install spacy language model
 
-Spacy usually requires a language model which you need to install separately, e.g. with `python -m spacy download en_core_web_sm`. 
-It seems that you can do this inside `poetry.toml`:
+Spacy usually requires a language model which you need to install separately, e.g. with `python -m spacy download en_core_web_sm`.
+It seems that you can do this inside `pyproject.toml`:
 
 ```toml
 [tool.uv.sources]
@@ -190,7 +190,7 @@ But if you have no idea, here are two popular distributions:
 - [Vanilla Python](https://www.python.org/downloads/)
   - Pro: Minimalist → as clean as possible.
   - Cons: Minimalist → you'll have to install your favorite packages on your own.
-  
+
 Anaconda is recommended for beginners who do not want to get too dirty in package management and are not afraid of re-installing the distribution once a year because of clash in package management.
 
 Vanilla Python is recommended for more experienced users who wants a full control of their environment(s) and are not afraid of re-installing the distribution once a year to stay sharp and up-to-date.
@@ -201,7 +201,7 @@ Vanilla Python is recommended for more experienced users who wants a full contro
 
 +++
 
-The git default branch name is used to name the principal branch in your git projects. It used to be "master" but the current standard is to call it "main". When installing `git` you should setup "main" as default during the setup. The important thing is that the settings of your git application should be consistent with the setting of your **new** projects (once properly initiated, a project has its own branch system so there is no issue to manage an existing "master"-flavored project with a "main"-flavored git). 
+The git default branch name is used to name the principal branch in your git projects. It used to be "master" but the current standard is to call it "main". When installing `git` you should setup "main" as default during the setup. The important thing is that the settings of your git application should be consistent with the setting of your **new** projects (once properly initiated, a project has its own branch system so there is no issue to manage an existing "master"-flavored project with a "main"-flavored git).
 
 To change the default branch name after installation you can try:
 
@@ -211,7 +211,7 @@ $ git config --global init.defaultBranch main
 
 +++
 
-## I am used to `setup.py` to deploy my package. Why should I bother with Poetry?
+## I am used to `setup.py` to deploy my package. Why should I bother with UV?
 
 +++
 

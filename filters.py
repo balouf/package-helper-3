@@ -20,5 +20,5 @@ def split_last(value):
     >>> split_last('Fabien Paul Cédric Sébastien Mathieu')
     {'left': 'Fabien Paul Cédric Sébastien', 'right': 'Mathieu'}
     """
-    left, sep, right = value.rpartition(' ')
-    return {'left': left, 'right': right}
+    left, sep, right = value.rpartition(" ")
+    return {"left": left, "right": right}

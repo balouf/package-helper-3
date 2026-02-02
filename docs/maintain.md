@@ -18,17 +18,17 @@ kernelspec:
 
 +++
 
-Releases are a key step in the development of a project. 
+Releases are a key step in the development of a project.
 A release tells to the world that a new version of your work is available.
 
-You cannot take a release back: if you made a mistake, you will have to make another release to patch your errors. 
+You cannot take a release back: if you made a mistake, you will have to make another release to patch your errors.
 It is therefore important to take your time when you craft a release.
 
 +++
 
 ## 1. Ruff your code
 
-Pycharm gives you a lot of hints about the quality of your code, but you don't always look at all the signs 
+Pycharm gives you a lot of hints about the quality of your code, but you don't always look at all the signs
 on the right of the screen. You can use [Ruff] to check all your files at once.
 
 ```console
@@ -54,7 +54,7 @@ $ ruff check --fix
 
 [Ruff]: https://docs.astral.sh/ruff/
 
-## 2. Check dependencies in your `pyproject.toml` 
+## 2. Check dependencies in your `pyproject.toml`
 
 +++
 
@@ -68,9 +68,9 @@ Your dependencies (i.e. the packages you rely upon) are handled in two places:
   - Use `>=x.y.z` to declare a minimum required version, e.g. `"numpy>=1.23.4"`.
   - Use `<x.y.z` to declare a *stopping point*, e.g. `"numpy>=1.23.4,<2"`.
 - The `uv.lock` file describes a combination of specific versions that respects the constraints of `pyproject.toml`:
-  - The lock handles all required packages (including dependecies of dependencies of dependencies of depen...) with many metadata, so it can be quite large.
+  - The lock handles all required packages (including dependencies of dependencies of dependencies of depen...) with many metadata, so it can be quite large.
   - See it as a recipe to install *something that works*.
-  - **NEVER EDIT IT MANUALLY**. The lock is managed by uv through the `uv sync` command. 
+  - **NEVER EDIT IT MANUALLY**. The lock is managed by uv through the `uv sync` command.
 
 Once in a while, especially when you draft a new release, it can be good to check your versions:
 - Upgrade the requirements from your `pyproject.toml` if you need to.
@@ -86,21 +86,21 @@ $ uv remove pkg && uv add --upgrade pkg
 
 :::{admonition} Prefer future to past
 
-Being incompatible with latest versions will not stop anyone from installing your package in a dedicated environment 
-(docker, `.venv`, etc.) where the version of each dependency is controlled by `uv.lock`. 
+Being incompatible with latest versions will not stop anyone from installing your package in a dedicated environment
+(docker, `.venv`, etc.) where the version of each dependency is controlled by `uv.lock`.
 However, it will be harder and harder for users to use it in their main Python environment.
 
 For example, imagine that your code uses both `numpy` and `pandas`, but your code requires `numpy<2`,
-while the latest Pandas requires `numpy>=2`. 
-This means that everytime you install your package you will have to downgrade pandas, whereas other packages 
+while the latest Pandas requires `numpy>=2`.
+This means that everytime you install your package you will have to downgrade pandas, whereas other packages
 of your distribution may need the latest versions...
 
-To avoid this as much as possible, whenever you need to choose between `pkg1>=x.y.z` and `pkg2<a.b.c` try to enforce 
-the first option (sadly, it is not always possible). This will maximize the chances that your package can co-exist 
+To avoid this as much as possible, whenever you need to choose between `pkg1>=x.y.z` and `pkg2<a.b.c` try to enforce
+the first option (sadly, it is not always possible). This will maximize the chances that your package can co-exist
 gracefully with other (well-maintained) packages in a Python distribution.
 
-This also applies to your Python version (the `requires-python` entry of your `pyproject.toml`): if you need to drop 
-`python 3.4` compatibility because one of your dependencies did, so be it! 
+This also applies to your Python version (the `requires-python` entry of your `pyproject.toml`): if you need to drop
+`python 3.4` compatibility because one of your dependencies did, so be it!
 It is better to be compatible with the last few minor Python versions than with a 10 years old version.
 :::
 
@@ -117,7 +117,7 @@ After `pyproject.toml` and `uv.lock` are updated, run your tests both locally an
   - Revert your git branch to the last commit before you updated your `pyproject.toml`. PyCharm has a nice graphical display of git branches that should make it easy.
   - Refresh `uv.lock` with a `uv sync`.
   - Check that your tests are back on track (locally and remotely).
-  - After the current release is done, you should prepare a dedicated release to make your package compatible with latest versions. 
+  - After the current release is done, you should prepare a dedicated release to make your package compatible with latest versions.
   - Reminder: preserve backward-compatibility if possible, but not at all cost.
 
 +++
@@ -149,7 +149,7 @@ To reference a module (all the content of a Python file):
 ```
 ````
 
-These references are to be inserted in a referenced markdown file within the `reference` part of the `docs` directory. 
+These references are to be inserted in a referenced markdown file within the `reference` part of the `docs` directory.
 
 +++
 

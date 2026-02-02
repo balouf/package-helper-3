@@ -18,7 +18,7 @@ kernelspec:
 +++
 
 :::{note}
-- Creating your package locally should take less than 5 minutes. 
+- Creating your package locally should take less than 5 minutes.
 - Full deployment on the different websites  (GitHub, Codecov, Pypi) will take a bit more time, but likely less than 20 minutes.
 - Expect a bit more the first time.
 - Actual coding time of your package is not included in these estimates.
@@ -120,7 +120,7 @@ Wait for the installation to complete and you're done!
 
 The command `uv sync` creates a virtual environment for developing your package, located in your project directory in a `.venv` subdirectory.
 
-The package is installed in *editable* mode. That means that everytime you load the package with `uv`, 
+The package is installed in *editable* mode. That means that everytime you load the package with `uv`,
 the current version of your code will be used, not the one from the installation time.
 :::
 
@@ -167,9 +167,9 @@ Options:
 
 +++
 
-At this point, your Python package is only available in its dedicated development virtual environment. 
+At this point, your Python package is only available in its dedicated development virtual environment.
 
-If you have a Python distribution ({ref}`this is not required <pythonless>`) and want to use it more broadly 
+If you have a Python distribution ({ref}`this is not required <pythonless>`) and want to use it more broadly
 (e.g. if you want to run Jupyter Notebooks, combine it with other packages, etc...):
 +++
 
@@ -212,10 +212,10 @@ To open your project:
 - Alternatively, if you installed PyCharm with context menu, you can right-click the directory in your favorite file manager and select "Open folder as PyCharm project"
 
 
-In the bottom right part of the window, you will probably see some background tasks running. 
-Wait until they are finished. 
-In particular, wait until PyCharm discovered your dedicated environment, 
-e.g. when `<No interpreter>` is replaced by something like `Python 3.12 (my-first-ph3-package)` 
+In the bottom right part of the window, you will probably see some background tasks running.
+Wait until they are finished.
+In particular, wait until PyCharm discovered your dedicated environment,
+e.g. when `<No interpreter>` is replaced by something like `Python 3.12 (my-first-ph3-package)`
 (it is usually displayed in the lower right corner).
 
 :::{note}
@@ -259,13 +259,13 @@ Description: PH3 packages are quick to make!
 In a browser, you can go to your GitHub account to check that everything is there.
 
 :::{admonition} Check repo visibility
-GitHub repos can be private or public. 
+GitHub repos can be private or public.
 Some features like publishing your documentation on GitHub pages are only available on public repos unless you have a paid account. If you set up your repo to private, you can switch visibility to public on the settings menu (the *Danger Zone* down the screen).
 :::
 +++
 
 :::{admonition} Check Workflow permissions
-GitHub actions can use a `GITHUB_TOKEN` to perform different operations on the repo. 
+GitHub actions can use a `GITHUB_TOKEN` to perform different operations on the repo.
 PH3 need thetoken to have `read` **AND** `write` permission, e.g. to publish the documentation on a dedicated branch.
 To avoid errors, go to Settings → Actions → General → Workflow permissions and check that `GITHUB_TOKEN` is `read and write`.
 :::
@@ -277,7 +277,7 @@ To avoid errors, go to Settings → Actions → General → Workflow permissions
 In GitHub:
 
 - GitHub page of your package → Actions.
-- Check that the actions are successes (it may take several minutes). 
+- Check that the actions are successes (it may take several minutes).
   - The "build" action runs the tests of the package. Default PH3 triggers are:
     - When something is pushed on the default branch ("main").
     - When there is a pull request.
@@ -286,7 +286,7 @@ In GitHub:
   - The "release" action should not have been triggered at this point. It will run when you release a version to publish it on PyPi.
 
 :::{note}
-If the permissions of `GITHUB_TOKEN` were initially too restrictive, the initial build of `docs` may have failed. 
+If the permissions of `GITHUB_TOKEN` were initially too restrictive, the initial build of `docs` may have failed.
 After permissions have been fixed, the action should work as expected.
 :::
 +++
@@ -313,7 +313,7 @@ Configure Codecov so you can publicly expose the test coverage of your package:
 - On [Codecov's website](https://app.codecov.io/gh/), log in with your GitHub account. On your main page, locate your project and click the corresponding `Setup repo >` link.
 - You may have to wait for syncing before it appears. If it takes too long try the `Can't find your repo? Try re-sync` link (but you may have to wait anyway).
 - In your project, copy the Codecov token.
-- Back to GitHub: Settings → Secrets and variables → Actions → New repository secret. Name: `CODECOV_TOKEN`. Value: paste the codecov token. 
+- Back to GitHub: Settings → Secrets and variables → Actions → New repository secret. Name: `CODECOV_TOKEN`. Value: paste the codecov token.
 
 +++
 
@@ -382,7 +382,7 @@ If you wish, you are now ready to release your first version! (cf {ref}`release`
     - Check your coverage.
 
 :::{hint}
-Your documentation uses [MyST], a flavor of Markdown that allows many nice things (boxes, maths, footnotes...). 
+Your documentation uses [MyST], a flavor of Markdown that allows many nice things (boxes, maths, footnotes...).
 Don't hesitate to [browse its documentation][MyST] to see the possibilities!
 :::
 

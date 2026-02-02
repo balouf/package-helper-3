@@ -25,8 +25,8 @@ kernelspec:
 To install it, please follow the instructions from https://docs.astral.sh/uv/getting-started/installation/
 
 :::{admonition} Please install the standalone version
-One of the benefit of [UV] is that it does not need to be attached to a specific Python distribution. 
-It can use existing distributions if they are compatible with the requirements of a project, or it can ship its own versions. 
+One of the benefit of [UV] is that it does not need to be attached to a specific Python distribution.
+It can use existing distributions if they are compatible with the requirements of a project, or it can ship its own versions.
 This means:
 - Having Python installed is not required.
 - If you break/update your global Python distribution, [UV] won't be affected.
@@ -83,8 +83,8 @@ Ensure that you have accounts (preferably with the same login) on:
 - You will need access to [Codecov](https://app.codecov.io/gh/), but you can login with your GitHub account.
 
 :::{note}
-In previous PH3 versions, you were asked to get an *API token* from [PyPI]. 
-This is not required anymore, as [PyPI] now proposes a [Trusted Publishers](https://docs.pypi.org/trusted-publishers/) approach. 
+In previous PH3 versions, you were asked to get an *API token* from [PyPI].
+This is not required anymore, as [PyPI] now proposes a [Trusted Publishers](https://docs.pypi.org/trusted-publishers/) approach.
 :::
 
 [PyPI]: https://pypi.org/
@@ -113,7 +113,7 @@ Ensure your version is recent enough (>=2.40).
 
 +++
 
-PH3 gives you the possibility to insert Jupyter Notebooks in your documentation. 
+PH3 gives you the possibility to insert Jupyter Notebooks in your documentation.
 This requires the installation of the Pandoc converter: https://pandoc.org/installing.html
 
 +++
@@ -135,7 +135,7 @@ In PyCharm settings: Version Control → GitHub → Add account.
 
 Two options are available:
 
-- Log In with Token. The first time, click on the generate button to open a GitHub page that will create an access token. Copy the token and paste it in PyCharm. PyCharm should remind it but to avoid generating a new token every other week you should keep a copy somewhere else as well (in a very safe place!).  
+- Log In with Token. The first time, click on the generate button to open a GitHub page that will create an access token. Copy the token and paste it in PyCharm. PyCharm should remind it but to avoid generating a new token every other week you should keep a copy somewhere else as well (in a very safe place!).
 - Log In via GitHub will open a GitHub page to grant you access (2FA is likely to be required).
 
 

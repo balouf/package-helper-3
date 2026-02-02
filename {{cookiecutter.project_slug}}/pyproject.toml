@@ -32,7 +32,7 @@ dev = [
     "nbsphinx>=0.9.7",
     "pydata-sphinx-theme>=0.16.1",
     "pytest-cov>=6.1.1",
-    "ruff>=0.11.8",
+    "ruff>=0.14.0",
     "sphinx-copybutton>=0.5.2"
 ]
 

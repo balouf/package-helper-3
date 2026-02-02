@@ -61,11 +61,11 @@ development. Please note this documentation assumes you already have
     $ cd <directory_in_which_repo_should_be_created>
     $ git clone git@github.com:YOUR_NAME/package-helper-3.git
     ```
-   
+
 3. Install your local copy into a virtualenv. Assuming you have uv installed, this is how you set up your fork for local development:
 
    ```console
-   $ cd package-helper-3 
+   $ cd package-helper-3
    $ uv sync --all-extras
    ```
 
@@ -86,7 +86,7 @@ development. Please note this documentation assumes you already have
 7. Before raising a pull request you should also run `ruff`.:
     ```console
     $ uv run ruff check .
-    $ uv run ruff format . 
+    $ uv run ruff format .
     ```
 
 8. Commit your changes and push your branch to GitHub:
