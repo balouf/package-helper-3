@@ -1,0 +1,7 @@
+{
+    "VsCodeTaskButtons.showCounter": false,
+    "VsCodeTaskButtons.tasks": [
+        {"label": "📖 Docs", "task": "Build docs"},
+        {"label": "🧪 Tests", "task": "Run tests"}
+    ]
+}

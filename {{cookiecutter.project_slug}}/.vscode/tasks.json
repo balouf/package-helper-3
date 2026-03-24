@@ -1,0 +1,19 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build docs",
+            "type": "shell",
+            "command": "uv run sphinx-build -a -E -b html docs build",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Run tests",
+            "type": "shell",
+            "command": "uv run pytest",
+            "group": "test",
+            "problemMatcher": []
+        }
+    ]
+}
