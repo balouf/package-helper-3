@@ -7,7 +7,7 @@ Package Helper 3 helps you create, develop and maintain a package managed by UV.
 If you use all the tools presented in this tutorial, things will work this way:
 
 * You create the file structure of your package in less than a minute with the `ph3` command.
-* You use the IDE [PyCharm]. It is configured to:
+* You use an IDE such as [PyCharm] or [VS Code]. It is configured to:
     * Generate the documentation of your package locally, possibly including notebooks.
     * Run the unit tests, including the ones from your docstrings (doctests).
     * Generate a local html page displaying what parts of the package are covered by the unit tests.
@@ -22,6 +22,7 @@ If you use all the tools presented in this tutorial, things will work this way:
 
 [Cookiecutter]: https://github.com/audreyr/cookiecutter
 [PyCharm]: https://www.jetbrains.com/pycharm
+[VS Code]: https://code.visualstudio.com/
 [GitHub]: https://github.com
 [PyPI]: https://pypi.python.org/pypi
 [Codecov]: https://app.codecov.io/gh/

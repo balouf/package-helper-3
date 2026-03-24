@@ -7,7 +7,7 @@ name = "{{ cookiecutter.project_slug }}"
 version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.project_description }}"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 authors = [
     {name = "{{ cookiecutter.full_name }}", email = "{{ cookiecutter.email }}"}
 ]
@@ -41,8 +41,16 @@ dev = [
 {{ cookiecutter.package_name }} = '{{ cookiecutter.package_name }}.cli:main'
 {% endif %}
 
+[tool.ruff]
+target-version = "py311"
+
 [tool.coverage.report]
 skip_empty = true
+exclude_lines = [
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if __name__ == '__main__':",
+]
 
 [tool.coverage.run]
 branch = true

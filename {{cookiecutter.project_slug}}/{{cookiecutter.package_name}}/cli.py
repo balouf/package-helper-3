@@ -1,6 +1,5 @@
 """Console script for {{cookiecutter.project_slug}}."""
 
-import sys
 import click
 
 
@@ -14,4 +13,4 @@ def main(args=None):
 
 
 if __name__ == "__main__":
-    sys.exit(main())  # pragma: no cover
+    main()  # pragma: no cover

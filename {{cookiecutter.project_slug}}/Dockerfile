@@ -1,9 +1,9 @@
 # syntax=docker/dockerfile:1
 
-FROM python:3.12-slim-bookworm AS builder
+FROM python:3.13-slim-bookworm AS builder
 
 # Install uv
-COPY --from=ghcr.io/astral-sh/uv:0.6.16 /uv /bin/uv
+COPY --from=ghcr.io/astral-sh/uv:0.11.0 /uv /bin/uv
 
 WORKDIR /app
 
@@ -15,7 +15,7 @@ RUN uv venv .venv && \
     uv sync --locked --no-dev --no-editable --compile-bytecode
 
 # --- Runtime stage ---
-FROM python:3.12-slim-bookworm
+FROM python:3.13-slim-bookworm
 
 WORKDIR /app
 

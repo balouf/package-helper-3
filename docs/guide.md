@@ -35,7 +35,7 @@ $ pip install -e . # optional
 - Github:
   - Check the gh actions.
   - Check project visibility and `GITHUB_TOKEN` permissions.
-  - Setup gh-pages as your public documentation.
+  - Set Pages source to "GitHub Actions" (Settings → Pages).
   - Install codecov token
   - Tell PyPI to [trust your GitHub action](https://docs.pypi.org/trusted-publishers/).
 - Push a small commit, check everything (documentation, badges, coverage) is OK.

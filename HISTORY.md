@@ -1,5 +1,35 @@
 # History
 
+## 0.6.0 (2026-03-24)
+
+### Breaking Changes
+* Drop Python 3.10 support (`requires-python` bumped to `>=3.11`)
+
+### Updates
+* Migrate docs deployment from `gh-pages` branch to GitHub Actions artifact upload (both host and template)
+* Add VS Code support in documentation: preparation, creation, and tutorial pages now cover both PyCharm and VS Code
+* Add new "LLM-Assisted Package Maintenance" documentation page
+* Add `[tool.ruff] target-version` configuration to both host and template `pyproject.toml`
+* Update UV version in all workflows: 0.9.28 → 0.11.0
+* Update copyright year in docs to 2023-2026
+* Clean up `docs/conf.py` boilerplate comments (both host and template)
+* Remove stale `[tool.setuptools]` section from `pyproject.toml`
+* Add `.vscode/` to host `.gitignore`
+
+### Template improvements
+* Add VS Code configuration files (`.vscode/settings.json`, `.vscode/tasks.json`)
+* Merge `.coveragerc` into `pyproject.toml` (single source of truth)
+* Remove `sphinx.ext.githubpages` extension (no longer needed with artifact deployment)
+* Update Dockerfile: Python 3.12 → 3.13, UV 0.6.16 → 0.11.0
+* Fix rst double-colon artifacts in `CONTRIBUTING.md`
+* Remove unused `import sys` from template `cli.py`
+* Remove stale `[LICENSE]` section from `.editorconfig`
+* Remove stray `.pyc` file from template
+
+### Fixes
+* Update docs to reflect GitHub Pages "GitHub Actions" source (instead of `gh-pages` branch)
+* Update `GITHUB_TOKEN` permission guidance in docs (no longer needs write for docs deployment)
+
 ## 0.5.0 (2026-02-02): Dependency Modernization
 
 ### Breaking Changes

@@ -202,40 +202,66 @@ You can also try to open the Notebook `my-first-ph3-package/docs/tutorials/tutor
 
 +++
 
-## 4. Open your Project with PyCharm
+## 4. Open your Project with your IDE
 
 +++
 
-To open your project:
+Open the project directory (`project-slug`) in your IDE. Both PyCharm and VS Code should
+auto-detect the `.venv` virtual environment created by UV.
 
-- Inside PyCharm, you can choose "Open" and select the directory of your project (`project-slug`).
-- Alternatively, if you installed PyCharm with context menu, you can right-click the directory in your favorite file manager and select "Open folder as PyCharm project"
+:::{admonition} PyCharm
+In the bottom right part of the window, wait until PyCharm has discovered the dedicated environment,
+e.g. when `<No interpreter>` is replaced by something like `Python 3.12 (my-first-ph3-package)`.
 
+If PyCharm fails to locate it, try opening a Python file — PyCharm should then propose to use the environment in a banner.
+:::
 
-In the bottom right part of the window, you will probably see some background tasks running.
-Wait until they are finished.
-In particular, wait until PyCharm discovered your dedicated environment,
-e.g. when `<No interpreter>` is replaced by something like `Python 3.12 (my-first-ph3-package)`
-(it is usually displayed in the lower right corner).
-
-:::{note}
-Some users reported that PyCharm sometimes fails to locate the dedicated environment. If that happens, try to open (in PyCharm) the main Python file of the project, PyCharm should then propose to use the environment in a banner.
+:::{admonition} VS Code
+VS Code with the Python extension usually detects `.venv` automatically.
+If not, open the Command Palette (Ctrl+Shift+P) → "Python: Select Interpreter" → choose the one in `.venv`.
 :::
 
 +++
 
 ### Run your tests locally
 
-- In PyCharm: menu Run → Run → All Tests. It runs all the tests of the project. PH3 provides in its template examples that you can re-use if you are new to testing (e.g. in `my_class_1.py`).
+In a terminal inside your project directory:
 
-- Open the file `cov/index.html` (in your web browser). It displays what parts of your code are covered by the tests.
+```console
+$ uv run pytest
+```
+
+This runs all the tests of the project, including doctests, and generates a coverage report.
+PH3 provides in its template examples that you can re-use if you are new to testing (e.g. in `my_class_1.py`).
+
+Open the file `cov/index.html` (in your web browser). It displays what parts of your code are covered by the tests.
+
+:::{admonition} IDE shortcuts
+- **PyCharm**: menu Run → Run → All Tests.
+- **VS Code**: open the Testing panel (beaker icon in the sidebar), or use Ctrl+Shift+P → "Tasks: Run Task" → "Run tests".
+:::
+
+:::{tip}
+**VS Code users**: install the [Task Buttons](https://marketplace.visualstudio.com/items?itemName=spencerwmiles.vscode-task-buttons) extension to get clickable "📖 Docs" and "🧪 Tests" buttons in the status bar. PH3 includes a `.vscode/settings.json` that configures them automatically.
+:::
 
 ### Build your documentation locally
 
+In a terminal:
 
-- In PyCharm: menu Run → Run → Generate docs. It generates the html documentation of your project. The template provides examples of classes, such as the file my_class_1.py. You can use them as models if you are new to Sphinx documentation.
+```console
+$ uv run sphinx-build -a -E -b html docs build
+```
 
-- Open the file `build/index.html` (in your web browser). It displays the html documentation of your project.
+The template provides examples of classes, such as the file `my_class_1.py`. You can use them as models
+if you are new to Sphinx documentation.
+
+Open the file `build/index.html` (in your web browser). It displays the html documentation of your project.
+
+:::{admonition} IDE shortcuts
+- **PyCharm**: menu Run → Run → Generate docs.
+- **VS Code**: Ctrl+Shift+P → "Tasks: Run Task" → "Build docs".
+:::
 
 +++
 
@@ -243,9 +269,10 @@ Some users reported that PyCharm sometimes fails to locate the dedicated environ
 
 +++
 
-First thing to do is create the GitHub repo of your project. In PyCharm:
+First thing to do is create the GitHub repo of your project.
 
-- From the file `pyproject.toml` of your package, copy the `description` value, e.g. "PH3 packages are quick to make!" in the example above. You will paste it in the form below.
+:::{admonition} With PyCharm
+- From the file `pyproject.toml` of your package, copy the `description` value, e.g. "PH3 packages are quick to make!" in the example above.
 - Menu Version Control → Share project on GitHub.
 - Fill in the form and validate, e.g.:
 ```console
@@ -253,8 +280,18 @@ New repository name: my_first_ph3_package
 Remote name: origin
 Description: PH3 packages are quick to make!
 ```
-
 - Accept to add all the files as proposed by PyCharm.
+:::
+
+:::{admonition} With VS Code or the terminal
+- Create a new repository on [GitHub](https://github.com/new) (use the same name as your project slug).
+- In a terminal:
+```console
+$ git remote add origin https://github.com/YOUR_USERNAME/my-first-ph3-package.git
+$ git push -u origin main
+```
+- Alternatively, VS Code offers Ctrl+Shift+P → "Publish to GitHub".
+:::
 
 In a browser, you can go to your GitHub account to check that everything is there.
 
@@ -266,7 +303,7 @@ Some features like publishing your documentation on GitHub pages are only availa
 
 :::{admonition} Check Workflow permissions
 GitHub actions can use a `GITHUB_TOKEN` to perform different operations on the repo.
-PH3 need thetoken to have `read` **AND** `write` permission, e.g. to publish the documentation on a dedicated branch.
+Some PH3 actions (e.g. creating releases) may need the token to have `read` **AND** `write` permission.
 To avoid errors, go to Settings → Actions → General → Workflow permissions and check that `GITHUB_TOKEN` is `read and write`.
 :::
 
@@ -286,8 +323,8 @@ In GitHub:
   - The "release" action should not have been triggered at this point. It will run when you release a version to publish it on PyPi.
 
 :::{note}
-If the permissions of `GITHUB_TOKEN` were initially too restrictive, the initial build of `docs` may have failed.
-After permissions have been fixed, the action should work as expected.
+If the Pages source is not set to "GitHub Actions", the deploy step of `docs` will fail.
+After the source has been configured, re-run the action or push a new commit.
 :::
 +++
 
@@ -295,12 +332,13 @@ After permissions have been fixed, the action should work as expected.
 
 +++
 
-Tell GitHub Pages that the documentation files are in the "gh-pages" branch of your project:
+Tell GitHub Pages to deploy from GitHub Actions:
 
 - Settings → Pages → Build and deployment
-- Check that Source is "deploy from a branch".
-- Branch → "gh-pages", "/ (root)".
+- Source → "GitHub Actions".
 - Save.
+
+That's it. The `docs` workflow will automatically build and deploy your documentation when you push to `main`.
 
 +++
 

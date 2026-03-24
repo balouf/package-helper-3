@@ -254,8 +254,28 @@ PH3 is a relatively simple BoilerPlate for Python packages. It lacks many featur
 
 ## GitHub Actions Issues
 
-### `The process '/usr/bin/git' failed with exit code 128`
+### The docs deploy step fails
 
-Check Workflow Permissions:
-- Go to your repository's Settings > Actions > General > Workflow permissions.
-- Ensure that "Read and write permissions" is enabled for the GITHUB_TOKEN
+If the deploy step of the `docs` action fails, check:
+- Go to your repository's Settings → Pages → Build and deployment.
+- Ensure that Source is set to "GitHub Actions".
+- If it was set to "Deploy from a branch", change it and re-run the workflow.
+
+### How to migrate from gh-pages branch to GitHub Actions deployment?
+
+If you have an existing PH3 package that uses the old `JamesIves/github-pages-deploy-action` to push
+to a `gh-pages` branch, follow these steps:
+
+1. **Update your `docs.yml` workflow**: Replace it with the new version from PH3
+   (see the [template on GitHub](https://github.com/balouf/package-helper-3)). The key changes are:
+   - Two separate jobs: `build` (uploads artifact) and `deploy` (deploys to Pages).
+   - Uses `actions/upload-pages-artifact@v3` and `actions/deploy-pages@v4`.
+   - Permissions change to `contents: read`, `pages: write`, `id-token: write`.
+2. **Change GitHub Pages source**: Go to your repo Settings → Pages → Build and deployment →
+   Source → select "GitHub Actions" (instead of "Deploy from a branch").
+3. **Push and verify**: Push the updated workflow to `main`. The action should build and deploy your docs.
+4. **Clean up the gh-pages branch** (optional): Once you have confirmed the new deployment works,
+   you can delete the `gh-pages` branch:
+   ```console
+   $ git push origin --delete gh-pages
+   ```

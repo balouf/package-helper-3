@@ -50,7 +50,7 @@ Ready to contribute? Here's how to set up `{{ cookiecutter.project_slug }}` for 
 
 1. Fork the `{{ cookiecutter.project_slug }}` repo on GitHub.
 
-2. Clone your fork locally::
+2. Clone your fork locally:
     ```console
     $ git clone git@github.com:your_name_here/{{ cookiecutter.project_slug }}.git
     ```
@@ -61,7 +61,7 @@ Ready to contribute? Here's how to set up `{{ cookiecutter.project_slug }}` for 
     $ uv sync --all-extras
     ```
 
-4. Create a branch for local development::
+4. Create a branch for local development:
     ```console
     $ git checkout -b name-of-your-bugfix-or-feature
     ```
@@ -73,7 +73,7 @@ Ready to contribute? Here's how to set up `{{ cookiecutter.project_slug }}` for 
     $ uv run pytest
     ```
 
-6. Commit your changes and push your branch to GitHub::
+6. Commit your changes and push your branch to GitHub:
     ```bash
     $ git add .
     $ git commit -m "Your detailed description of your changes."

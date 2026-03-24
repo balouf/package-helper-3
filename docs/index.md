@@ -8,6 +8,7 @@
 presentation
 guide
 tutorial
+llm-assistance
 faq
 :::
 

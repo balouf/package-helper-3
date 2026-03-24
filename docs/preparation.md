@@ -119,17 +119,22 @@ This requires the installation of the Pandoc converter: https://pandoc.org/insta
 +++
 
 
-## 6. Install PyCharm
+## 6. Install an IDE
 
 +++
+
+You need an IDE to develop your package. Two common choices are [PyCharm] and [VS Code].
+
+[PyCharm]: https://www.jetbrains.com/pycharm
+[VS Code]: https://code.visualstudio.com/
+
++++
+
+### Option A: PyCharm
 
 Install using the binaries available here: https://www.jetbrains.com/pycharm/download/.
 
-+++
-
-### Link PyCharm to your GitHub account
-
-+++
+#### Link PyCharm to your GitHub account
 
 In PyCharm settings: Version Control → GitHub → Add account.
 
@@ -143,4 +148,19 @@ Two options are available:
 We recommend the [Numpy documentation style](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html).
 
 In PyCharm settings: Tools → Python Integrated Tools → Docstrings → Docstring format → NumPy.
+:::
+
+### Option B: VS Code
+
+Install from https://code.visualstudio.com/.
+
+Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+(by Microsoft). It provides test discovery, linting, and debugger integration.
+
+:::{admonition} Change the documentation style
+We recommend the [Numpy documentation style](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html).
+
+Optionally, install the [autoDocstring](https://marketplace.visualstudio.com/items?itemName=njpwerner.autodocstring)
+extension and set its format to NumPy in VS Code settings:
+`"autoDocstring.docstringFormat": "numpy"`.
 :::
