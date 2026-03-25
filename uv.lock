@@ -599,10 +599,10 @@ requires-dist = [
 
 [package.metadata.requires-dev]
 dev = [
-    { name = "ipython", specifier = ">=8.35.0" },
-    { name = "myst-parser", extras = ["linkify"], specifier = ">=4.0.1" },
+    { name = "ipython", specifier = ">=9.0.0" },
+    { name = "myst-parser", extras = ["linkify"], specifier = ">=5.0.0" },
     { name = "pydata-sphinx-theme", specifier = ">=0.16.1" },
-    { name = "pytest-cov", specifier = ">=6.1.1" },
+    { name = "pytest-cov", specifier = ">=7.0.0" },
     { name = "ruff", specifier = ">=0.14.0" },
     { name = "sphinx-copybutton", specifier = ">=0.5.2" },
 ]

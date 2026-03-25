@@ -26,6 +26,9 @@
 * Remove stale `[LICENSE]` section from `.editorconfig`
 * Remove stray `.pyc` file from template
 
+### Dependency bumps
+* Bump dev dependency minimums: `ipython` >=8.35.0 → >=9.0.0, `myst-parser` >=4.0.1 → >=5.0.0, `pytest-cov` >=6.1.1 → >=7.0.0
+
 ### Fixes
 * Update docs to reflect GitHub Pages "GitHub Actions" source (instead of `gh-pages` branch)
 * Update `GITHUB_TOKEN` permission guidance in docs (no longer needs write for docs deployment)
