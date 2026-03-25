@@ -1,4 +1,4 @@
-# LLM-Assisted Package Maintenance
+# LLM-Assisted Maintenance
 
 :::{admonition} This page will age quickly
 LLM tooling evolves rapidly. This page reflects practices as of early 2026.
