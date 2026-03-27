@@ -279,3 +279,25 @@ to a `gh-pages` branch, follow these steps:
    ```console
    $ git push origin --delete gh-pages
    ```
+
++++
+
+## Why archive on Software Heritage?
+
++++
+
+[Software Heritage](https://www.softwareheritage.org/) is a non-profit initiative backed by UNESCO and INRIA
+that aims to collect, preserve, and share all publicly available source code.
+
+Archiving your package on Software Heritage provides:
+
+- **Long-term preservation**: your code is stored independently of GitHub or PyPI.
+- **Persistent identifiers (SWHIDs)**: each archived version gets a unique, intrinsic identifier that can be used in academic papers, grant proposals, or reproducibility statements.
+- **No maintenance cost**: once the webhook is set up, archival is automatic on every new branch, tag, or release.
+
+To set it up, follow the instructions in the [creation guide](creation.md#archive-on-software-heritage) (Step 5).
+
+:::{note}
+Software Heritage is particularly valued in academic and research contexts.
+If your package is related to a publication, a SWHID is a robust way to reference the exact version of the code used.
+:::

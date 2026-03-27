@@ -5,6 +5,7 @@
 [![Documentation Status](https://github.com/balouf/package-helper-3/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/balouf/package-helper-3/actions?query=workflow%3Adocs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code Coverage](https://codecov.io/gh/balouf/package-helper-3/branch/main/graphs/badge.svg)](https://codecov.io/gh/balouf/package-helper-3/tree/main)
+[![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/balouf/package-helper-3/)](https://archive.softwareheritage.org/browse/origin/?origin_url=https://github.com/balouf/package-helper-3)
 
 
 Package Helper 3 helps to create, develop and maintain a Python package.
@@ -18,6 +19,7 @@ The most prominent feature of Package Helper 3 is a **tutorial** that gives a ch
 - Host your package on [GitHub][GH] and leverage GitHub actions,
 - Publish your package on [PyPi][PP],
 - Publicly share your coverage on [Codecov][CO].
+- Archive your source code on [Software Heritage][SWH] for long-term preservation.
 
 A simple **Command-Line Interface** initiates the creation of the package using a **template** of Python package.
 Here are the main features of the template:
@@ -46,4 +48,5 @@ Documentation: https://balouf.github.io/package-helper-3/.
 [PP]: https://pypi.python.org/pypi
 [CO]: https://app.codecov.io/gh/
 [RTD]: https://sphinx-rtd-theme.readthedocs.io/en/stable/
+[SWH]: https://www.softwareheritage.org/
 [PD]: https://pydata-sphinx-theme.readthedocs.io/en/stable/

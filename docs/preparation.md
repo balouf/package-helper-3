@@ -81,6 +81,7 @@ Ensure that you have accounts (preferably with the same login) on:
 - [GitHub](https://github.com/),
 - [PyPI].
 - You will need access to [Codecov](https://app.codecov.io/gh/), but you can login with your GitHub account.
+- Optionally, create an account on [Software Heritage](https://archive.softwareheritage.org/) to archive your code for long-term preservation (also works without an account for public repos).
 
 :::{note}
 In previous PH3 versions, you were asked to get an *API token* from [PyPI].

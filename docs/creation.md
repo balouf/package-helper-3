@@ -371,6 +371,55 @@ Follow the quickstart instructions there to enable publishing. You should enter 
 
 +++
 
+### Archive on Software Heritage
+
++++
+
+[Software Heritage](https://www.softwareheritage.org/) (SWH) is a non-profit initiative backed by UNESCO and INRIA
+that archives all publicly available source code for long-term preservation. Archiving your package there ensures
+it remains accessible even if GitHub or PyPI disappear, and provides persistent identifiers
+([SWHIDs](https://docs.softwareheritage.org/devel/swh-model/persistent-identifiers.html)) useful for academic citations.
+
+There are two ways to archive your repository:
+
+**Method 1: Manual (one-time snapshot)**
+
+- Go to [Save Code Now](https://save.softwareheritage.org/).
+- Select origin type **git**, enter your repository URL, e.g. `https://github.com/YOUR_USERNAME/my-first-ph3-package`.
+- Click **Submit**. SWH will crawl and archive the current state of your repository.
+
+:::{note}
+This only archives the repository once. You will need to repeat the operation after significant updates,
+or use Method 2 for automatic archival.
+:::
+
+**Method 2: GitHub webhook (recommended)**
+
+Setting up a webhook ensures that every new branch, tag, or release triggers an automatic archival on SWH.
+
+- On GitHub, go to your repository **Settings → Webhooks → Add webhook**.
+- **Payload URL**: `https://archive.softwareheritage.org/api/1/origin/save/webhook/github/`
+- **Content type**: `application/json`
+- **Secret**: leave empty.
+- **Which events?**: select **"Let me select individual events"**, then check **Branch or tag creation**
+  (as [recommended by SWH](https://docs.softwareheritage.org/user/save_code_now/webhooks/index.html),
+  this avoids triggering archival on every push).
+- Click **Add webhook**.
+
+From now on, each new branch, tag, or release will notify SWH to archive the latest version of your code.
+
+:::{tip}
+You can verify your repository is archived by searching for it on
+[Software Heritage](https://archive.softwareheritage.org/).
+
+You can also add an SWH badge to your `README.md`:
+```markdown
+[![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/YOUR_USERNAME/YOUR_REPO/)](https://archive.softwareheritage.org/browse/origin/?origin_url=https://github.com/YOUR_USERNAME/YOUR_REPO)
+```
+:::
+
++++
+
 ### Test on a first commit
 
 +++

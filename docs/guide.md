@@ -38,6 +38,7 @@ $ pip install -e . # optional
   - Set Pages source to "GitHub Actions" (Settings → Pages).
   - Install codecov token
   - Tell PyPI to [trust your GitHub action](https://docs.pypi.org/trusted-publishers/).
+  - Archive your repo on [Software Heritage](https://save.softwareheritage.org/) (optionally set up the [webhook](https://docs.softwareheritage.org/user/save_code_now/webhooks/index.html) for automatic archival).
 - Push a small commit, check everything (documentation, badges, coverage) is OK.
 - Start working on your project:
   - Frequently run your configurations (tests & documentation).
