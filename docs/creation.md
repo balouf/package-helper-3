@@ -395,18 +395,16 @@ or use Method 2 for automatic archival.
 
 **Method 2: GitHub webhook (recommended)**
 
-Setting up a webhook ensures that every new branch, tag, or release triggers an automatic archival on SWH.
+Setting up a webhook ensures that every push triggers an automatic archival on SWH.
 
 - On GitHub, go to your repository **Settings → Webhooks → Add webhook**.
 - **Payload URL**: `https://archive.softwareheritage.org/api/1/origin/save/webhook/github/`
 - **Content type**: `application/json`
 - **Secret**: leave empty.
-- **Which events?**: select **"Let me select individual events"**, then check **Branch or tag creation**
-  (as [recommended by SWH](https://docs.softwareheritage.org/user/save_code_now/webhooks/index.html),
-  this avoids triggering archival on every push).
+- **Which events?**: select **"Just the push event"** (the SWH endpoint only processes push events).
 - Click **Add webhook**.
 
-From now on, each new branch, tag, or release will notify SWH to archive the latest version of your code.
+From now on, each push will notify SWH to archive the latest version of your code.
 
 :::{tip}
 You can verify your repository is archived by searching for it on

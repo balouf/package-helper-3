@@ -293,7 +293,7 @@ Archiving your package on Software Heritage provides:
 
 - **Long-term preservation**: your code is stored independently of GitHub or PyPI.
 - **Persistent identifiers (SWHIDs)**: each archived version gets a unique, intrinsic identifier that can be used in academic papers, grant proposals, or reproducibility statements.
-- **No maintenance cost**: once the webhook is set up, archival is automatic on every new branch, tag, or release.
+- **No maintenance cost**: once the webhook is set up, archival is automatic on every push.
 
 To set it up, follow the instructions in the [creation guide](creation.md#archive-on-software-heritage) (Step 5).
 
