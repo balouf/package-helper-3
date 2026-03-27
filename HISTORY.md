@@ -1,8 +1,7 @@
 # History
 
-## 0.6.1 (2026-03-27)
+## 0.6.1 (2026-03-27): Software Heritage integration
 
-### Updates
 * Add Software Heritage archival documentation and guidance (creation, guide, FAQ, preparation)
 * Add Software Heritage badge to README
 
